@@ -1,0 +1,15 @@
+package chat;
+message Connect{
+  required int32 id = 1;
+}
+
+message ChatMessage{
+  required int32 fromid = 1;
+  required int32 toid = 2;
+  required int32 time = 3;
+  required string message =4;
+}
+
+message heart{
+}
+
