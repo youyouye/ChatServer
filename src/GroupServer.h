@@ -64,6 +64,7 @@ public:
 	void onGroupMessage(const muduo::net::TcpConnectionPtr& conn,
             const GroupMessagePtr& message,
             muduo::Timestamp);
+	string inspector();
 private:
 	Group* getGroup(const std::string name);
 	void publish(const std::string name,int id,const std::string content);

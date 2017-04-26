@@ -182,3 +182,39 @@ TcpConnectionPtr ChatServer::getConnById(int id)
 		}
 	}
 }
+string ChatServer::inspector()
+{
+	string result;
+	result += "ConnectionList:\n";
+	result += "size = ";
+	char buf[10];
+	snprintf(buf,sizeof buf,"%d",connections_->size());
+	result += buf;
+	result += "\n";
+	for (ConnectionList::iterator it = connections_->begin();it != connections_->end();it++){
+		char buf1[10];
+		snprintf(buf1,sizeof buf1,"%d",(*it).first);
+		result += buf1;
+		result += "->";
+		if ((*it).second->weakConn_.lock()){
+			result += "exist";
+		}else{
+			result += "not exist";
+		}
+		result +="\n";
+	}
+	result += "IdMap : \n";
+	result += "size = ";
+	result += idVuid->size();
+	for (IdMap::iterator it = idVuid->begin();it != idVuid->end();it++){
+		char buf2[10];
+		snprintf(buf2,sizeof buf2,"%d",(*it).first);
+		result += buf2;
+		result += "->";
+		char buf3[10];
+		snprintf(buf3,sizeof buf3,"%d",(*it).second);
+		result += buf3;
+		result += "\n";
+	}
+	return result;
+}

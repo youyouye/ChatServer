@@ -45,6 +45,10 @@ public:
 	    server_.setThreadNum(numThreads);
 	}
 	TcpConnectionPtr getConnById(int id);
+	GroupServer& getGroupServer(){
+		return groupserver_;
+	}
+	string inspector();
 private:
 
 	void onConnection(const TcpConnectionPtr& conn);

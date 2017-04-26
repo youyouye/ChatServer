@@ -6,6 +6,7 @@
  */
 #include "GroupServer.h"
 #include "ChatServer.h"
+#include <sstream>
 
 void GroupServer::onHandleGroup(const muduo::net::TcpConnectionPtr& conn,
            const HandleGroupPtr& message,
@@ -104,4 +105,26 @@ Group* GroupServer::getGroup(const std::string name)
 
 void GroupServer::publish(const std::string name,int id,const std::string content)
 {
+}
+string GroupServer::inspector()
+{
+	string result;
+	result += "GroupMap:\n";
+	result += "size = ";
+	result += groups_->size();
+	result += "\n";
+	for (GroupMap::iterator it = groups_->begin();it != groups_->end();it++){
+		result += (*it).first.c_str();
+		result += "->\n";
+		result += "   member:\n";
+		result += (*it).second->members_.size();
+		result += "\n";
+		for (std::vector<int>::iterator iter = (*it).second->members_.begin();
+				iter != (*it).second->members_.end();iter++){
+			result +=(*iter);
+			result += " | ";
+		}
+		result += "\n";
+	}
+	return result;
 }

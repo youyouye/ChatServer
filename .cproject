@@ -42,6 +42,8 @@
 									<listOptionValue builtIn="false" value="/home/moocos/Downloads/build/release-install/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.1442870434" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="muduo_inspect"/>
+									<listOptionValue builtIn="false" value="muduo_http"/>
 									<listOptionValue builtIn="false" value="muduo_net"/>
 									<listOptionValue builtIn="false" value="muduo_base"/>
 									<listOptionValue builtIn="false" value="pthread"/>

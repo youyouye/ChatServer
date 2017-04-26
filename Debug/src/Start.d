@@ -17,7 +17,14 @@ src/Start.d: ../src/Start.cpp ../src/ChatServer.h ../src/chat.pb.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h \
- /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h \
+ ../src/inspect/DataInspector.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/net/http/HttpRequest.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/net/http/HttpServer.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/net/inspect/Inspector.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoopThread.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h
 
 ../src/ChatServer.h:
 
@@ -64,3 +71,17 @@ src/Start.d: ../src/Start.cpp ../src/ChatServer.h ../src/chat.pb.h \
 /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h:
+
+../src/inspect/DataInspector.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/net/http/HttpRequest.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/net/http/HttpServer.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/net/inspect/Inspector.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/net/EventLoopThread.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h:
