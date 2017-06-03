@@ -119,6 +119,7 @@ void ProtobufCodec::onMessage(const TcpConnectionPtr& conn,
 }
 google::protobuf::Message* ProtobufCodec::createMessage(const std::string& typeName)
 {
+	LOG_INFO<<"需要的Type名字:"<<typeName;
   google::protobuf::Message* message = NULL;
   const google::protobuf::Descriptor* descriptor =
     google::protobuf::DescriptorPool::generated_pool()->FindMessageTypeByName(typeName);

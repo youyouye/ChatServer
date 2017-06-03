@@ -41,7 +41,7 @@ public class MultiplexerTest {
 	
 	public ChatClient newClient(){
 		ChatClient client = new ChatClient(queue, multiplexerAddress, workerGroup);
-		client.connectAndWait();
+		client.connect();
 		return client;
 	}
 	

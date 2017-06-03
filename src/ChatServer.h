@@ -29,6 +29,7 @@ using namespace muduo::net;
 typedef boost::shared_ptr<chat::Connect> ConnectPtr;
 typedef boost::shared_ptr<chat::ChatMessage> ChatMessagePtr;
 typedef boost::shared_ptr<chat::heart> HeartPtr;
+typedef boost::shared_ptr<chat::ChatAck> ChatAckPtr;
 
 typedef boost::weak_ptr<TcpConnection> WeakTcpConnectionPtr;
 
@@ -69,6 +70,9 @@ private:
             muduo::Timestamp);
 	void onHeart(const muduo::net::TcpConnectionPtr& conn,
             const HeartPtr& message,
+            muduo::Timestamp);
+	void onChatAck(const muduo::net::TcpConnectionPtr& conn,
+            const ChatAckPtr& message,
             muduo::Timestamp);
 	void onTimer(void);
 	void dumpConnectionList() const;

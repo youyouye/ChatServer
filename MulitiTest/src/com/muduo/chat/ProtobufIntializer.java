@@ -1,5 +1,7 @@
 package com.muduo.chat;
 import com.google.protobuf.MessageLite;
+import com.muduo.handler.ChatAckReceive;
+import com.muduo.handler.ChatManager;
 import com.muduo.handler.ChatMessageReceive;
 import com.muduo.handler.ConnectReceive;
 import com.muduo.handler.GroupHandleReceive;
@@ -20,9 +22,11 @@ public class ProtobufIntializer extends ChannelInitializer<Channel>{
 
 	private final MessageLite lite;
 	private ProtoDispatcher dispatcher;
+	private ChatManager manager;
 	
-	public ProtobufIntializer(MessageLite lite) {
+	public ProtobufIntializer(MessageLite lite,ChatManager manager) {
 		this.lite = lite;
+		this.manager = manager;
 		initDispatcher();
 	}
 	
@@ -33,11 +37,13 @@ public class ProtobufIntializer extends ChannelInitializer<Channel>{
 	}
 	
 	public void initDispatcher(){
+		dispatcher = new ProtoDispatcher();
 		dispatcher.registerMessageCallback(ChatProtos.Connect.getDescriptor(), new ConnectReceive());
-		dispatcher.registerMessageCallback(ChatProtos.ChatMessage.getDescriptor(), new ChatMessageReceive());
+		dispatcher.registerMessageCallback(ChatProtos.ChatMessage.getDescriptor(), new ChatMessageReceive(manager));
 		dispatcher.registerMessageCallback(ChatProtos.heart.getDescriptor(), new HeartReceive());
 		dispatcher.registerMessageCallback(GroupProtos.GroupMessage.getDescriptor(), new GroupMessageReceive());
 		dispatcher.registerMessageCallback(GroupProtos.HandleGroup.getDescriptor(), new GroupHandleReceive());
+		dispatcher.registerMessageCallback(ChatProtos.ChatAck.getDescriptor(), new ChatAckReceive(manager));
 	}
 	
 }

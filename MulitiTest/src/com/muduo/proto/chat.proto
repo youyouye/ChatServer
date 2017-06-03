@@ -1,0 +1,24 @@
+option java_package = "com.muduo.proto";
+option java_outer_classname = "ChatProtos";
+
+message Connect{
+  required int32 id = 1;
+}
+
+message ChatMessage{
+  required int32 fromid = 1;
+  required int32 toid = 2;
+  required int32 time = 3;
+  required string message =4;
+  required int32 id = 5;
+}
+
+message heart{
+}
+
+message ChatAck{
+	required int32 fromid = 1;
+	required int32 toid = 2;
+	required int32 time = 3;
+	required int32 id = 4;	
+}

@@ -1,0 +1,20 @@
+package group;
+
+message HandleGroup{
+	enum OperateType{
+	  CREATE = 1;
+	  DELETE = 2;
+	  JOIN = 3;
+	  QUIT = 4;
+	}
+	required string name = 1;
+	required int32 id = 2;
+	optional OperateType type = 3 [default = CREATE];	
+}
+message GroupMessage{
+	required string name = 1;
+	required int32 id = 2;
+	required string content = 3;	
+}
+
+

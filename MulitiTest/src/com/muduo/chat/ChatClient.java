@@ -1,7 +1,4 @@
 package com.muduo.chat;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 
 import io.netty.bootstrap.Bootstrap;
@@ -18,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.protobuf.MessageLite;
+import com.muduo.handler.ChatManager;
 import com.muduo.proto.ChatProtos;
 
 
@@ -34,13 +32,18 @@ public class ChatClient {
 	private int connId;
 	private MyCountDownLatch latch;
 	private MessageLite lite;
-	
+	//控制的全局Mess信息.
+	private ChatManager chatManager;
+	private MyTimer myTimer;
 	
 	public ChatClient(EventQueue queue, InetSocketAddress remoteAddress,EventLoopGroup workerGroup){
 		this.queue = queue;
 		this.remoteAddress = remoteAddress;
 		this.workerGroup = workerGroup;
 		this.timer = new HashedWheelTimer();
+		chatManager = new ChatManager();
+		chatManager.setClient(this);
+		myTimer = new MyTimer(chatManager);
 		connId = -1;
 	}
 	
@@ -53,14 +56,14 @@ public class ChatClient {
 			bootstrap.channel(NioSocketChannel.class);
 			bootstrap.option(ChannelOption.SO_KEEPALIVE, true);
 			
-			bootstrap.handler(new ProtobufIntializer(lite));
+			bootstrap.handler(new ProtobufIntializer(lite,chatManager));
 				
 			connection = bootstrap.connect(remoteAddress).sync().channel();
 			
 		} catch (InterruptedException e) {
+			workerGroup.shutdownGracefully();
 			e.printStackTrace();
 		}finally{
-			workerGroup.shutdownGracefully();
 		}
 		
 	}
@@ -72,24 +75,59 @@ public class ChatClient {
 		assert connection != null;
 	}
 	
-	public void sendChatMessage(int from,int to){
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	public void sendConnect(int from){
+		logger.info("要发connect");
+		ChatProtos.Connect connect = ChatProtos.Connect.newBuilder()
+				.setId(from)
+				.build();
+		ChatMessage cm = new ChatMessage("chat.Connect\0",connect);
+		connection.writeAndFlush(cm);
+	}
+	
+	public void rSendMess(com.muduo.proto.ChatProtos.ChatMessage cm){
+		logger.info("重发信息");
+		ChatMessage chatmessage = new ChatMessage("chat.ChatMessage\0",cm);
+		connection.writeAndFlush(chatmessage);
+	}
+	public void sendAck(int fromid,int toid,int serialId){
+		logger.info("要发ack;");
+		ChatProtos.ChatAck cAck = ChatProtos.ChatAck.newBuilder()
+				.setFromid(fromid)
+				.setToid(toid)
+				.setTime((int)(System.currentTimeMillis() / 1000L + 2208988800L))
+				.setId(serialId).build();
+		ChatMessage cm = new ChatMessage("chat.ChatAck\0",cAck);
+		connection.writeAndFlush(cm);
+	}
+	public void sendChatMessage(int from,int to,String mess){
+		logger.info("要发信息"+mess);
         ChannelFuture lastWriteFuture = null;
-		for (;;){
-			try {
-				final String input = in.readLine();
-				if (input == null || "quit".equalsIgnoreCase(input)){
-					connection.close().sync();
-					break;
-				}else if (input.isEmpty()){
-					continue;
+		try {
+			final String input = mess;
+			if (input == null || "quit".equalsIgnoreCase(input)){
+				connection.close().sync();
+			}else if (input.isEmpty()){
+			}
+			ChatProtos.ChatMessage message = ChatProtos.ChatMessage.newBuilder()
+					.setFromid(from)
+					.setToid(to)
+					.setMessage(input)
+					.setId(chatManager.getSerialId())
+					.setTime((int)(System.currentTimeMillis() / 1000L + 2208988800L)).build();
+				
+			ChatMessage cm = new ChatMessage("chat.ChatMessage\0",message);
+			chatManager.sendMess(message);
+			/*
+			 * 要做什么了?需要定时器.
+			 * 判断定时器时候开启了;同时接受到ack.就涉及ack和消息的id问题了.发送超时的问题.重启定时器.
+			 * 我们需要让消息具有序号,假定初始都是100;消息如何与序号对应了,需要让每一条消息具有序号?如果我要重发消息的话,岂不是有个消息保存的问题.
+		     * 那么需要保存多少消息,5,6条.根据人数来说的话还真是会很多唉?
+			 */
+				if (myTimer.isFirst || myTimer.isEnd){
+					logger.info("执行了几次?");
+					myTimer.start();
 				}
-				ChatProtos.ChatMessage message = ChatProtos.ChatMessage.newBuilder()
-						.setFromid(from)
-						.setToid(to)
-						.setMessage(input)
-						.setTime((int)(System.currentTimeMillis() / 1000L + 2208988800L)).build();
-				lastWriteFuture = connection.writeAndFlush(message);
+				lastWriteFuture = connection.writeAndFlush(cm);
                 lastWriteFuture.addListener(new GenericFutureListener<ChannelFuture>() {
                     @Override
                     public void operationComplete(ChannelFuture future) throws Exception {
@@ -99,13 +137,9 @@ public class ChatClient {
                         }
                     }
                 });
-			} catch (IOException e) {
-				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-		}
 	}
 	
 	public void disconnect(){
@@ -115,5 +149,12 @@ public class ChatClient {
 	public void setId(int connId){
 		assert this.connId == -1;
 		this.connId = connId;
+	}
+	
+	public void resetTimer(){
+		myTimer.reset();
+	}
+	public void finishTimer(){
+		myTimer.end();
 	}
 }

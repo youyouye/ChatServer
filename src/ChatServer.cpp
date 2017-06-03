@@ -18,6 +18,7 @@ ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 {
 	dispatcher_.registerMessageCallback<chat::Connect>(boost::bind(&ChatServer::onConnect, this, _1, _2, _3));
 	dispatcher_.registerMessageCallback<chat::ChatMessage>(boost::bind(&ChatServer::onChat, this, _1, _2, _3));
+	dispatcher_.registerMessageCallback<chat::ChatAck>(boost::bind(&ChatServer::onChatAck, this, _1, _2, _3));
 	dispatcher_.registerMessageCallback<group::HandleGroup>(boost::bind(&GroupServer::onHandleGroup, &groupserver_, _1, _2, _3));
 	dispatcher_.registerMessageCallback<group::GroupMessage>(boost::bind(&GroupServer::onGroupMessage, &groupserver_, _1, _2, _3));
 	dispatcher_.registerMessageCallback<chat::heart>(boost::bind(&ChatServer::onHeart, this, _1, _2, _3));
@@ -90,7 +91,7 @@ void ChatServer::onConnect(const muduo::net::TcpConnectionPtr& conn,
 	int id = message->id();
 	//加一个id检测合法的问题.
 	int uid = boost::any_cast<int>(conn->getContext());
-	idVuid->insert({id,uid});
+	(*idVuid)[id] = uid;
 }
 void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
         const ChatMessagePtr& message,
@@ -100,21 +101,29 @@ void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
 	int fromid = message->fromid();
 	int toid = message->toid();
 	int time = message->time();
+	int serialId = message->id();
   	std::string content = message->message();
 	chat::ChatMessage chat;
 	chat.set_fromid(fromid);
 	chat.set_toid(toid);
 	chat.set_time(time);
 	chat.set_message(content);
-
+	chat.set_id(serialId);
 	ConnectionListPtr connections = getConnectionList();
     IdMapPtr idMapPtr = getIdMap();
 
-	int index = idMapPtr->find(toid)->second;
-	TcpConnectionPtr ptr = connections->find(index)->second->weakConn_.lock();
-	if (ptr){
-		LOG_INFO<<"检测找到对应的id";
-		codec_.send(ptr,chat);
+	int index = -1;
+	IdMap::iterator idmap = idMapPtr->find(toid);
+	if (idmap != idMapPtr->end()){
+		index = idmap->second;
+	}
+	ConnectionList::iterator it = connections->find(index);
+	if ( it!= connections->end()){
+		TcpConnectionPtr ptr = it->second->weakConn_.lock();
+		if (ptr){
+				LOG_INFO<<"检测找到对应的id";
+				codec_.send(ptr,chat);
+		}
 	}
 }
 void ChatServer::onHeart(const muduo::net::TcpConnectionPtr& conn,
@@ -135,9 +144,42 @@ void ChatServer::onHeart(const muduo::net::TcpConnectionPtr& conn,
 	dumpConnectionList();
 }
 
+void ChatServer::onChatAck(const muduo::net::TcpConnectionPtr& conn,
+        const ChatAckPtr& message,
+        muduo::Timestamp)
+{
+	LOG_INFO<<"onChatAck:"<<message->fromid()<<"&"<<message->toid();
+	int fromid = message->fromid();
+	int toid = message->toid();
+	int time = message->time();
+  	int messageId = message->id();
+	chat::ChatAck ack;
+	ack.set_fromid(fromid);
+	ack.set_toid(toid);
+	ack.set_time(time);
+	ack.set_id(messageId);
+
+	ConnectionListPtr connections = getConnectionList();
+    IdMapPtr idMapPtr = getIdMap();
+
+	int index = -1;
+	IdMap::iterator idmap = idMapPtr->find(toid);
+	if (idmap != idMapPtr->end()){
+		index = idmap->second;
+	}
+	ConnectionList::iterator it = connections->find(index);
+	if ( it!= connections->end()){
+		TcpConnectionPtr ptr = it->second->weakConn_.lock();
+		if (ptr){
+				LOG_INFO<<"检测找到对应的id";
+				codec_.send(ptr,ack);
+		}
+	}
+}
+
 void ChatServer::onTimer(void)
 {
-	dumpConnectionList();
+//	dumpConnectionList();
 
 	ListNodesPtr nodesPtr = getListNode();
 	ConnectionListPtr connections = getConnectionList();
@@ -169,7 +211,11 @@ void ChatServer::onTimer(void)
 }
 void ChatServer::dumpConnectionList() const
 {
-//	LOG_INFO << "size = " << connections_.size();
+	for (ConnectionList::iterator it = connections_->begin();it != connections_->end();it++){
+		int id = boost::any_cast<int>(it->second->weakConn_.lock()->getContext());
+		bool isE = it->second->weakConn_.lock()->connected();
+		LOG_INFO<<"dumpConnection:"<<id<<"+"<<isE;
+	}
 }
 
 TcpConnectionPtr ChatServer::getConnById(int id)

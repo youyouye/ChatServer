@@ -36,6 +36,7 @@ void protobuf_ShutdownFile_chat_2eproto();
 class Connect;
 class ChatMessage;
 class heart;
+class ChatAck;
 
 // ===================================================================
 
@@ -208,6 +209,13 @@ class ChatMessage : public ::google::protobuf::Message {
   inline ::std::string* release_message();
   inline void set_allocated_message(::std::string* message);
 
+  // required int32 id = 5;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 5;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:chat.ChatMessage)
  private:
   inline void set_has_fromid();
@@ -218,6 +226,8 @@ class ChatMessage : public ::google::protobuf::Message {
   inline void clear_has_time();
   inline void set_has_message();
   inline void clear_has_message();
+  inline void set_has_id();
+  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -225,9 +235,10 @@ class ChatMessage : public ::google::protobuf::Message {
   ::google::protobuf::int32 toid_;
   ::std::string* message_;
   ::google::protobuf::int32 time_;
+  ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_chat_2eproto();
   friend void protobuf_AssignDesc_chat_2eproto();
@@ -307,6 +318,118 @@ class heart : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static heart* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ChatAck : public ::google::protobuf::Message {
+ public:
+  ChatAck();
+  virtual ~ChatAck();
+
+  ChatAck(const ChatAck& from);
+
+  inline ChatAck& operator=(const ChatAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ChatAck& default_instance();
+
+  void Swap(ChatAck* other);
+
+  // implements Message ----------------------------------------------
+
+  ChatAck* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ChatAck& from);
+  void MergeFrom(const ChatAck& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 fromid = 1;
+  inline bool has_fromid() const;
+  inline void clear_fromid();
+  static const int kFromidFieldNumber = 1;
+  inline ::google::protobuf::int32 fromid() const;
+  inline void set_fromid(::google::protobuf::int32 value);
+
+  // required int32 toid = 2;
+  inline bool has_toid() const;
+  inline void clear_toid();
+  static const int kToidFieldNumber = 2;
+  inline ::google::protobuf::int32 toid() const;
+  inline void set_toid(::google::protobuf::int32 value);
+
+  // required int32 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::int32 time() const;
+  inline void set_time(::google::protobuf::int32 value);
+
+  // required int32 id = 4;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 4;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:chat.ChatAck)
+ private:
+  inline void set_has_fromid();
+  inline void clear_has_fromid();
+  inline void set_has_toid();
+  inline void clear_has_toid();
+  inline void set_has_time();
+  inline void clear_has_time();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fromid_;
+  ::google::protobuf::int32 toid_;
+  ::google::protobuf::int32 time_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_chat_2eproto();
+  friend void protobuf_AssignDesc_chat_2eproto();
+  friend void protobuf_ShutdownFile_chat_2eproto();
+
+  void InitAsDefaultInstance();
+  static ChatAck* default_instance_;
 };
 // ===================================================================
 
@@ -477,9 +600,123 @@ inline void ChatMessage::set_allocated_message(::std::string* message) {
   }
 }
 
+// required int32 id = 5;
+inline bool ChatMessage::has_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void ChatMessage::set_has_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void ChatMessage::clear_has_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void ChatMessage::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 ChatMessage::id() const {
+  return id_;
+}
+inline void ChatMessage::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // heart
+
+// -------------------------------------------------------------------
+
+// ChatAck
+
+// required int32 fromid = 1;
+inline bool ChatAck::has_fromid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ChatAck::set_has_fromid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ChatAck::clear_has_fromid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ChatAck::clear_fromid() {
+  fromid_ = 0;
+  clear_has_fromid();
+}
+inline ::google::protobuf::int32 ChatAck::fromid() const {
+  return fromid_;
+}
+inline void ChatAck::set_fromid(::google::protobuf::int32 value) {
+  set_has_fromid();
+  fromid_ = value;
+}
+
+// required int32 toid = 2;
+inline bool ChatAck::has_toid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ChatAck::set_has_toid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ChatAck::clear_has_toid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ChatAck::clear_toid() {
+  toid_ = 0;
+  clear_has_toid();
+}
+inline ::google::protobuf::int32 ChatAck::toid() const {
+  return toid_;
+}
+inline void ChatAck::set_toid(::google::protobuf::int32 value) {
+  set_has_toid();
+  toid_ = value;
+}
+
+// required int32 time = 3;
+inline bool ChatAck::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ChatAck::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ChatAck::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ChatAck::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+inline ::google::protobuf::int32 ChatAck::time() const {
+  return time_;
+}
+inline void ChatAck::set_time(::google::protobuf::int32 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// required int32 id = 4;
+inline bool ChatAck::has_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void ChatAck::set_has_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void ChatAck::clear_has_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void ChatAck::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 ChatAck::id() const {
+  return id_;
+}
+inline void ChatAck::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
 
 
 // @@protoc_insertion_point(namespace_scope)
