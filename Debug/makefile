@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/microhttp/subdir.mk
 -include src/inspect/subdir.mk
 -include src/subdir.mk
 -include subdir.mk

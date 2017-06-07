@@ -7,6 +7,7 @@ CPP_SRCS += \
 ../src/ChatServer.cpp \
 ../src/GroupServer.cpp \
 ../src/Start.cpp \
+../src/TestHttp.cpp \
 ../src/codec.cpp 
 
 CC_SRCS += \
@@ -17,6 +18,7 @@ OBJS += \
 ./src/ChatServer.o \
 ./src/GroupServer.o \
 ./src/Start.o \
+./src/TestHttp.o \
 ./src/chat.pb.o \
 ./src/codec.o \
 ./src/group.pb.o 
@@ -29,6 +31,7 @@ CPP_DEPS += \
 ./src/ChatServer.d \
 ./src/GroupServer.d \
 ./src/Start.d \
+./src/TestHttp.d \
 ./src/codec.d 
 
 

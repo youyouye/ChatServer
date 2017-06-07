@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lmuduo_inspect -lmuduo_http -lmuduo_net -lmuduo_base -lpthread -lprotobuf -lz
+LIBS := -lmuduo_inspect -lmicrohttpd -lmuduo_http -lmuduo_net -lmuduo_base -lpthread -lprotobuf -lz
 
