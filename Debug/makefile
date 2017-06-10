@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include src/microhttp/subdir.mk
 -include src/inspect/subdir.mk
+-include src/database/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
 -include objects.mk

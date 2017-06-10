@@ -26,4 +26,5 @@ SUBDIRS := \
 src/microhttp \
 src/inspect \
 src \
+src/database \
 

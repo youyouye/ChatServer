@@ -7,7 +7,6 @@ CPP_SRCS += \
 ../src/ChatServer.cpp \
 ../src/GroupServer.cpp \
 ../src/Start.cpp \
-../src/TestHttp.cpp \
 ../src/codec.cpp 
 
 CC_SRCS += \
@@ -18,7 +17,6 @@ OBJS += \
 ./src/ChatServer.o \
 ./src/GroupServer.o \
 ./src/Start.o \
-./src/TestHttp.o \
 ./src/chat.pb.o \
 ./src/codec.o \
 ./src/group.pb.o 
@@ -31,7 +29,6 @@ CPP_DEPS += \
 ./src/ChatServer.d \
 ./src/GroupServer.d \
 ./src/Start.d \
-./src/TestHttp.d \
 ./src/codec.d 
 
 
@@ -39,14 +36,14 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/home/moocos/Downloads/build/release-install/include -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/home/moocos/Downloads/build/release-install/include -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/%.o: ../src/%.cc
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/home/moocos/Downloads/build/release-install/include -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/home/moocos/Downloads/build/release-install/include -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

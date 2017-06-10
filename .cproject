@@ -26,7 +26,7 @@
 								<option id="gnu.cpp.compiler.option.include.paths.989482021" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/moocos/Downloads/build/release-install/include"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.other.403529822" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 " valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.403529822" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fpermissive" valueType="string"/>
 								<option id="gnu.cpp.compiler.option.dialect.std.241602847" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1624982423" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -43,6 +43,7 @@
 								</option>
 								<option id="gnu.cpp.link.option.libs.1442870434" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="muduo_inspect"/>
+									<listOptionValue builtIn="false" value="mysqlclient"/>
 									<listOptionValue builtIn="false" value="microhttpd"/>
 									<listOptionValue builtIn="false" value="muduo_http"/>
 									<listOptionValue builtIn="false" value="muduo_net"/>
