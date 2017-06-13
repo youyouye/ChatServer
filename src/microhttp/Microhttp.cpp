@@ -1,3 +1,4 @@
+
 #include "Microhttpd.h"
 #include <muduo/base/Logging.h>
 #include <muduo/net/Channel.h>
@@ -6,6 +7,7 @@
 #include <boost/bind.hpp>
 #include <string>
 #include <stdio.h>
+#include "JsonUtil.h"
 #include "../database/mysql_conn_pool.h"
 
 using namespace micro;
@@ -192,10 +194,12 @@ int MicroHttp::deal_post(MHD_Connection* conn,Request* req)
 		std::string password = regis.password;
 		int res = MysqlConnPool::instance()->getNextConn()->regis(account,password);
 		if (res > 0){
-			response = MHD_create_response_from_buffer(strlen(okpage),(void*)okpage,MHD_RESPMEM_PERSISTENT);
+			char *ok = JsonUtil::generateResult(1).c_str();
+			response = MHD_create_response_from_buffer(strlen(ok),(void*)ok,MHD_RESPMEM_PERSISTENT);
 			return MHD_queue_response(conn,MHD_HTTP_OK,response);
 		}else{
-			response = MHD_create_response_from_buffer(strlen(errorpage),(void*)errorpage,MHD_RESPMEM_PERSISTENT);
+			char * no = JsonUtil::generateResult(res).c_str();
+			response = MHD_create_response_from_buffer(strlen(no),(void*)no,MHD_RESPMEM_PERSISTENT);
 			return MHD_queue_response(conn,MHD_HTTP_OK,response);
 		}
 	}else if (type == 2){
@@ -203,12 +207,16 @@ int MicroHttp::deal_post(MHD_Connection* conn,Request* req)
 		std::string loginpassword = req->post.login.password;
 		int res = MysqlConnPool::instance()->getNextConn()->login(loginaccount,loginpassword);
 		if (res > 0){
-			response = MHD_create_response_from_buffer(strlen(okpage),(void*)okpage,MHD_RESPMEM_PERSISTENT);
+			char *ok = JsonUtil::generateResult(1).c_str();
+			response = MHD_create_response_from_buffer(strlen(ok),(void*)ok,MHD_RESPMEM_PERSISTENT);
 			return MHD_queue_response(conn,MHD_HTTP_OK,response);
 		}else{
-			response = MHD_create_response_from_buffer(strlen(errorpage),(void*)errorpage,MHD_RESPMEM_PERSISTENT);
+			char * no = JsonUtil::generateResult(res).c_str();
+			response = MHD_create_response_from_buffer(strlen(no),(void*)no,MHD_RESPMEM_PERSISTENT);
 			return MHD_queue_response(conn,MHD_HTTP_OK,response);
 		}
 	}
 	return MHD_NO;
 }
+
+

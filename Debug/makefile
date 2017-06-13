@@ -47,7 +47,7 @@ all: Server
 Server: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/moocos/Downloads/build/release-install/lib -o "Server" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/local/mysql/lib -L/home/moocos/Downloads/build/release-install/lib -L/home/moocos/moocos/lib -o "Server" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

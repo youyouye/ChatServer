@@ -4,6 +4,7 @@
  *  Created on: Jun 9, 2017
  *      Author: moocos
  */
+
 #include "mysql_conn.h"
 #include <mysql.h>
 #include <my_global.h>
@@ -26,10 +27,10 @@ MYSQL* MysqlConn::init(){
 		return NULL;
 	}
 	if (mysql_real_connect(conn,
-			NULL,"root","root",
+			"127.0.0.1","root","root",
 			"im",0,NULL,0) == NULL)
 	{
-		printf("mysql_connect失败");
+	    fprintf(stderr,"%s:\nError %u (%s)\n","mysql_real_connect 失败:\nError %u (%s)\n",mysql_errno(conn),mysql_error(conn));
 		return NULL;
 	}
 	return conn;
@@ -39,9 +40,9 @@ int MysqlConn::login(std::string account,std::string password)
 	muduo::MutexLockGuard lock(mutex_);
 	char *select1;
 	select1 = malloc(100);
-	char *select = "select * from User where account = 'pan' and password = '123'";
+	char *select = "select * from User where account = '%s' and password = '%s'";
 	snprintf(select1,100,select,account.c_str(),password.c_str());
-	if(!mysql_query(conn,select)){
+	if(!mysql_query(conn,select1)){
 		if (process_get_result_num(conn) > 0){
 			return 1; //查询成功
 		}else{
@@ -89,3 +90,4 @@ int MysqlConn::process_get_result_num(MYSQL* connect)
 	int num = result->row_count;
 	return num;
 }
+

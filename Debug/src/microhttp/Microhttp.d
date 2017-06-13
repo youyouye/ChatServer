@@ -12,6 +12,7 @@ src/microhttp/Microhttp.d: ../src/microhttp/Microhttp.cpp \
  /home/moocos/Downloads/build/release-install/include/muduo/base/CurrentThread.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/Callbacks.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
+ ../src/microhttp/JsonUtil.h \
  ../src/microhttp/../database/mysql_conn_pool.h \
  ../src/microhttp/../database/mysql_conn.h
 
@@ -40,6 +41,8 @@ src/microhttp/Microhttp.d: ../src/microhttp/Microhttp.cpp \
 /home/moocos/Downloads/build/release-install/include/muduo/net/Callbacks.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h:
+
+../src/microhttp/JsonUtil.h:
 
 ../src/microhttp/../database/mysql_conn_pool.h:
 

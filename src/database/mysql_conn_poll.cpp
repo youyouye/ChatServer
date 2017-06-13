@@ -4,6 +4,8 @@
  *  Created on: Jun 10, 2017
  *      Author: moocos
  */
+
+
 #include "mysql_conn_pool.h"
 #include <mysql.h>
 #include <assert.h>
@@ -11,7 +13,7 @@
 
 pthread_once_t MysqlConnPool::ponce_ = PTHREAD_ONCE_INIT;
 bool MysqlConnPool::started_ = false;
-int MysqlConnPool::numConns_ = 4;
+int MysqlConnPool::numConns_ = 1;
 int MysqlConnPool::next_ = 0;
 std::vector<MYSQL*> MysqlConnPool::conns_;
 std::vector<boost::shared_ptr<MysqlConn> > MysqlConnPool::mysqlConns_;
@@ -66,5 +68,4 @@ void MysqlConnPool::init()
 	}
 	value_ = new MysqlConnPool();
 }
-
 
