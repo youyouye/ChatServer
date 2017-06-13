@@ -6,16 +6,16 @@
  */
 #include "online_user.h"
 
-std::map<int,int> OnlineUser::userStatus;
 pthread_once_t OnlineUser::ponce_ = PTHREAD_ONCE_INIT;
 OnlineUser* OnlineUser::values_ = NULL;
+muduo::MutexLock OnlineUser::mutex_;
+OnlineUser::UserStatusListPtr OnlineUser::userStatus;
 
 OnlineUser::OnlineUser()
 {
 }
 OnlineUser::~OnlineUser()
 {
-	delete values_;
 }
 
 OnlineUser* OnlineUser::instance()
@@ -26,8 +26,18 @@ OnlineUser* OnlineUser::instance()
 
 void OnlineUser::alterUser(int id,int status)
 {
-	userStatus[id] = status;
+    muduo::MutexLockGuard lock(mutex_);
+	if (!userStatus.unique()){
+		userStatus.reset(new UserStatusList(*userStatus));
+	}
+	(*userStatus)[id] = status;
 }
+int OnlineUser::getStatus(int id)
+{
+	UserStatusListPtr ptr = getUserStatus();
+	return (*ptr)[id];
+}
+
 void OnlineUser::init()
 {
 	values_ = new OnlineUser();

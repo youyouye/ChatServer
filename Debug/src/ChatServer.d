@@ -17,7 +17,8 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h \
- /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h \
+ ../src/database/online_user.h
 
 ../src/ChatServer.h:
 
@@ -64,3 +65,5 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
 /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h:
+
+../src/database/online_user.h:

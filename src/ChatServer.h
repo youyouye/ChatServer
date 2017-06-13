@@ -143,7 +143,15 @@ private:
 	ProtobufDispatcher dispatcher_;
 	ProtobufCodec codec_;
 	GroupServer groupserver_;
-
+	class UserWithCid{
+	public:
+		UserWithCid(int ud,int cd){
+			uid = ud;
+			cid = cd;
+		}
+		int uid;
+		int cid;
+	};
 	class list_finder{
 		public:
 			list_finder(int uid):id(uid){}

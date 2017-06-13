@@ -6,6 +6,7 @@
  */
 
 #include "ChatServer.h"
+#include "database/online_user.h"
 #include <stdio.h>
 ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 	:server_(loop,listenAddr,"ChatServer",TcpServer::kReusePort),
@@ -47,19 +48,22 @@ void ChatServer::onConnection(const TcpConnectionPtr& conn){
     }
     if (conn->connected()){
     	int tindex = index.getAndAdd(1);
-    	conn->setContext(tindex);
+    	conn->setContext(UserWithCid(0,tindex));
     	EntryPtr entry(new Entry(conn));
     	connections_->insert({tindex,entry});
     	boost::shared_ptr<Node> node(new Node(Timestamp::now(),tindex));
     	nodes->push_back(node);
     }else{
-    	int id = boost::any_cast<int>(conn->getContext());
+    	UserWithCid uwc = boost::any_cast<UserWithCid>(conn->getContext());
+    	int id = uwc.cid;
     	ConnectionList::iterator iter = connections_->find(id);
     	connections_->erase(iter);
     	ListNode::iterator listiter = std::find_if(nodes->begin(),nodes->end(),list_finder(id));
     	if (listiter != nodes->end()){
     		nodes->erase(listiter);
     	}
+    	LOG_INFO<<"修改在线状态:"<<id<<":下线";
+    	OnlineUser::alterUser(uwc.uid,0);
     }
     dumpConnectionList();
 }
@@ -89,9 +93,15 @@ void ChatServer::onConnect(const muduo::net::TcpConnectionPtr& conn,
 	}
 
 	int id = message->id();
+
 	//加一个id检测合法的问题.
-	int uid = boost::any_cast<int>(conn->getContext());
+	UserWithCid uwc = boost::any_cast<UserWithCid>(conn->getContext());
+	int uid = uwc.cid;
 	(*idVuid)[id] = uid;
+	conn->setContext(UserWithCid(id,uid));
+	//添加在线状态
+	LOG_INFO<<"修改在线状态:"<<id<<":上线";
+	OnlineUser::alterUser(id,1);
 }
 void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
         const ChatMessagePtr& message,
@@ -136,7 +146,8 @@ void ChatServer::onHeart(const muduo::net::TcpConnectionPtr& conn,
 
 	ListNodesPtr nodesPtr = getListNode();
 
-	int id = boost::any_cast<int>(conn->getContext());
+	UserWithCid uwc = boost::any_cast<UserWithCid>(conn->getContext());
+	int id = uwc.cid;
 	ListNode::iterator listiter = std::find_if(nodesPtr->begin(),nodesPtr->end(),list_finder(id));
 	(*listiter)->lastReceiveTime = time;
 	nodesPtr->splice(nodesPtr->end(),*nodesPtr,listiter);
@@ -212,7 +223,8 @@ void ChatServer::onTimer(void)
 void ChatServer::dumpConnectionList() const
 {
 	for (ConnectionList::iterator it = connections_->begin();it != connections_->end();it++){
-		int id = boost::any_cast<int>(it->second->weakConn_.lock()->getContext());
+		UserWithCid uwc = boost::any_cast<UserWithCid>(it->second->weakConn_.lock()->getContext());
+		int id = uwc.cid;
 		bool isE = it->second->weakConn_.lock()->connected();
 		LOG_INFO<<"dumpConnection:"<<id<<"+"<<isE;
 	}

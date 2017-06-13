@@ -39,17 +39,4 @@ private:
 	static muduo::MutexLock mutex_;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif /* MYSQL_CONN_POOL_H_ */
