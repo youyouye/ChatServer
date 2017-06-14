@@ -7,6 +7,7 @@ import com.muduo.handler.ConnectReceive;
 import com.muduo.handler.GroupHandleReceive;
 import com.muduo.handler.GroupMessageReceive;
 import com.muduo.handler.HeartReceive;
+import com.muduo.handler.OffMsgSingleReceive;
 import com.muduo.proto.ChatProtos;
 import com.muduo.proto.GroupProtos;
 import com.muduo.proto.GroupProtos.GroupMessage;
@@ -44,6 +45,7 @@ public class ProtobufIntializer extends ChannelInitializer<Channel>{
 		dispatcher.registerMessageCallback(GroupProtos.GroupMessage.getDescriptor(), new GroupMessageReceive());
 		dispatcher.registerMessageCallback(GroupProtos.HandleGroup.getDescriptor(), new GroupHandleReceive());
 		dispatcher.registerMessageCallback(ChatProtos.ChatAck.getDescriptor(), new ChatAckReceive(manager));
+		dispatcher.registerMessageCallback(ChatProtos.OffMsgRly.getDescriptor(), new OffMsgSingleReceive(manager));
 	}
 	
 }

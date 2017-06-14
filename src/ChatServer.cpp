@@ -7,7 +7,11 @@
 
 #include "ChatServer.h"
 #include "database/online_user.h"
+#include "database/mysql_conn_pool.h"
 #include <stdio.h>
+#include "database/offline_msg.h"
+typedef boost::shared_ptr<std::vector<SingleOfflineMsg> > SingleOffMsgListPtr;
+
 ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 	:server_(loop,listenAddr,"ChatServer",TcpServer::kReusePort),
 	 idVuid(new IdMap()),
@@ -23,6 +27,7 @@ ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 	dispatcher_.registerMessageCallback<group::HandleGroup>(boost::bind(&GroupServer::onHandleGroup, &groupserver_, _1, _2, _3));
 	dispatcher_.registerMessageCallback<group::GroupMessage>(boost::bind(&GroupServer::onGroupMessage, &groupserver_, _1, _2, _3));
 	dispatcher_.registerMessageCallback<chat::heart>(boost::bind(&ChatServer::onHeart, this, _1, _2, _3));
+	dispatcher_.registerMessageCallback<chat::OffMsgAsk>(boost::bind(&ChatServer::onOffSingleMsg,this,_1,_2,_3));
 	server_.setConnectionCallback(boost::bind(&ChatServer::onConnection, this, _1));
 	server_.setMessageCallback(boost::bind(&ProtobufCodec::onMessage, &codec_, _1, _2, _3));
 
@@ -62,8 +67,8 @@ void ChatServer::onConnection(const TcpConnectionPtr& conn){
     	if (listiter != nodes->end()){
     		nodes->erase(listiter);
     	}
-    	LOG_INFO<<"修改在线状态:"<<id<<":下线";
-    	OnlineUser::alterUser(uwc.uid,0);
+    	LOG_INFO<<"修改在线状态:"<<uwc.uid<<":下线";
+    	OnlineUser::instance()->alterUser(uwc.uid,0);
     }
     dumpConnectionList();
 }
@@ -101,7 +106,7 @@ void ChatServer::onConnect(const muduo::net::TcpConnectionPtr& conn,
 	conn->setContext(UserWithCid(id,uid));
 	//添加在线状态
 	LOG_INFO<<"修改在线状态:"<<id<<":上线";
-	OnlineUser::alterUser(id,1);
+	OnlineUser::instance()->alterUser(id,1);
 }
 void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
         const ChatMessagePtr& message,
@@ -122,6 +127,25 @@ void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
 	ConnectionListPtr connections = getConnectionList();
     IdMapPtr idMapPtr = getIdMap();
 
+	//添加离线信息管理.
+	int status = OnlineUser::getStatus(toid);
+	if (status == 0){
+		LOG_INFO<<"对方不在线";
+		SingleOfflineMsg sm(toid,serialId,fromid,1,content);
+		int res = MysqlConnPool::instance()->getNextConn()->addSingleOfflineMsg(sm);
+		LOG_INFO<<"离线消息插入数据库:返回"<<res;
+		if (res >0){
+			chat::ChatAck ack;
+			ack.set_fromid(toid);
+			ack.set_toid(fromid);
+			ack.set_time(20170614);
+			ack.set_id(serialId);
+			codec_.send(conn,ack);
+			LOG_INFO<<"发送离线ack";
+			LOG_INFO<<"离线ack内容"<<fromid<<":"<<toid<<":"<<time<<":"<<serialId;
+		}
+		return;
+	}
 	int index = -1;
 	IdMap::iterator idmap = idMapPtr->find(toid);
 	if (idmap != idMapPtr->end()){
@@ -187,6 +211,48 @@ void ChatServer::onChatAck(const muduo::net::TcpConnectionPtr& conn,
 		}
 	}
 }
+
+void ChatServer::onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,
+        const OffMsgAskPtr& message,
+        muduo::Timestamp)
+{
+	LOG_INFO<<"OnOffSingleMsg:"<<message->page()<<"&"<<message->uid();
+	int page = message->page();
+	int uid = message->uid();
+	//也就是没有离线信息了.
+	if(page == -1){
+		return;
+	}
+	SingleOffMsgListPtr ptr(new std::vector<SingleOfflineMsg>());
+	int res = MysqlConnPool::instance()->getNextConn()->getSingleOffLineMsg(page,uid,ptr);
+	if (res < 0){
+		LOG_ERROR<<"查询失败";
+	}else{
+		if (ptr->size() == 0){
+			LOG_INFO<<"返回数量为0";
+			chat::OffMsgRly rly;
+			rly.set_page(-1);
+			codec_.send(conn,rly);
+		}else{
+			LOG_INFO<<"返回数量>0";
+			chat::OffMsgRly rly;
+			rly.set_page(page+1);
+			for (std::vector<SingleOfflineMsg>::iterator it = ptr->begin();it != ptr->end();it++){
+				chat::ChatMessage* cm = rly.add_messages();
+				cm->set_fromid((*it).send_uid);
+				cm->set_toid((*it).receive_uid);
+				cm->set_time(0); //error:暂时不填
+				chat::ChatMessage::MsgType type = (*it).msg_type;
+				cm->set_type(type);
+				cm->set_id((*it).msg_id);
+				cm->set_message((*it).msg_content);
+			}
+			codec_.send(conn,rly);
+		}
+	}
+}
+
+
 
 void ChatServer::onTimer(void)
 {

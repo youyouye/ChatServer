@@ -10,7 +10,9 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.muduo.testcase.TestOfflineMsg;
 import com.muduo.testcase.TestTwoClientChat;
+import com.muduo.testcase.TestTwoClientChat2;
 
 public class MultiplexerTest {
 	private static final Logger logger = LoggerFactory.getLogger("MultiplexerTest");
@@ -39,8 +41,9 @@ public class MultiplexerTest {
 		testCase.setOwner(this);
 	}
 	
-	public ChatClient newClient(){
+	public ChatClient newClient(int id){
 		ChatClient client = new ChatClient(queue, multiplexerAddress, workerGroup);
+		client.setClientId(id);
 		client.connect();
 		return client;
 	}
@@ -68,7 +71,7 @@ public class MultiplexerTest {
 	public static void main(String[] args){
 		String multiplexerHost = "127.0.0.1";
 		MultiplexerTest test = new MultiplexerTest(multiplexerHost);
-		test.addTestCase(new TestTwoClientChat());
+		test.addTestCase(new TestOfflineMsg());
 		test.run();
 	}
 }

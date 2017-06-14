@@ -26,7 +26,7 @@ src/Start.d: ../src/Start.cpp ../src/ChatServer.h ../src/chat.pb.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h \
  ../src/database/mysql_conn_pool.h ../src/database/mysql_conn.h \
- ../src/microhttp/Microhttpd.h
+ ../src/database/offline_msg.h ../src/microhttp/Microhttpd.h
 
 ../src/ChatServer.h:
 
@@ -91,5 +91,7 @@ src/Start.d: ../src/Start.cpp ../src/ChatServer.h ../src/chat.pb.h \
 ../src/database/mysql_conn_pool.h:
 
 ../src/database/mysql_conn.h:
+
+../src/database/offline_msg.h:
 
 ../src/microhttp/Microhttpd.h:

@@ -14,7 +14,8 @@ src/microhttp/Microhttp.d: ../src/microhttp/Microhttp.cpp \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
  ../src/microhttp/JsonUtil.h \
  ../src/microhttp/../database/mysql_conn_pool.h \
- ../src/microhttp/../database/mysql_conn.h
+ ../src/microhttp/../database/mysql_conn.h \
+ ../src/microhttp/../database/offline_msg.h
 
 ../src/microhttp/Microhttpd.h:
 
@@ -47,3 +48,5 @@ src/microhttp/Microhttp.d: ../src/microhttp/Microhttp.cpp \
 ../src/microhttp/../database/mysql_conn_pool.h:
 
 ../src/microhttp/../database/mysql_conn.h:
+
+../src/microhttp/../database/offline_msg.h:

@@ -1,7 +1,5 @@
 package com.muduo.testcase;
 
-import java.util.Scanner;
-
 import com.muduo.chat.ChatClient;
 import com.muduo.chat.TestCase;
 
@@ -14,26 +12,28 @@ public class TestTwoClientChat extends TestCase{
 		}
 		
 		// First Client:
-		final ChatClient client1 = god.newClient();
-		final ChatClient client2 = god.newClient();
-		client1.sendConnect(123);
-		client2.sendConnect(456);
+		final ChatClient client1 = god.newClient(123);
+		final ChatClient client2 = god.newClient(456);
 		
-		client1.sendChatMessage(123,456, "Hello!How are you?");
+		
+		client1.sendConnect();
+		client2.sendConnect();
+		
+		client1.sendChatMessage(456, "Hello!How are you?");
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		client2.sendChatMessage(456, 123, "I'm fine,and you?");
+		client2.sendChatMessage(123, "I'm fine,and you?");
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		client1.sendChatMessage(123, 456, "I'm ok.");
+		client1.sendChatMessage(456, "I'm ok.");
 	}
 	
 }

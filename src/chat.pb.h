@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -37,7 +38,29 @@ class Connect;
 class ChatMessage;
 class heart;
 class ChatAck;
+class OffMsgAsk;
+class OffMsgRly;
 
+enum ChatMessage_MsgType {
+  ChatMessage_MsgType_TEXT = 0,
+  ChatMessage_MsgType_VOICE = 1,
+  ChatMessage_MsgType_PHOTO = 2
+};
+bool ChatMessage_MsgType_IsValid(int value);
+const ChatMessage_MsgType ChatMessage_MsgType_MsgType_MIN = ChatMessage_MsgType_TEXT;
+const ChatMessage_MsgType ChatMessage_MsgType_MsgType_MAX = ChatMessage_MsgType_PHOTO;
+const int ChatMessage_MsgType_MsgType_ARRAYSIZE = ChatMessage_MsgType_MsgType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ChatMessage_MsgType_descriptor();
+inline const ::std::string& ChatMessage_MsgType_Name(ChatMessage_MsgType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ChatMessage_MsgType_descriptor(), value);
+}
+inline bool ChatMessage_MsgType_Parse(
+    const ::std::string& name, ChatMessage_MsgType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ChatMessage_MsgType>(
+    ChatMessage_MsgType_descriptor(), name, value);
+}
 // ===================================================================
 
 class Connect : public ::google::protobuf::Message {
@@ -174,6 +197,31 @@ class ChatMessage : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
+  typedef ChatMessage_MsgType MsgType;
+  static const MsgType TEXT = ChatMessage_MsgType_TEXT;
+  static const MsgType VOICE = ChatMessage_MsgType_VOICE;
+  static const MsgType PHOTO = ChatMessage_MsgType_PHOTO;
+  static inline bool MsgType_IsValid(int value) {
+    return ChatMessage_MsgType_IsValid(value);
+  }
+  static const MsgType MsgType_MIN =
+    ChatMessage_MsgType_MsgType_MIN;
+  static const MsgType MsgType_MAX =
+    ChatMessage_MsgType_MsgType_MAX;
+  static const int MsgType_ARRAYSIZE =
+    ChatMessage_MsgType_MsgType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  MsgType_descriptor() {
+    return ChatMessage_MsgType_descriptor();
+  }
+  static inline const ::std::string& MsgType_Name(MsgType value) {
+    return ChatMessage_MsgType_Name(value);
+  }
+  static inline bool MsgType_Parse(const ::std::string& name,
+      MsgType* value) {
+    return ChatMessage_MsgType_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // required int32 fromid = 1;
@@ -216,6 +264,13 @@ class ChatMessage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 id() const;
   inline void set_id(::google::protobuf::int32 value);
 
+  // optional .chat.ChatMessage.MsgType type = 6 [default = TEXT];
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 6;
+  inline ::chat::ChatMessage_MsgType type() const;
+  inline void set_type(::chat::ChatMessage_MsgType value);
+
   // @@protoc_insertion_point(class_scope:chat.ChatMessage)
  private:
   inline void set_has_fromid();
@@ -228,6 +283,8 @@ class ChatMessage : public ::google::protobuf::Message {
   inline void clear_has_message();
   inline void set_has_id();
   inline void clear_has_id();
+  inline void set_has_type();
+  inline void clear_has_type();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -236,9 +293,10 @@ class ChatMessage : public ::google::protobuf::Message {
   ::std::string* message_;
   ::google::protobuf::int32 time_;
   ::google::protobuf::int32 id_;
+  int type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_chat_2eproto();
   friend void protobuf_AssignDesc_chat_2eproto();
@@ -431,6 +489,193 @@ class ChatAck : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ChatAck* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class OffMsgAsk : public ::google::protobuf::Message {
+ public:
+  OffMsgAsk();
+  virtual ~OffMsgAsk();
+
+  OffMsgAsk(const OffMsgAsk& from);
+
+  inline OffMsgAsk& operator=(const OffMsgAsk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OffMsgAsk& default_instance();
+
+  void Swap(OffMsgAsk* other);
+
+  // implements Message ----------------------------------------------
+
+  OffMsgAsk* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OffMsgAsk& from);
+  void MergeFrom(const OffMsgAsk& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 page = 1;
+  inline bool has_page() const;
+  inline void clear_page();
+  static const int kPageFieldNumber = 1;
+  inline ::google::protobuf::int32 page() const;
+  inline void set_page(::google::protobuf::int32 value);
+
+  // required int32 uid = 2;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 2;
+  inline ::google::protobuf::int32 uid() const;
+  inline void set_uid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:chat.OffMsgAsk)
+ private:
+  inline void set_has_page();
+  inline void clear_has_page();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 page_;
+  ::google::protobuf::int32 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_chat_2eproto();
+  friend void protobuf_AssignDesc_chat_2eproto();
+  friend void protobuf_ShutdownFile_chat_2eproto();
+
+  void InitAsDefaultInstance();
+  static OffMsgAsk* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OffMsgRly : public ::google::protobuf::Message {
+ public:
+  OffMsgRly();
+  virtual ~OffMsgRly();
+
+  OffMsgRly(const OffMsgRly& from);
+
+  inline OffMsgRly& operator=(const OffMsgRly& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OffMsgRly& default_instance();
+
+  void Swap(OffMsgRly* other);
+
+  // implements Message ----------------------------------------------
+
+  OffMsgRly* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OffMsgRly& from);
+  void MergeFrom(const OffMsgRly& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 page = 1;
+  inline bool has_page() const;
+  inline void clear_page();
+  static const int kPageFieldNumber = 1;
+  inline ::google::protobuf::int32 page() const;
+  inline void set_page(::google::protobuf::int32 value);
+
+  // repeated .chat.ChatMessage messages = 2;
+  inline int messages_size() const;
+  inline void clear_messages();
+  static const int kMessagesFieldNumber = 2;
+  inline const ::chat::ChatMessage& messages(int index) const;
+  inline ::chat::ChatMessage* mutable_messages(int index);
+  inline ::chat::ChatMessage* add_messages();
+  inline const ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage >&
+      messages() const;
+  inline ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage >*
+      mutable_messages();
+
+  // @@protoc_insertion_point(class_scope:chat.OffMsgRly)
+ private:
+  inline void set_has_page();
+  inline void clear_has_page();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage > messages_;
+  ::google::protobuf::int32 page_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_chat_2eproto();
+  friend void protobuf_AssignDesc_chat_2eproto();
+  friend void protobuf_ShutdownFile_chat_2eproto();
+
+  void InitAsDefaultInstance();
+  static OffMsgRly* default_instance_;
+};
 // ===================================================================
 
 
@@ -622,6 +867,29 @@ inline void ChatMessage::set_id(::google::protobuf::int32 value) {
   id_ = value;
 }
 
+// optional .chat.ChatMessage.MsgType type = 6 [default = TEXT];
+inline bool ChatMessage::has_type() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void ChatMessage::set_has_type() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void ChatMessage::clear_has_type() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void ChatMessage::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::chat::ChatMessage_MsgType ChatMessage::type() const {
+  return static_cast< ::chat::ChatMessage_MsgType >(type_);
+}
+inline void ChatMessage::set_type(::chat::ChatMessage_MsgType value) {
+  assert(::chat::ChatMessage_MsgType_IsValid(value));
+  set_has_type();
+  type_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // heart
@@ -718,6 +986,105 @@ inline void ChatAck::set_id(::google::protobuf::int32 value) {
   id_ = value;
 }
 
+// -------------------------------------------------------------------
+
+// OffMsgAsk
+
+// required int32 page = 1;
+inline bool OffMsgAsk::has_page() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OffMsgAsk::set_has_page() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OffMsgAsk::clear_has_page() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OffMsgAsk::clear_page() {
+  page_ = 0;
+  clear_has_page();
+}
+inline ::google::protobuf::int32 OffMsgAsk::page() const {
+  return page_;
+}
+inline void OffMsgAsk::set_page(::google::protobuf::int32 value) {
+  set_has_page();
+  page_ = value;
+}
+
+// required int32 uid = 2;
+inline bool OffMsgAsk::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void OffMsgAsk::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void OffMsgAsk::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void OffMsgAsk::clear_uid() {
+  uid_ = 0;
+  clear_has_uid();
+}
+inline ::google::protobuf::int32 OffMsgAsk::uid() const {
+  return uid_;
+}
+inline void OffMsgAsk::set_uid(::google::protobuf::int32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// OffMsgRly
+
+// required int32 page = 1;
+inline bool OffMsgRly::has_page() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OffMsgRly::set_has_page() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OffMsgRly::clear_has_page() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OffMsgRly::clear_page() {
+  page_ = 0;
+  clear_has_page();
+}
+inline ::google::protobuf::int32 OffMsgRly::page() const {
+  return page_;
+}
+inline void OffMsgRly::set_page(::google::protobuf::int32 value) {
+  set_has_page();
+  page_ = value;
+}
+
+// repeated .chat.ChatMessage messages = 2;
+inline int OffMsgRly::messages_size() const {
+  return messages_.size();
+}
+inline void OffMsgRly::clear_messages() {
+  messages_.Clear();
+}
+inline const ::chat::ChatMessage& OffMsgRly::messages(int index) const {
+  return messages_.Get(index);
+}
+inline ::chat::ChatMessage* OffMsgRly::mutable_messages(int index) {
+  return messages_.Mutable(index);
+}
+inline ::chat::ChatMessage* OffMsgRly::add_messages() {
+  return messages_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage >&
+OffMsgRly::messages() const {
+  return messages_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage >*
+OffMsgRly::mutable_messages() {
+  return &messages_;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -727,6 +1094,10 @@ inline void ChatAck::set_id(::google::protobuf::int32 value) {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::chat::ChatMessage_MsgType>() {
+  return ::chat::ChatMessage_MsgType_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

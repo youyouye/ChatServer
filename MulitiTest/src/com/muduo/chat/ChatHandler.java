@@ -33,11 +33,12 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 		logger.info("channel read has exec!");
         ByteBuf buf = (ByteBuf) msg;
 		while(buf.readableBytes() >= kMinMessageLen+kHeaderLen){
-			int len = buf.readInt();
+			int len = buf.getInt(0);
 			if (len > kMaxMessageLen || len < kMinMessageLen){
 				//error call back.
 			}
-			else if (buf.readableBytes() >= (len)){
+			else if (buf.readableBytes() >= (len + 4)){
+				int test = buf.readableBytes();
 				int error = -1;
 				Message message = parse(buf,len);
 				if (message != null){
@@ -51,6 +52,7 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 	public Message parse(ByteBuf buf,int len){
 		Message message = null;
 		//有问题,不知道为什么是错的.
+		buf.readInt();
 		int expectedCheckSUm = buf.getInt(len-4);
 		Adler32 check = new Adler32();
 		byte[] dst = new byte[len-kHeaderLen];
@@ -63,9 +65,10 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 				byte[] nameByte = new byte[nameLen];
 				buf.readBytes(nameByte, 0, nameLen);
 				String typeName = new String(nameByte);
-				byte[] contentByte = new byte[buf.readableBytes()-4];
-				buf.readBytes(contentByte,0,buf.readableBytes()-4);
-				message = createMessage(typeName,contentByte,0,contentByte.length);
+				byte[] contentByte = new byte[len-8-nameLen];
+				buf.readBytes(contentByte,0,len-8-nameLen);
+				buf.readInt();
+				message = createMessage(typeName,contentByte,0,len-8-nameLen);
 			}
 		}
 		return message;
@@ -86,6 +89,8 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 				return GroupProtos.GroupMessage.getDefaultInstance().getParserForType().parseFrom(array,offset,length);
 			}else if (typename.equals("group.HandleGroup\0")){
 				return GroupProtos.HandleGroup.getDefaultInstance().getParserForType().parseFrom(array,offset,length);
+			}else if (typename.equals("chat.OffMsgRly\0")){
+				return ChatProtos.OffMsgRly.getDefaultInstance().getParserForType().parseFrom(array,offset,length);
 			}
 		} catch (InvalidProtocolBufferException e) {
 			// TODO Auto-generated catch block

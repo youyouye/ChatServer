@@ -9,7 +9,7 @@
 pthread_once_t OnlineUser::ponce_ = PTHREAD_ONCE_INIT;
 OnlineUser* OnlineUser::values_ = NULL;
 muduo::MutexLock OnlineUser::mutex_;
-OnlineUser::UserStatusListPtr OnlineUser::userStatus;
+OnlineUser::UserStatusListPtr OnlineUser::userStatus(new std::map<int,int>());
 
 OnlineUser::OnlineUser()
 {

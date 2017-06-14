@@ -18,7 +18,9 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h \
- ../src/database/online_user.h
+ ../src/database/online_user.h ../src/database/mysql_conn_pool.h \
+ ../src/database/mysql_conn.h ../src/database/offline_msg.h \
+ ../src/database/offline_msg.h
 
 ../src/ChatServer.h:
 
@@ -67,3 +69,11 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
 /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h:
 
 ../src/database/online_user.h:
+
+../src/database/mysql_conn_pool.h:
+
+../src/database/mysql_conn.h:
+
+../src/database/offline_msg.h:
+
+../src/database/offline_msg.h:

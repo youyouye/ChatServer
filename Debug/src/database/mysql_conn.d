@@ -2,7 +2,7 @@ src/database/mysql_conn.d: ../src/database/mysql_conn.cpp \
  ../src/database/mysql_conn.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Mutex.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/CurrentThread.h \
- /usr/local/mysql/include/mysql.h \
+ ../src/database/offline_msg.h /usr/local/mysql/include/mysql.h \
  /usr/local/mysql/include/mysql_version.h \
  /usr/local/mysql/include/mysql_com.h \
  /usr/local/mysql/include/binary_log_types.h \
@@ -32,6 +32,8 @@ src/database/mysql_conn.d: ../src/database/mysql_conn.cpp \
 /home/moocos/Downloads/build/release-install/include/muduo/base/Mutex.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/base/CurrentThread.h:
+
+../src/database/offline_msg.h:
 
 /usr/local/mysql/include/mysql.h:
 

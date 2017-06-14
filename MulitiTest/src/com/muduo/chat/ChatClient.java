@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import com.google.protobuf.MessageLite;
 import com.muduo.handler.ChatManager;
 import com.muduo.proto.ChatProtos;
+import com.muduo.timer.MyTimer;
 
 
 public class ChatClient {
@@ -35,6 +36,9 @@ public class ChatClient {
 	//控制的全局Mess信息.
 	private ChatManager chatManager;
 	private MyTimer myTimer;
+	private MyTimer offTimer;
+	//客户的id；
+	private int clientID;
 	
 	public ChatClient(EventQueue queue, InetSocketAddress remoteAddress,EventLoopGroup workerGroup){
 		this.queue = queue;
@@ -43,10 +47,16 @@ public class ChatClient {
 		this.timer = new HashedWheelTimer();
 		chatManager = new ChatManager();
 		chatManager.setClient(this);
-		myTimer = new MyTimer(chatManager);
+		myTimer = new MyTimer(chatManager,1);
+		offTimer = new MyTimer(chatManager, 2);
 		connId = -1;
 	}
-	
+	public void setClientId(int id){
+		this.clientID = id;
+	}
+	public int getClientId(){
+		return clientID;
+	}
 	public void connect(){
 		assert bootstrap == null;	
 		
@@ -75,31 +85,37 @@ public class ChatClient {
 		assert connection != null;
 	}
 	
-	public void sendConnect(int from){
+	public void sendConnect(){
 		logger.info("要发connect");
 		ChatProtos.Connect connect = ChatProtos.Connect.newBuilder()
-				.setId(from)
+				.setId(clientID)
 				.build();
 		ChatMessage cm = new ChatMessage("chat.Connect\0",connect);
 		connection.writeAndFlush(cm);
 	}
 	
-	public void rSendMess(com.muduo.proto.ChatProtos.ChatMessage cm){
-		logger.info("重发信息");
-		ChatMessage chatmessage = new ChatMessage("chat.ChatMessage\0",cm);
+	public void rSendMess(int toid,int serialId,String content){
+		logger.info("重发信息"+content+":"+clientID);
+		ChatProtos.ChatMessage message = ChatProtos.ChatMessage.newBuilder()
+				.setFromid(clientID)
+				.setToid(toid)
+				.setMessage(content)
+				.setId(serialId)
+				.setTime((int)(System.currentTimeMillis() / 1000L + 2208988800L)).build();
+		ChatMessage chatmessage = new ChatMessage("chat.ChatMessage\0",message);		
 		connection.writeAndFlush(chatmessage);
 	}
-	public void sendAck(int fromid,int toid,int serialId){
+	public void sendAck(int toid,int serialId){
 		logger.info("要发ack;");
 		ChatProtos.ChatAck cAck = ChatProtos.ChatAck.newBuilder()
-				.setFromid(fromid)
+				.setFromid(clientID)
 				.setToid(toid)
 				.setTime((int)(System.currentTimeMillis() / 1000L + 2208988800L))
 				.setId(serialId).build();
 		ChatMessage cm = new ChatMessage("chat.ChatAck\0",cAck);
 		connection.writeAndFlush(cm);
 	}
-	public void sendChatMessage(int from,int to,String mess){
+	public void sendChatMessage(int to,String mess){
 		logger.info("要发信息"+mess);
         ChannelFuture lastWriteFuture = null;
 		try {
@@ -109,7 +125,7 @@ public class ChatClient {
 			}else if (input.isEmpty()){
 			}
 			ChatProtos.ChatMessage message = ChatProtos.ChatMessage.newBuilder()
-					.setFromid(from)
+					.setFromid(clientID)
 					.setToid(to)
 					.setMessage(input)
 					.setId(chatManager.getSerialId())
@@ -141,6 +157,19 @@ public class ChatClient {
 				e.printStackTrace();
 			}
 	}
+	//拉取离线消息.
+	public void pullOfflineMsg(int page){
+		logger.info("拉取离线消息:"+page);
+		ChatProtos.OffMsgAsk message = ChatProtos.OffMsgAsk.newBuilder()
+					.setPage(page)
+					.setUid(clientID).build();
+		ChatMessage cm = new ChatMessage("chat.OffMsgAsk\0",message);
+		connection.writeAndFlush(cm);
+		if (offTimer.isFirst || myTimer.isEnd){
+			logger.info("执行了几次?");
+			myTimer.start();
+		}
+	}
 	
 	public void disconnect(){
 		connection.close();
@@ -151,10 +180,18 @@ public class ChatClient {
 		this.connId = connId;
 	}
 	
-	public void resetTimer(){
-		myTimer.reset();
+	public void resetTimer(int which){
+		if (which == 1){
+			myTimer.reset();
+		}else if (which == 2){
+			offTimer.reset();
+		}
 	}
-	public void finishTimer(){
-		myTimer.end();
+	public void finishTimer(int which){
+		if (which == 1){
+			myTimer.end();
+		}else if (which == 2){
+			offTimer.end();
+		}
 	}
 }

@@ -7,18 +7,21 @@ CPP_SRCS += \
 ../src/database/TestDatabase.cpp \
 ../src/database/mysql_conn.cpp \
 ../src/database/mysql_conn_poll.cpp \
+../src/database/offline_msg.cpp \
 ../src/database/online_user.cpp 
 
 OBJS += \
 ./src/database/TestDatabase.o \
 ./src/database/mysql_conn.o \
 ./src/database/mysql_conn_poll.o \
+./src/database/offline_msg.o \
 ./src/database/online_user.o 
 
 CPP_DEPS += \
 ./src/database/TestDatabase.d \
 ./src/database/mysql_conn.d \
 ./src/database/mysql_conn_poll.d \
+./src/database/offline_msg.d \
 ./src/database/online_user.d 
 
 

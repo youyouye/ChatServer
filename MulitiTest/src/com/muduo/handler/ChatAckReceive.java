@@ -1,5 +1,7 @@
 package com.muduo.handler;
 
+import java.awt.color.CMMException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +21,8 @@ public class ChatAckReceive implements HandMessage{
 	}
 	@Override
 	public void onMessage(ChannelHandlerContext ctx, Object msg) {
-		logger.info("收到了chatAck");
 		ChatProtos.ChatAck cMessage = (ChatAck) msg;
+		logger.info("收到了chatAck:"+manager.getClientId()+"从"+cMessage.getFromid()+":"+cMessage.getId());
 		int fromid = cMessage.getFromid();
 		int toid = cMessage.getToid();
 		int rank = cMessage.getId();
