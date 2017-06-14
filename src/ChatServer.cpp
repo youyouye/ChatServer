@@ -216,9 +216,9 @@ void ChatServer::onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,
         const OffMsgAskPtr& message,
         muduo::Timestamp)
 {
-	LOG_INFO<<"OnOffSingleMsg:"<<message->page()<<"&"<<message->uid();
-	int page = message->page();
-	int uid = message->uid();
+//	LOG_INFO<<"OnOffSingleMsg:"<<message->page()<<"&"<<message->uid();
+	int page = (*message).page();
+	int uid = (*message).uid();
 	//也就是没有离线信息了.
 	if(page == -1){
 		return;

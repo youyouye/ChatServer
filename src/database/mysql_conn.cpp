@@ -110,9 +110,9 @@ int MysqlConn::getSingleOffLineMsg(int page,int uid,SingleOffMsgListPtr msgPtr)
 	if (page > 0){
 		char *del1;
 		del1 = malloc(1000);
-		char *del = "delete from OffineMsg where receiver_uid = '%s' limit 0,50";
+		char *del = "delete from OffineMsg where receiver_uid = '%d' limit 10";
 		snprintf(del1,1000,del,uid);
-		if (mysql_query(conn,del)){
+		if (mysql_query(conn,del1)){
 			LOG_ERROR<<"删除语句执行失败";
 		    fprintf(stderr,"%s:\nError %u (%s)\n","mysql_real_connect 失败:\nError %u (%s)\n",mysql_errno(conn),mysql_error(conn));
 			return -1; //查询失败
@@ -120,8 +120,8 @@ int MysqlConn::getSingleOffLineMsg(int page,int uid,SingleOffMsgListPtr msgPtr)
 	}
 	char *select1;
 	select1 = malloc(1000);
-	char *select = "select * from OffineMsg where receiver_uid = '%s' limit %d,%d";
-	snprintf(select1,1000,select,uid,0,50);
+	char *select = "select * from OffineMsg where receiver_uid = '%d' limit %d,%d";
+	snprintf(select1,1000,select,uid,0,10);
 	if (mysql_query(conn,select1)){
 		LOG_ERROR<<"查询语句执行失败";
 	    fprintf(stderr,"%s:\nError %u (%s)\n","mysql_real_connect 失败:\nError %u (%s)\n",mysql_errno(conn),mysql_error(conn));
@@ -141,11 +141,11 @@ int MysqlConn::getSingleOffLineMsg(int page,int uid,SingleOffMsgListPtr msgPtr)
 			while ( (row=mysql_fetch_row(res_set))!=NULL ){
 				SingleOfflineMsg offmsg;
 				LOG_INFO<<"离线信息列数:"<<mysql_num_fields(res_set);
-				offmsg.receive_uid = (row[2]!=NULL ? atoi(row[2]):-1);
-				offmsg.msg_id = (row[3]!=NULL ? atoi(row[3]):-1);
-				offmsg.send_uid = (row[5]!=NULL ? atoi(row[5]):-1);
-				offmsg.msg_type = (row[6]!=NULL ? atoi(row[6]):-1);
-				offmsg.msg_content = (row[7]!=NULL ? std::string(row[7]): "");
+				offmsg.receive_uid = (row[1]!=NULL ? atoi(row[1]):-1);
+				offmsg.msg_id = (row[2]!=NULL ? atoi(row[2]):-1);
+				offmsg.send_uid = (row[4]!=NULL ? atoi(row[4]):-1);
+				offmsg.msg_type = (row[5]!=NULL ? atoi(row[5]):-1);
+				offmsg.msg_content = (row[6]!=NULL ? std::string(row[6]): "");
 				msgPtr->push_back(offmsg);
 			}
 		}
