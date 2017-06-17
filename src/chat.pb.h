@@ -40,6 +40,9 @@ class heart;
 class ChatAck;
 class OffMsgAsk;
 class OffMsgRly;
+class FriendAsk;
+class FriendRly;
+class FriendAck;
 
 enum ChatMessage_MsgType {
   ChatMessage_MsgType_TEXT = 0,
@@ -676,6 +679,307 @@ class OffMsgRly : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static OffMsgRly* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class FriendAsk : public ::google::protobuf::Message {
+ public:
+  FriendAsk();
+  virtual ~FriendAsk();
+
+  FriendAsk(const FriendAsk& from);
+
+  inline FriendAsk& operator=(const FriendAsk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FriendAsk& default_instance();
+
+  void Swap(FriendAsk* other);
+
+  // implements Message ----------------------------------------------
+
+  FriendAsk* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FriendAsk& from);
+  void MergeFrom(const FriendAsk& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 askid = 1;
+  inline bool has_askid() const;
+  inline void clear_askid();
+  static const int kAskidFieldNumber = 1;
+  inline ::google::protobuf::int32 askid() const;
+  inline void set_askid(::google::protobuf::int32 value);
+
+  // required int32 reqid = 2;
+  inline bool has_reqid() const;
+  inline void clear_reqid();
+  static const int kReqidFieldNumber = 2;
+  inline ::google::protobuf::int32 reqid() const;
+  inline void set_reqid(::google::protobuf::int32 value);
+
+  // required string askmessage = 3;
+  inline bool has_askmessage() const;
+  inline void clear_askmessage();
+  static const int kAskmessageFieldNumber = 3;
+  inline const ::std::string& askmessage() const;
+  inline void set_askmessage(const ::std::string& value);
+  inline void set_askmessage(const char* value);
+  inline void set_askmessage(const char* value, size_t size);
+  inline ::std::string* mutable_askmessage();
+  inline ::std::string* release_askmessage();
+  inline void set_allocated_askmessage(::std::string* askmessage);
+
+  // @@protoc_insertion_point(class_scope:chat.FriendAsk)
+ private:
+  inline void set_has_askid();
+  inline void clear_has_askid();
+  inline void set_has_reqid();
+  inline void clear_has_reqid();
+  inline void set_has_askmessage();
+  inline void clear_has_askmessage();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 askid_;
+  ::google::protobuf::int32 reqid_;
+  ::std::string* askmessage_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_chat_2eproto();
+  friend void protobuf_AssignDesc_chat_2eproto();
+  friend void protobuf_ShutdownFile_chat_2eproto();
+
+  void InitAsDefaultInstance();
+  static FriendAsk* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FriendRly : public ::google::protobuf::Message {
+ public:
+  FriendRly();
+  virtual ~FriendRly();
+
+  FriendRly(const FriendRly& from);
+
+  inline FriendRly& operator=(const FriendRly& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FriendRly& default_instance();
+
+  void Swap(FriendRly* other);
+
+  // implements Message ----------------------------------------------
+
+  FriendRly* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FriendRly& from);
+  void MergeFrom(const FriendRly& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 sendid = 1;
+  inline bool has_sendid() const;
+  inline void clear_sendid();
+  static const int kSendidFieldNumber = 1;
+  inline ::google::protobuf::int32 sendid() const;
+  inline void set_sendid(::google::protobuf::int32 value);
+
+  // required int32 recvid = 2;
+  inline bool has_recvid() const;
+  inline void clear_recvid();
+  static const int kRecvidFieldNumber = 2;
+  inline ::google::protobuf::int32 recvid() const;
+  inline void set_recvid(::google::protobuf::int32 value);
+
+  // required int32 reply = 3;
+  inline bool has_reply() const;
+  inline void clear_reply();
+  static const int kReplyFieldNumber = 3;
+  inline ::google::protobuf::int32 reply() const;
+  inline void set_reply(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:chat.FriendRly)
+ private:
+  inline void set_has_sendid();
+  inline void clear_has_sendid();
+  inline void set_has_recvid();
+  inline void clear_has_recvid();
+  inline void set_has_reply();
+  inline void clear_has_reply();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 sendid_;
+  ::google::protobuf::int32 recvid_;
+  ::google::protobuf::int32 reply_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_chat_2eproto();
+  friend void protobuf_AssignDesc_chat_2eproto();
+  friend void protobuf_ShutdownFile_chat_2eproto();
+
+  void InitAsDefaultInstance();
+  static FriendRly* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FriendAck : public ::google::protobuf::Message {
+ public:
+  FriendAck();
+  virtual ~FriendAck();
+
+  FriendAck(const FriendAck& from);
+
+  inline FriendAck& operator=(const FriendAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FriendAck& default_instance();
+
+  void Swap(FriendAck* other);
+
+  // implements Message ----------------------------------------------
+
+  FriendAck* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FriendAck& from);
+  void MergeFrom(const FriendAck& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 fromid = 1;
+  inline bool has_fromid() const;
+  inline void clear_fromid();
+  static const int kFromidFieldNumber = 1;
+  inline ::google::protobuf::int32 fromid() const;
+  inline void set_fromid(::google::protobuf::int32 value);
+
+  // required int32 toid = 2;
+  inline bool has_toid() const;
+  inline void clear_toid();
+  static const int kToidFieldNumber = 2;
+  inline ::google::protobuf::int32 toid() const;
+  inline void set_toid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:chat.FriendAck)
+ private:
+  inline void set_has_fromid();
+  inline void clear_has_fromid();
+  inline void set_has_toid();
+  inline void clear_has_toid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fromid_;
+  ::google::protobuf::int32 toid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_chat_2eproto();
+  friend void protobuf_AssignDesc_chat_2eproto();
+  friend void protobuf_ShutdownFile_chat_2eproto();
+
+  void InitAsDefaultInstance();
+  static FriendAck* default_instance_;
+};
 // ===================================================================
 
 
@@ -1083,6 +1387,242 @@ OffMsgRly::messages() const {
 inline ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage >*
 OffMsgRly::mutable_messages() {
   return &messages_;
+}
+
+// -------------------------------------------------------------------
+
+// FriendAsk
+
+// required int32 askid = 1;
+inline bool FriendAsk::has_askid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FriendAsk::set_has_askid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FriendAsk::clear_has_askid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FriendAsk::clear_askid() {
+  askid_ = 0;
+  clear_has_askid();
+}
+inline ::google::protobuf::int32 FriendAsk::askid() const {
+  return askid_;
+}
+inline void FriendAsk::set_askid(::google::protobuf::int32 value) {
+  set_has_askid();
+  askid_ = value;
+}
+
+// required int32 reqid = 2;
+inline bool FriendAsk::has_reqid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FriendAsk::set_has_reqid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FriendAsk::clear_has_reqid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FriendAsk::clear_reqid() {
+  reqid_ = 0;
+  clear_has_reqid();
+}
+inline ::google::protobuf::int32 FriendAsk::reqid() const {
+  return reqid_;
+}
+inline void FriendAsk::set_reqid(::google::protobuf::int32 value) {
+  set_has_reqid();
+  reqid_ = value;
+}
+
+// required string askmessage = 3;
+inline bool FriendAsk::has_askmessage() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FriendAsk::set_has_askmessage() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FriendAsk::clear_has_askmessage() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FriendAsk::clear_askmessage() {
+  if (askmessage_ != &::google::protobuf::internal::kEmptyString) {
+    askmessage_->clear();
+  }
+  clear_has_askmessage();
+}
+inline const ::std::string& FriendAsk::askmessage() const {
+  return *askmessage_;
+}
+inline void FriendAsk::set_askmessage(const ::std::string& value) {
+  set_has_askmessage();
+  if (askmessage_ == &::google::protobuf::internal::kEmptyString) {
+    askmessage_ = new ::std::string;
+  }
+  askmessage_->assign(value);
+}
+inline void FriendAsk::set_askmessage(const char* value) {
+  set_has_askmessage();
+  if (askmessage_ == &::google::protobuf::internal::kEmptyString) {
+    askmessage_ = new ::std::string;
+  }
+  askmessage_->assign(value);
+}
+inline void FriendAsk::set_askmessage(const char* value, size_t size) {
+  set_has_askmessage();
+  if (askmessage_ == &::google::protobuf::internal::kEmptyString) {
+    askmessage_ = new ::std::string;
+  }
+  askmessage_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* FriendAsk::mutable_askmessage() {
+  set_has_askmessage();
+  if (askmessage_ == &::google::protobuf::internal::kEmptyString) {
+    askmessage_ = new ::std::string;
+  }
+  return askmessage_;
+}
+inline ::std::string* FriendAsk::release_askmessage() {
+  clear_has_askmessage();
+  if (askmessage_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = askmessage_;
+    askmessage_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void FriendAsk::set_allocated_askmessage(::std::string* askmessage) {
+  if (askmessage_ != &::google::protobuf::internal::kEmptyString) {
+    delete askmessage_;
+  }
+  if (askmessage) {
+    set_has_askmessage();
+    askmessage_ = askmessage;
+  } else {
+    clear_has_askmessage();
+    askmessage_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// FriendRly
+
+// required int32 sendid = 1;
+inline bool FriendRly::has_sendid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FriendRly::set_has_sendid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FriendRly::clear_has_sendid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FriendRly::clear_sendid() {
+  sendid_ = 0;
+  clear_has_sendid();
+}
+inline ::google::protobuf::int32 FriendRly::sendid() const {
+  return sendid_;
+}
+inline void FriendRly::set_sendid(::google::protobuf::int32 value) {
+  set_has_sendid();
+  sendid_ = value;
+}
+
+// required int32 recvid = 2;
+inline bool FriendRly::has_recvid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FriendRly::set_has_recvid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FriendRly::clear_has_recvid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FriendRly::clear_recvid() {
+  recvid_ = 0;
+  clear_has_recvid();
+}
+inline ::google::protobuf::int32 FriendRly::recvid() const {
+  return recvid_;
+}
+inline void FriendRly::set_recvid(::google::protobuf::int32 value) {
+  set_has_recvid();
+  recvid_ = value;
+}
+
+// required int32 reply = 3;
+inline bool FriendRly::has_reply() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FriendRly::set_has_reply() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FriendRly::clear_has_reply() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FriendRly::clear_reply() {
+  reply_ = 0;
+  clear_has_reply();
+}
+inline ::google::protobuf::int32 FriendRly::reply() const {
+  return reply_;
+}
+inline void FriendRly::set_reply(::google::protobuf::int32 value) {
+  set_has_reply();
+  reply_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FriendAck
+
+// required int32 fromid = 1;
+inline bool FriendAck::has_fromid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FriendAck::set_has_fromid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FriendAck::clear_has_fromid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FriendAck::clear_fromid() {
+  fromid_ = 0;
+  clear_has_fromid();
+}
+inline ::google::protobuf::int32 FriendAck::fromid() const {
+  return fromid_;
+}
+inline void FriendAck::set_fromid(::google::protobuf::int32 value) {
+  set_has_fromid();
+  fromid_ = value;
+}
+
+// required int32 toid = 2;
+inline bool FriendAck::has_toid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FriendAck::set_has_toid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FriendAck::clear_has_toid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FriendAck::clear_toid() {
+  toid_ = 0;
+  clear_has_toid();
+}
+inline ::google::protobuf::int32 FriendAck::toid() const {
+  return toid_;
+}
+inline void FriendAck::set_toid(::google::protobuf::int32 value) {
+  set_has_toid();
+  toid_ = value;
 }
 
 

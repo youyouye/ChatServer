@@ -31,6 +31,9 @@ typedef boost::shared_ptr<chat::ChatMessage> ChatMessagePtr;
 typedef boost::shared_ptr<chat::heart> HeartPtr;
 typedef boost::shared_ptr<chat::ChatAck> ChatAckPtr;
 typedef boost::shared_ptr<chat::OffMsgAsk> OffMsgAskPtr;
+typedef boost::shared_ptr<chat::FriendAck> FriendAckPtr;
+typedef boost::shared_ptr<chat::FriendAsk> FriendAskPtr;
+typedef boost::shared_ptr<chat::FriendRly> FriendRlyPtr;
 
 typedef boost::weak_ptr<TcpConnection> WeakTcpConnectionPtr;
 
@@ -77,6 +80,15 @@ private:
             muduo::Timestamp);
 	void onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,
             const OffMsgAskPtr& message,
+            muduo::Timestamp);
+	void onFriendAsk(const muduo::net::TcpConnectionPtr& conn,
+            const FriendAskPtr& message,
+            muduo::Timestamp);
+	void onFriendRly(const muduo::net::TcpConnectionPtr& conn,
+            const FriendRlyPtr& message,
+            muduo::Timestamp);
+	void onFriendAck(const muduo::net::TcpConnectionPtr& conn,
+            const FriendAckPtr& message,
             muduo::Timestamp);
 	void onTimer(void);
 	void dumpConnectionList() const;

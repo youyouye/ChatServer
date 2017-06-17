@@ -78,7 +78,6 @@ public class ChatClient {
 			e.printStackTrace();
 		}finally{
 		}
-		
 	}
 	
 	public EventLoopGroup getEventLoop(){
@@ -176,6 +175,32 @@ public class ChatClient {
 			logger.info("执行了几次?");
 			timeManager.startTimer("off");
 		}
+	}
+	//发送好友请求:
+	public void sendFriendAsk(int uid,String content){
+		ChatProtos.FriendAsk ask = ChatProtos.FriendAsk.newBuilder()
+				.setAskid(clientID)
+				.setReqid(uid)
+				.setAskmessage(content).build();
+		ChatMessage cm = new ChatMessage("chat.FriendAsk\0",ask);
+		connection.writeAndFlush(cm);		
+		//暂时不处理发送失败的情况了.这不是我想写的重点东西.
+	}
+	public void sendFriendRly(int uid,int reply){
+		ChatProtos.FriendRly rly = ChatProtos.FriendRly.newBuilder()
+				.setSendid(clientID)
+				.setRecvid(uid)
+				.setReply(reply).build();
+		ChatMessage cm = new ChatMessage("chat.FriendRly\0",rly);
+		connection.writeAndFlush(cm);		
+		//暂时不处理发送失败的情况了.这不是我想写的重点东西.
+	}
+	public void sendFriendAck(int uid){
+		ChatProtos.FriendAck ack = ChatProtos.FriendAck.newBuilder()
+				.setFromid(clientID)
+				.setToid(uid).build();
+		ChatMessage cm = new ChatMessage("chat.FriendAck\0",ack);
+		connection.writeAndFlush(cm);
 	}
 	
 	public void disconnect(){

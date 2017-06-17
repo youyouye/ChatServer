@@ -13,5 +13,5 @@ public class MyTimer{
 	public boolean isFirst = true;
 	public boolean isEnd = false;
 	public String tag;
-
+	public int failure = 0;
 }

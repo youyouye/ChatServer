@@ -39,4 +39,17 @@ message OffMsgRly{
 	required int32 page = 1;
 	repeated ChatMessage messages = 2;	
 }
-
+message FriendAsk{
+	required int32 askid = 1;
+	required int32 reqid =2;
+	required string askmessage =3; 
+}
+message FriendRly{
+	required int32 sendid = 1;
+	required int32 recvid =2;
+	required int32 reply = 3;
+}
+message FriendAck{
+	required int32 fromid = 1;
+	required int32 toid = 2;
+}

@@ -28,6 +28,10 @@ ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 	dispatcher_.registerMessageCallback<group::GroupMessage>(boost::bind(&GroupServer::onGroupMessage, &groupserver_, _1, _2, _3));
 	dispatcher_.registerMessageCallback<chat::heart>(boost::bind(&ChatServer::onHeart, this, _1, _2, _3));
 	dispatcher_.registerMessageCallback<chat::OffMsgAsk>(boost::bind(&ChatServer::onOffSingleMsg,this,_1,_2,_3));
+	dispatcher_.registerMessageCallback<chat::FriendAck>(boost::bind(&ChatServer::onFriendAck,this,_1,_2,_3));
+	dispatcher_.registerMessageCallback<chat::FriendAsk>(boost::bind(&ChatServer::onFriendAsk,this,_1,_2,_3));
+	dispatcher_.registerMessageCallback<chat::FriendRly>(boost::bind(&ChatServer::onFriendRly,this,_1,_2,_3));
+
 	server_.setConnectionCallback(boost::bind(&ChatServer::onConnection, this, _1));
 	server_.setMessageCallback(boost::bind(&ProtobufCodec::onMessage, &codec_, _1, _2, _3));
 
@@ -252,7 +256,119 @@ void ChatServer::onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,
 	}
 }
 
+void ChatServer::onFriendAsk(const muduo::net::TcpConnectionPtr& conn,
+        const FriendAskPtr& message,
+        muduo::Timestamp)
+{
+	LOG_INFO << "onFriendAsk:"<<message->askid()<<"&"<<message->reqid();
+	chat::FriendAsk ask;
+	ask.set_askid(message->askid());
+	ask.set_reqid(message->reqid());
+	ask.set_askmessage(message->askmessage());
 
+	ConnectionListPtr connections = getConnectionList();
+    IdMapPtr idMapPtr = getIdMap();
+
+	//添加离线信息管理.
+	int status = OnlineUser::getStatus(message->reqid());
+	if (status == 0){
+		LOG_INFO<<"对方不在线";
+		FriendOffMsg fm(message->askid(),message->reqid(),message->askmessage());
+		int res = MysqlConnPool::instance()->getNextConn()->addOffFriendAsk(fm);
+		LOG_INFO<<"离线好友请求插入数据库:返回"<<res;
+		if (res >0){
+			chat::FriendAck ack;
+			ack.set_fromid(message->askid());
+			ack.set_toid(message->reqid());
+			codec_.send(conn,ack);
+			LOG_INFO<<"发送添加好友离线ack";
+		}
+		return;
+	}
+	int index = -1;
+	IdMap::iterator idmap = idMapPtr->find(message->reqid());
+	if (idmap != idMapPtr->end()){
+		index = idmap->second;
+	}
+	ConnectionList::iterator it = connections->find(index);
+	if ( it!= connections->end()){
+		TcpConnectionPtr ptr = it->second->weakConn_.lock();
+		if (ptr){
+				LOG_INFO<<"检测找到对应的id";
+				codec_.send(ptr,ask);
+		}
+	}
+}
+void ChatServer::onFriendRly(const muduo::net::TcpConnectionPtr& conn,
+        const FriendRlyPtr& message,
+        muduo::Timestamp)
+{
+	LOG_INFO << "onFriendRly:"<<message->sendid()<<"&"<<message->recvid();
+	chat::FriendRly rly;
+	rly.set_recvid(message->recvid());
+	rly.set_sendid(message->sendid());
+	rly.set_reply(message->reply());
+
+	ConnectionListPtr connections = getConnectionList();
+    IdMapPtr idMapPtr = getIdMap();
+
+	//添加离线信息管理.
+	int status = OnlineUser::getStatus(message->recvid());
+	if (status == 0){
+		LOG_INFO<<"对方不在线";
+		FriendRlyMsg fm(message->sendid(),message->recvid(),message->reply());
+		int res = MysqlConnPool::instance()->getNextConn()->addOffFriendRly(fm);
+		LOG_INFO<<"离线好友回应插入数据库:返回"<<res;
+		if (res >0){
+			chat::FriendAck ack;
+			ack.set_fromid(message->sendid());
+			ack.set_toid(message->recvid());
+			codec_.send(conn,ack);
+			LOG_INFO<<"发送添加好友回应ack";
+		}
+		return;
+	}
+	int index = -1;
+	IdMap::iterator idmap = idMapPtr->find(message->recvid());
+	if (idmap != idMapPtr->end()){
+		index = idmap->second;
+	}
+	ConnectionList::iterator it = connections->find(index);
+	if ( it!= connections->end()){
+		TcpConnectionPtr ptr = it->second->weakConn_.lock();
+		if (ptr){
+				LOG_INFO<<"检测找到对应的id";
+				codec_.send(ptr,rly);
+		}
+	}
+
+}
+void ChatServer::onFriendAck(const muduo::net::TcpConnectionPtr& conn,
+        const FriendAckPtr& message,
+        muduo::Timestamp)
+{
+	LOG_INFO << "onFriendAck:"<<message->fromid()<<"&"<<message->toid();
+	chat::FriendAck ack;
+	ack.set_fromid(message->fromid());
+	ack.set_toid(message->toid());
+	ConnectionListPtr connections = getConnectionList();
+    IdMapPtr idMapPtr = getIdMap();
+
+	int index = -1;
+	IdMap::iterator idmap = idMapPtr->find(ack.toid());
+	if (idmap != idMapPtr->end()){
+		index = idmap->second;
+	}
+	ConnectionList::iterator it = connections->find(index);
+	if ( it!= connections->end()){
+		TcpConnectionPtr ptr = it->second->weakConn_.lock();
+		if (ptr){
+				LOG_INFO<<"检测找到对应的id";
+				codec_.send(ptr,ack);
+		}
+	}
+
+}
 
 void ChatServer::onTimer(void)
 {

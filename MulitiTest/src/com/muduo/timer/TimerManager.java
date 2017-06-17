@@ -14,7 +14,6 @@ import com.muduo.handler.ChatManager;
 public class TimerManager {
 	private static final Logger logger = LoggerFactory.getLogger("TimerManager");
 	
-	private int faiure = 0;
     private ConcurrentHashMap<String, Future> futureMap = new ConcurrentHashMap<String, Future>();  
     private ConcurrentHashMap<String,MyTimer> timers = new ConcurrentHashMap<>();
     private ScheduledExecutorService service;
@@ -41,7 +40,7 @@ public class TimerManager {
 		futureMap.put(tag, future);
 		timers.get(tag).isFirst = false;
 		timers.get(tag).isEnd = false;
-		faiure = 0;
+		timers.get(tag).failure = 0;
 	}
 	public void resetTimer(String tag){
 		logger.info("定时任务重置");
@@ -50,7 +49,7 @@ public class TimerManager {
 		MyTask task = new MyTask(tag, futureMap);
 		Future newFuture = service.scheduleAtFixedRate(task, 3, 3, TimeUnit.SECONDS);
 		futureMap.put(tag, newFuture);
-		faiure = 0;
+		timers.get(tag).failure = 0;
 	}
 	public void endTimer(String tag){
 		logger.info("定时任务停止");
@@ -68,15 +67,34 @@ public class TimerManager {
         }
 		@Override
 		public void run() {
-			logger.info("定时任务执行");
-			chatManager.reSendAll();
-			//失败一次就开启一个长时间的定时器
-			faiure ++;
-			Future future = futureMap.get(tag);
-			future.cancel(true);
-			MyTask task = new MyTask(tag, futureMap);
-			Future newFuture = service.scheduleAtFixedRate(task,faiure*4 , faiure*4, TimeUnit.SECONDS);
-			futureMap.put(tag, newFuture);
+			if (tag.equals("send")){
+				logger.info("send定时器任务执行");
+				chatManager.reSendAll();
+				//失败一次就开启一个长时间的定时器
+				timers.get(tag).failure ++;
+				Future future = futureMap.get(tag);
+				future.cancel(true);
+				MyTask task = new MyTask(tag, futureMap);
+				Future newFuture = service.scheduleAtFixedRate(task,timers.get(tag).failure*4 , timers.get(tag).failure*4, TimeUnit.SECONDS);
+				futureMap.put(tag, newFuture);
+			}else if (tag.equals("off")){
+				logger.info("off定时器任务执行");
+				timers.get(tag).failure ++;
+				Future future = futureMap.get(tag);
+				future.cancel(true);
+				MyTask task = new MyTask(tag, futureMap);
+				Future newFuture = service.scheduleAtFixedRate(task,timers.get(tag).failure*4 , timers.get(tag).failure*4, TimeUnit.SECONDS);
+				futureMap.put(tag, newFuture);
+			}else if (tag.equals("friendask")){
+				logger.info("friendask定时器任务执行");
+				//失败一次就开启一个长时间的定时器
+				timers.get(tag).failure ++;
+				Future future = futureMap.get(tag);
+				future.cancel(true);
+				MyTask task = new MyTask(tag, futureMap);
+				Future newFuture = service.scheduleAtFixedRate(task,timers.get(tag).failure*4 , timers.get(tag).failure*4, TimeUnit.SECONDS);
+				futureMap.put(tag, newFuture);
+			}
 		}
 	};
 }

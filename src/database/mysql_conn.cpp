@@ -104,6 +104,35 @@ int MysqlConn::addSingleOfflineMsg(SingleOfflineMsg sm)
 		return 1;//插入成功
 	}
 }
+int MysqlConn::addOffFriendAsk(FriendOffMsg fm)
+{
+	muduo::MutexLockGuard lock(mutex_);
+	char *select1;
+	select1 = malloc(1000);
+	char *select = "insert into FriendAskMsg(askid,reqid,ask_content) values('%d','%d','%s')";
+	snprintf(select1,1000,select,fm.askid,fm.reqid,fm.ask_content.c_str());
+	if (mysql_query(conn,select1)){
+		return -2; //插入失败
+	}else{
+		return 1;//插入成功
+	}
+}
+
+int MysqlConn::addOffFriendRly(FriendRlyMsg fm)
+{
+	muduo::MutexLockGuard lock(mutex_);
+	char *select1;
+	select1 = malloc(1000);
+	char *select = "insert into FriendRlyMsg(sendid,recvid,reply) values ('%d','%d','%d')";
+	snprintf(select1,1000,select,fm.sendid,fm.recvid,fm.reply);
+	if (mysql_query(conn,select1)){
+		return -2; //插入失败
+	}else{
+		return 1;//插入成功
+	}
+}
+
+
 int MysqlConn::getSingleOffLineMsg(int page,int uid,SingleOffMsgListPtr msgPtr)
 {
 	muduo::MutexLockGuard lock(mutex_);

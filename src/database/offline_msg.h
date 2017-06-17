@@ -28,9 +28,27 @@ public:
 	~GroupOfflineMsg();
 };
 
+class FriendOffMsg{
+public:
+	FriendOffMsg();
+	FriendOffMsg(int aid,int rid,std::string ac);
+	~FriendOffMsg();
+public:
+	int askid;
+	int reqid;
+	std::string ask_content;
+};
 
-
-
+class FriendRlyMsg{
+public:
+	FriendRlyMsg();
+	FriendRlyMsg(int si,int ri,int ry);
+	~FriendRlyMsg();
+public:
+	int sendid;
+	int recvid;
+	int reply;
+};
 
 
 

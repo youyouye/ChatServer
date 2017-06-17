@@ -17,6 +17,8 @@ public:
 	int regis(std::string account,std::string password);
 	int addfrined(std::string uid);
 	int addSingleOfflineMsg(SingleOfflineMsg sm);
+	int addOffFriendAsk(FriendOffMsg fm);
+	int addOffFriendRly(FriendRlyMsg fm);
 	typedef boost::shared_ptr<std::vector<SingleOfflineMsg> > SingleOffMsgListPtr;
 	int getSingleOffLineMsg(int page,int uid,SingleOffMsgListPtr offmsg);
 	MYSQL* init();

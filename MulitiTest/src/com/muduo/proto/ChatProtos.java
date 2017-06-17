@@ -3679,6 +3679,1738 @@ public final class ChatProtos {
     // @@protoc_insertion_point(class_scope:OffMsgRly)
   }
 
+  public interface FriendAskOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 askid = 1;
+    /**
+     * <code>required int32 askid = 1;</code>
+     */
+    boolean hasAskid();
+    /**
+     * <code>required int32 askid = 1;</code>
+     */
+    int getAskid();
+
+    // required int32 reqid = 2;
+    /**
+     * <code>required int32 reqid = 2;</code>
+     */
+    boolean hasReqid();
+    /**
+     * <code>required int32 reqid = 2;</code>
+     */
+    int getReqid();
+
+    // required string askmessage = 3;
+    /**
+     * <code>required string askmessage = 3;</code>
+     */
+    boolean hasAskmessage();
+    /**
+     * <code>required string askmessage = 3;</code>
+     */
+    java.lang.String getAskmessage();
+    /**
+     * <code>required string askmessage = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getAskmessageBytes();
+  }
+  /**
+   * Protobuf type {@code FriendAsk}
+   */
+  public static final class FriendAsk extends
+      com.google.protobuf.GeneratedMessage
+      implements FriendAskOrBuilder {
+    // Use FriendAsk.newBuilder() to construct.
+    private FriendAsk(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private FriendAsk(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final FriendAsk defaultInstance;
+    public static FriendAsk getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public FriendAsk getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendAsk(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              askid_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              reqid_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              askmessage_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.muduo.proto.ChatProtos.internal_static_FriendAsk_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.muduo.proto.ChatProtos.internal_static_FriendAsk_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.muduo.proto.ChatProtos.FriendAsk.class, com.muduo.proto.ChatProtos.FriendAsk.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<FriendAsk> PARSER =
+        new com.google.protobuf.AbstractParser<FriendAsk>() {
+      public FriendAsk parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendAsk(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendAsk> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 askid = 1;
+    public static final int ASKID_FIELD_NUMBER = 1;
+    private int askid_;
+    /**
+     * <code>required int32 askid = 1;</code>
+     */
+    public boolean hasAskid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 askid = 1;</code>
+     */
+    public int getAskid() {
+      return askid_;
+    }
+
+    // required int32 reqid = 2;
+    public static final int REQID_FIELD_NUMBER = 2;
+    private int reqid_;
+    /**
+     * <code>required int32 reqid = 2;</code>
+     */
+    public boolean hasReqid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 reqid = 2;</code>
+     */
+    public int getReqid() {
+      return reqid_;
+    }
+
+    // required string askmessage = 3;
+    public static final int ASKMESSAGE_FIELD_NUMBER = 3;
+    private java.lang.Object askmessage_;
+    /**
+     * <code>required string askmessage = 3;</code>
+     */
+    public boolean hasAskmessage() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string askmessage = 3;</code>
+     */
+    public java.lang.String getAskmessage() {
+      java.lang.Object ref = askmessage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          askmessage_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string askmessage = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAskmessageBytes() {
+      java.lang.Object ref = askmessage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        askmessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      askid_ = 0;
+      reqid_ = 0;
+      askmessage_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasAskid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasReqid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAskmessage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, askid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, reqid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getAskmessageBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, askid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, reqid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getAskmessageBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAsk parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.muduo.proto.ChatProtos.FriendAsk prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code FriendAsk}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.muduo.proto.ChatProtos.FriendAskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendAsk_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendAsk_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.muduo.proto.ChatProtos.FriendAsk.class, com.muduo.proto.ChatProtos.FriendAsk.Builder.class);
+      }
+
+      // Construct using com.muduo.proto.ChatProtos.FriendAsk.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        askid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        reqid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        askmessage_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendAsk_descriptor;
+      }
+
+      public com.muduo.proto.ChatProtos.FriendAsk getDefaultInstanceForType() {
+        return com.muduo.proto.ChatProtos.FriendAsk.getDefaultInstance();
+      }
+
+      public com.muduo.proto.ChatProtos.FriendAsk build() {
+        com.muduo.proto.ChatProtos.FriendAsk result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.muduo.proto.ChatProtos.FriendAsk buildPartial() {
+        com.muduo.proto.ChatProtos.FriendAsk result = new com.muduo.proto.ChatProtos.FriendAsk(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.askid_ = askid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.reqid_ = reqid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.askmessage_ = askmessage_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.muduo.proto.ChatProtos.FriendAsk) {
+          return mergeFrom((com.muduo.proto.ChatProtos.FriendAsk)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.muduo.proto.ChatProtos.FriendAsk other) {
+        if (other == com.muduo.proto.ChatProtos.FriendAsk.getDefaultInstance()) return this;
+        if (other.hasAskid()) {
+          setAskid(other.getAskid());
+        }
+        if (other.hasReqid()) {
+          setReqid(other.getReqid());
+        }
+        if (other.hasAskmessage()) {
+          bitField0_ |= 0x00000004;
+          askmessage_ = other.askmessage_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasAskid()) {
+          
+          return false;
+        }
+        if (!hasReqid()) {
+          
+          return false;
+        }
+        if (!hasAskmessage()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.muduo.proto.ChatProtos.FriendAsk parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.muduo.proto.ChatProtos.FriendAsk) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 askid = 1;
+      private int askid_ ;
+      /**
+       * <code>required int32 askid = 1;</code>
+       */
+      public boolean hasAskid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 askid = 1;</code>
+       */
+      public int getAskid() {
+        return askid_;
+      }
+      /**
+       * <code>required int32 askid = 1;</code>
+       */
+      public Builder setAskid(int value) {
+        bitField0_ |= 0x00000001;
+        askid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 askid = 1;</code>
+       */
+      public Builder clearAskid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        askid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 reqid = 2;
+      private int reqid_ ;
+      /**
+       * <code>required int32 reqid = 2;</code>
+       */
+      public boolean hasReqid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 reqid = 2;</code>
+       */
+      public int getReqid() {
+        return reqid_;
+      }
+      /**
+       * <code>required int32 reqid = 2;</code>
+       */
+      public Builder setReqid(int value) {
+        bitField0_ |= 0x00000002;
+        reqid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 reqid = 2;</code>
+       */
+      public Builder clearReqid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        reqid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required string askmessage = 3;
+      private java.lang.Object askmessage_ = "";
+      /**
+       * <code>required string askmessage = 3;</code>
+       */
+      public boolean hasAskmessage() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string askmessage = 3;</code>
+       */
+      public java.lang.String getAskmessage() {
+        java.lang.Object ref = askmessage_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          askmessage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string askmessage = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAskmessageBytes() {
+        java.lang.Object ref = askmessage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          askmessage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string askmessage = 3;</code>
+       */
+      public Builder setAskmessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        askmessage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string askmessage = 3;</code>
+       */
+      public Builder clearAskmessage() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        askmessage_ = getDefaultInstance().getAskmessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string askmessage = 3;</code>
+       */
+      public Builder setAskmessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        askmessage_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:FriendAsk)
+    }
+
+    static {
+      defaultInstance = new FriendAsk(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendAsk)
+  }
+
+  public interface FriendRlyOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 sendid = 1;
+    /**
+     * <code>required int32 sendid = 1;</code>
+     */
+    boolean hasSendid();
+    /**
+     * <code>required int32 sendid = 1;</code>
+     */
+    int getSendid();
+
+    // required int32 recvid = 2;
+    /**
+     * <code>required int32 recvid = 2;</code>
+     */
+    boolean hasRecvid();
+    /**
+     * <code>required int32 recvid = 2;</code>
+     */
+    int getRecvid();
+
+    // required int32 reply = 3;
+    /**
+     * <code>required int32 reply = 3;</code>
+     */
+    boolean hasReply();
+    /**
+     * <code>required int32 reply = 3;</code>
+     */
+    int getReply();
+  }
+  /**
+   * Protobuf type {@code FriendRly}
+   */
+  public static final class FriendRly extends
+      com.google.protobuf.GeneratedMessage
+      implements FriendRlyOrBuilder {
+    // Use FriendRly.newBuilder() to construct.
+    private FriendRly(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private FriendRly(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final FriendRly defaultInstance;
+    public static FriendRly getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public FriendRly getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendRly(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              sendid_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              recvid_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              reply_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.muduo.proto.ChatProtos.internal_static_FriendRly_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.muduo.proto.ChatProtos.internal_static_FriendRly_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.muduo.proto.ChatProtos.FriendRly.class, com.muduo.proto.ChatProtos.FriendRly.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<FriendRly> PARSER =
+        new com.google.protobuf.AbstractParser<FriendRly>() {
+      public FriendRly parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendRly(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendRly> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 sendid = 1;
+    public static final int SENDID_FIELD_NUMBER = 1;
+    private int sendid_;
+    /**
+     * <code>required int32 sendid = 1;</code>
+     */
+    public boolean hasSendid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 sendid = 1;</code>
+     */
+    public int getSendid() {
+      return sendid_;
+    }
+
+    // required int32 recvid = 2;
+    public static final int RECVID_FIELD_NUMBER = 2;
+    private int recvid_;
+    /**
+     * <code>required int32 recvid = 2;</code>
+     */
+    public boolean hasRecvid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 recvid = 2;</code>
+     */
+    public int getRecvid() {
+      return recvid_;
+    }
+
+    // required int32 reply = 3;
+    public static final int REPLY_FIELD_NUMBER = 3;
+    private int reply_;
+    /**
+     * <code>required int32 reply = 3;</code>
+     */
+    public boolean hasReply() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 reply = 3;</code>
+     */
+    public int getReply() {
+      return reply_;
+    }
+
+    private void initFields() {
+      sendid_ = 0;
+      recvid_ = 0;
+      reply_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasSendid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRecvid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasReply()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, sendid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, recvid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, reply_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, sendid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, recvid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, reply_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendRly parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.muduo.proto.ChatProtos.FriendRly prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code FriendRly}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.muduo.proto.ChatProtos.FriendRlyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendRly_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendRly_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.muduo.proto.ChatProtos.FriendRly.class, com.muduo.proto.ChatProtos.FriendRly.Builder.class);
+      }
+
+      // Construct using com.muduo.proto.ChatProtos.FriendRly.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        sendid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        recvid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        reply_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendRly_descriptor;
+      }
+
+      public com.muduo.proto.ChatProtos.FriendRly getDefaultInstanceForType() {
+        return com.muduo.proto.ChatProtos.FriendRly.getDefaultInstance();
+      }
+
+      public com.muduo.proto.ChatProtos.FriendRly build() {
+        com.muduo.proto.ChatProtos.FriendRly result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.muduo.proto.ChatProtos.FriendRly buildPartial() {
+        com.muduo.proto.ChatProtos.FriendRly result = new com.muduo.proto.ChatProtos.FriendRly(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.sendid_ = sendid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.recvid_ = recvid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.reply_ = reply_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.muduo.proto.ChatProtos.FriendRly) {
+          return mergeFrom((com.muduo.proto.ChatProtos.FriendRly)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.muduo.proto.ChatProtos.FriendRly other) {
+        if (other == com.muduo.proto.ChatProtos.FriendRly.getDefaultInstance()) return this;
+        if (other.hasSendid()) {
+          setSendid(other.getSendid());
+        }
+        if (other.hasRecvid()) {
+          setRecvid(other.getRecvid());
+        }
+        if (other.hasReply()) {
+          setReply(other.getReply());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasSendid()) {
+          
+          return false;
+        }
+        if (!hasRecvid()) {
+          
+          return false;
+        }
+        if (!hasReply()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.muduo.proto.ChatProtos.FriendRly parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.muduo.proto.ChatProtos.FriendRly) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 sendid = 1;
+      private int sendid_ ;
+      /**
+       * <code>required int32 sendid = 1;</code>
+       */
+      public boolean hasSendid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 sendid = 1;</code>
+       */
+      public int getSendid() {
+        return sendid_;
+      }
+      /**
+       * <code>required int32 sendid = 1;</code>
+       */
+      public Builder setSendid(int value) {
+        bitField0_ |= 0x00000001;
+        sendid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 sendid = 1;</code>
+       */
+      public Builder clearSendid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sendid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 recvid = 2;
+      private int recvid_ ;
+      /**
+       * <code>required int32 recvid = 2;</code>
+       */
+      public boolean hasRecvid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 recvid = 2;</code>
+       */
+      public int getRecvid() {
+        return recvid_;
+      }
+      /**
+       * <code>required int32 recvid = 2;</code>
+       */
+      public Builder setRecvid(int value) {
+        bitField0_ |= 0x00000002;
+        recvid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 recvid = 2;</code>
+       */
+      public Builder clearRecvid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        recvid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 reply = 3;
+      private int reply_ ;
+      /**
+       * <code>required int32 reply = 3;</code>
+       */
+      public boolean hasReply() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 reply = 3;</code>
+       */
+      public int getReply() {
+        return reply_;
+      }
+      /**
+       * <code>required int32 reply = 3;</code>
+       */
+      public Builder setReply(int value) {
+        bitField0_ |= 0x00000004;
+        reply_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 reply = 3;</code>
+       */
+      public Builder clearReply() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        reply_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:FriendRly)
+    }
+
+    static {
+      defaultInstance = new FriendRly(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendRly)
+  }
+
+  public interface FriendAckOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 fromid = 1;
+    /**
+     * <code>required int32 fromid = 1;</code>
+     */
+    boolean hasFromid();
+    /**
+     * <code>required int32 fromid = 1;</code>
+     */
+    int getFromid();
+
+    // required int32 toid = 2;
+    /**
+     * <code>required int32 toid = 2;</code>
+     */
+    boolean hasToid();
+    /**
+     * <code>required int32 toid = 2;</code>
+     */
+    int getToid();
+  }
+  /**
+   * Protobuf type {@code FriendAck}
+   */
+  public static final class FriendAck extends
+      com.google.protobuf.GeneratedMessage
+      implements FriendAckOrBuilder {
+    // Use FriendAck.newBuilder() to construct.
+    private FriendAck(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private FriendAck(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final FriendAck defaultInstance;
+    public static FriendAck getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public FriendAck getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendAck(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              fromid_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              toid_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.muduo.proto.ChatProtos.internal_static_FriendAck_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.muduo.proto.ChatProtos.internal_static_FriendAck_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.muduo.proto.ChatProtos.FriendAck.class, com.muduo.proto.ChatProtos.FriendAck.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<FriendAck> PARSER =
+        new com.google.protobuf.AbstractParser<FriendAck>() {
+      public FriendAck parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendAck(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendAck> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 fromid = 1;
+    public static final int FROMID_FIELD_NUMBER = 1;
+    private int fromid_;
+    /**
+     * <code>required int32 fromid = 1;</code>
+     */
+    public boolean hasFromid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 fromid = 1;</code>
+     */
+    public int getFromid() {
+      return fromid_;
+    }
+
+    // required int32 toid = 2;
+    public static final int TOID_FIELD_NUMBER = 2;
+    private int toid_;
+    /**
+     * <code>required int32 toid = 2;</code>
+     */
+    public boolean hasToid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 toid = 2;</code>
+     */
+    public int getToid() {
+      return toid_;
+    }
+
+    private void initFields() {
+      fromid_ = 0;
+      toid_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasFromid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasToid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, fromid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, toid_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, fromid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, toid_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.muduo.proto.ChatProtos.FriendAck parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.muduo.proto.ChatProtos.FriendAck prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code FriendAck}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.muduo.proto.ChatProtos.FriendAckOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendAck_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendAck_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.muduo.proto.ChatProtos.FriendAck.class, com.muduo.proto.ChatProtos.FriendAck.Builder.class);
+      }
+
+      // Construct using com.muduo.proto.ChatProtos.FriendAck.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        fromid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        toid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.muduo.proto.ChatProtos.internal_static_FriendAck_descriptor;
+      }
+
+      public com.muduo.proto.ChatProtos.FriendAck getDefaultInstanceForType() {
+        return com.muduo.proto.ChatProtos.FriendAck.getDefaultInstance();
+      }
+
+      public com.muduo.proto.ChatProtos.FriendAck build() {
+        com.muduo.proto.ChatProtos.FriendAck result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.muduo.proto.ChatProtos.FriendAck buildPartial() {
+        com.muduo.proto.ChatProtos.FriendAck result = new com.muduo.proto.ChatProtos.FriendAck(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.fromid_ = fromid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.toid_ = toid_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.muduo.proto.ChatProtos.FriendAck) {
+          return mergeFrom((com.muduo.proto.ChatProtos.FriendAck)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.muduo.proto.ChatProtos.FriendAck other) {
+        if (other == com.muduo.proto.ChatProtos.FriendAck.getDefaultInstance()) return this;
+        if (other.hasFromid()) {
+          setFromid(other.getFromid());
+        }
+        if (other.hasToid()) {
+          setToid(other.getToid());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasFromid()) {
+          
+          return false;
+        }
+        if (!hasToid()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.muduo.proto.ChatProtos.FriendAck parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.muduo.proto.ChatProtos.FriendAck) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 fromid = 1;
+      private int fromid_ ;
+      /**
+       * <code>required int32 fromid = 1;</code>
+       */
+      public boolean hasFromid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 fromid = 1;</code>
+       */
+      public int getFromid() {
+        return fromid_;
+      }
+      /**
+       * <code>required int32 fromid = 1;</code>
+       */
+      public Builder setFromid(int value) {
+        bitField0_ |= 0x00000001;
+        fromid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 fromid = 1;</code>
+       */
+      public Builder clearFromid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        fromid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 toid = 2;
+      private int toid_ ;
+      /**
+       * <code>required int32 toid = 2;</code>
+       */
+      public boolean hasToid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 toid = 2;</code>
+       */
+      public int getToid() {
+        return toid_;
+      }
+      /**
+       * <code>required int32 toid = 2;</code>
+       */
+      public Builder setToid(int value) {
+        bitField0_ |= 0x00000002;
+        toid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 toid = 2;</code>
+       */
+      public Builder clearToid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        toid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:FriendAck)
+    }
+
+    static {
+      defaultInstance = new FriendAck(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendAck)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Connect_descriptor;
   private static
@@ -3709,6 +5441,21 @@ public final class ChatProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_OffMsgRly_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendAsk_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_FriendAsk_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendRly_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_FriendRly_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendAck_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_FriendAck_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3727,8 +5474,12 @@ public final class ChatProtos {
       "\001 \002(\005\022\014\n\004toid\030\002 \002(\005\022\014\n\004time\030\003 \002(\005\022\n\n\002id\030" +
       "\004 \002(\005\"&\n\tOffMsgAsk\022\014\n\004page\030\001 \002(\005\022\013\n\003uid\030" +
       "\002 \002(\005\"9\n\tOffMsgRly\022\014\n\004page\030\001 \002(\005\022\036\n\010mess" +
-      "ages\030\002 \003(\0132\014.ChatMessageB\035\n\017com.muduo.pr",
-      "otoB\nChatProtos"
+      "ages\030\002 \003(\0132\014.ChatMessage\"=\n\tFriendAsk\022\r\n",
+      "\005askid\030\001 \002(\005\022\r\n\005reqid\030\002 \002(\005\022\022\n\naskmessag" +
+      "e\030\003 \002(\t\":\n\tFriendRly\022\016\n\006sendid\030\001 \002(\005\022\016\n\006" +
+      "recvid\030\002 \002(\005\022\r\n\005reply\030\003 \002(\005\")\n\tFriendAck" +
+      "\022\016\n\006fromid\030\001 \002(\005\022\014\n\004toid\030\002 \002(\005B\035\n\017com.mu" +
+      "duo.protoB\nChatProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3771,6 +5522,24 @@ public final class ChatProtos {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_OffMsgRly_descriptor,
               new java.lang.String[] { "Page", "Messages", });
+          internal_static_FriendAsk_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_FriendAsk_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_FriendAsk_descriptor,
+              new java.lang.String[] { "Askid", "Reqid", "Askmessage", });
+          internal_static_FriendRly_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_FriendRly_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_FriendRly_descriptor,
+              new java.lang.String[] { "Sendid", "Recvid", "Reply", });
+          internal_static_FriendAck_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_FriendAck_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_FriendAck_descriptor,
+              new java.lang.String[] { "Fromid", "Toid", });
           return null;
         }
       };
