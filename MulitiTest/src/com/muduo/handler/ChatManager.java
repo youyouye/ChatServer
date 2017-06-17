@@ -56,10 +56,10 @@ public class ChatManager {
 	private Map<Link,Mess> sendMap;
 	private Map<Link,Mess> recvMap;
 	
-	public synchronized void reSendAll(){
+	public void reSendAll(){
 		logger.info("ChatManager:重发所有信息:"+ client.getClientId());
-		for (Mess mess : sendMap.values()) {
-			 client.rSendMess(mess.chatMess.getToid(),mess.chatMess.getId(),mess.chatMess.getMessage());
+		for (final Mess mess : sendMap.values()) {
+			client.rSendMess(mess.chatMess.getToid(),mess.chatMess.getId(),mess.chatMess.getMessage());					
 		}
 	}
 	public void receiveAck(int fromid,int toid,int rank){

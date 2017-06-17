@@ -69,7 +69,7 @@ public class MultiplexerTest {
 	
 	
 	public static void main(String[] args){
-		String multiplexerHost = "127.0.0.1";
+		String multiplexerHost = "47.94.152.187";
 		MultiplexerTest test = new MultiplexerTest(multiplexerHost);
 		test.addTestCase(new TestOfflineMsg());
 		test.run();

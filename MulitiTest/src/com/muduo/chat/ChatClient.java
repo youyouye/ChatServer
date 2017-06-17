@@ -1,5 +1,7 @@
 package com.muduo.chat;
 import java.net.InetSocketAddress;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -18,6 +20,7 @@ import com.google.protobuf.MessageLite;
 import com.muduo.handler.ChatManager;
 import com.muduo.proto.ChatProtos;
 import com.muduo.timer.MyTimer;
+import com.muduo.timer.TimerManager;
 
 
 public class ChatClient {
@@ -35,10 +38,11 @@ public class ChatClient {
 	private MessageLite lite;
 	//控制的全局Mess信息.
 	private ChatManager chatManager;
-	private MyTimer myTimer;
-	private MyTimer offTimer;
+	private TimerManager timeManager;
 	//客户的id；
 	private int clientID;
+	//定时器
+	public ScheduledExecutorService serviceEx = Executors.newScheduledThreadPool(2);	
 	
 	public ChatClient(EventQueue queue, InetSocketAddress remoteAddress,EventLoopGroup workerGroup){
 		this.queue = queue;
@@ -47,8 +51,7 @@ public class ChatClient {
 		this.timer = new HashedWheelTimer();
 		chatManager = new ChatManager();
 		chatManager.setClient(this);
-		myTimer = new MyTimer(chatManager,1);
-		offTimer = new MyTimer(chatManager, 2);
+		timeManager = new TimerManager(chatManager);
 		connId = -1;
 	}
 	public void setClientId(int id){
@@ -78,6 +81,10 @@ public class ChatClient {
 		
 	}
 	
+	public EventLoopGroup getEventLoop(){
+		return workerGroup;
+	}
+	
 	public void connectAndWait(){
 		latch = new MyCountDownLatch(1);
 		connect();
@@ -94,7 +101,7 @@ public class ChatClient {
 		connection.writeAndFlush(cm);
 	}
 	
-	public void rSendMess(int toid,int serialId,String content){
+	public void rSendMess(final int toid,final int serialId,final String content){
 		logger.info("重发信息"+content+":"+clientID);
 		ChatProtos.ChatMessage message = ChatProtos.ChatMessage.newBuilder()
 				.setFromid(clientID)
@@ -139,9 +146,9 @@ public class ChatClient {
 			 * 我们需要让消息具有序号,假定初始都是100;消息如何与序号对应了,需要让每一条消息具有序号?如果我要重发消息的话,岂不是有个消息保存的问题.
 		     * 那么需要保存多少消息,5,6条.根据人数来说的话还真是会很多唉?
 			 */
-				if (myTimer.isFirst || myTimer.isEnd){
+				if (timeManager.isFirst("send") || timeManager.isEnd("send")){
 					logger.info("执行了几次?");
-					myTimer.start();
+					timeManager.startTimer("send");
 				}
 				lastWriteFuture = connection.writeAndFlush(cm);
                 lastWriteFuture.addListener(new GenericFutureListener<ChannelFuture>() {
@@ -165,9 +172,9 @@ public class ChatClient {
 					.setUid(clientID).build();
 		ChatMessage cm = new ChatMessage("chat.OffMsgAsk\0",message);
 		connection.writeAndFlush(cm);
-		if (offTimer.isFirst || myTimer.isEnd){
+		if (timeManager.isFirst("off") || timeManager.isEnd("off")){
 			logger.info("执行了几次?");
-			myTimer.start();
+			timeManager.startTimer("off");
 		}
 	}
 	
@@ -182,16 +189,16 @@ public class ChatClient {
 	
 	public void resetTimer(int which){
 		if (which == 1){
-			myTimer.reset();
+			timeManager.resetTimer("send");
 		}else if (which == 2){
-			offTimer.reset();
+			timeManager.resetTimer("off");
 		}
 	}
 	public void finishTimer(int which){
 		if (which == 1){
-			myTimer.end();
+			timeManager.endTimer("send");
 		}else if (which == 2){
-			offTimer.end();
+			timeManager.endTimer("off");
 		}
 	}
 }

@@ -16,6 +16,7 @@ public class ChatEncode extends MessageToByteEncoder<ChatMessage>{
 	@Override
 	protected void encode(ChannelHandlerContext ctx, ChatMessage msg,
 			ByteBuf out) throws Exception {
+		logger.info("发的数据:"+msg.getMessage().toByteArray().length);
 		int nameLen = msg.getType().length();
 		int byte_size = msg.getMessage().toByteArray().length;
 		
@@ -27,8 +28,8 @@ public class ChatEncode extends MessageToByteEncoder<ChatMessage>{
 		out.writeBytes(msg.getMessage().toByteArray());
 		Adler32 check = new Adler32();
 		byte[] dst = new byte[out.readableBytes()-4];
-		out.getBytes(4, dst, 0, out.readableBytes()-4);
-		check.update(dst,0,out.readableBytes()-4);
+		out.getBytes(4, dst, 0, len-4);
+		check.update(dst,0,len-4);
 		int checkSum = (int) check.getValue();
 		out.writeInt(checkSum);
 		

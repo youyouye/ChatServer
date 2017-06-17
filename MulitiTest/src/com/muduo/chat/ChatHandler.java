@@ -1,4 +1,6 @@
 package com.muduo.chat;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.zip.Adler32;
 
 import org.slf4j.Logger;
@@ -30,24 +32,34 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg){
-		logger.info("channel read has exec!");
         ByteBuf buf = (ByteBuf) msg;
+		logger.info("channel read has exec!"+buf.readableBytes());
 		while(buf.readableBytes() >= kMinMessageLen+kHeaderLen){
-			int len = buf.getInt(0);
+			byte[] dst = new byte[4];
+			buf.getBytes(0,dst, 0 , 4);
+			int len = ByteBuffer.wrap(dst).order(ByteOrder.BIG_ENDIAN).getInt();
 			if (len > kMaxMessageLen || len < kMinMessageLen){
 				//error call back.
+				logger.info("出问题??"+len);
+				break;
 			}
 			else if (buf.readableBytes() >= (len + 4)){
 				int test = buf.readableBytes();
+				logger.info("buf现有数据:"+test+"readIndex:");
 				int error = -1;
 				Message message = parse(buf,len);
 				if (message != null){
 					dispatcher.onProtobufMessage(ctx, message);
 				}
+			}else {
+				break; //噢,刚才少了这句,实际上会无限循环下去..
 			}
 		}
-	
+		
 	}
+	
+	
+	
 	
 	public Message parse(ByteBuf buf,int len){
 		Message message = null;
@@ -56,12 +68,16 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 		int expectedCheckSUm = buf.getInt(len-4);
 		Adler32 check = new Adler32();
 		byte[] dst = new byte[len-kHeaderLen];
-		buf.getBytes(0,dst, 0 , len-kHeaderLen);
+		buf.getBytes(4,dst, 0 , len-kHeaderLen);
 		check.update(dst, 0, len-kHeaderLen);
 		int checkSum = (int) check.getValue();
 		if (checkSum == expectedCheckSUm || checkSum != expectedCheckSUm){
-			int nameLen = buf.readInt();
-			if (nameLen >= 2 && nameLen <= len - 2*kHeaderLen){
+			
+			byte[] namedst = new byte[4];
+			buf.getBytes(4,namedst, 0 , 4);
+			int nameLen = ByteBuffer.wrap(dst).order(ByteOrder.BIG_ENDIAN).getInt();
+			buf.readInt();
+		if (nameLen >= 2 && nameLen <= len - 2*kHeaderLen){
 				byte[] nameByte = new byte[nameLen];
 				buf.readBytes(nameByte, 0, nameLen);
 				String typeName = new String(nameByte);
