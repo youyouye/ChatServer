@@ -9,6 +9,7 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/Callbacks.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Timestamp.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/InetAddress.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h \
  ../src/dispatcher.h ../src/GroupServer.h ../src/group.pb.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Logging.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/LogStream.h \
@@ -17,7 +18,9 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h \
- /home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/ThreadPool.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h \
  ../src/database/online_user.h ../src/database/mysql_conn_pool.h \
  ../src/database/mysql_conn.h ../src/database/offline_msg.h \
  ../src/database/offline_msg.h
@@ -46,6 +49,8 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
 
 /home/moocos/Downloads/build/release-install/include/muduo/net/InetAddress.h:
 
+/home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h:
+
 ../src/dispatcher.h:
 
 ../src/GroupServer.h:
@@ -66,7 +71,11 @@ src/ChatServer.d: ../src/ChatServer.cpp ../src/ChatServer.h \
 
 /home/moocos/Downloads/build/release-install/include/muduo/net/TcpServer.h:
 
-/home/moocos/Downloads/build/release-install/include/muduo/base/Atomic.h:
+/home/moocos/Downloads/build/release-install/include/muduo/base/ThreadPool.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h:
 
 ../src/database/online_user.h:
 

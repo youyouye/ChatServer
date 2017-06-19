@@ -1,7 +1,9 @@
 package com.muduo.handler;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,10 +15,11 @@ public class ChatManager {
 	private static final Logger logger = LoggerFactory.getLogger("ChatManager");
 
 	private ChatClient client;
-	static int serialId = 1;
+	static AtomicInteger serialId = new AtomicInteger();
 	public ChatManager(){
 		sendMap = new HashMap<>();
 		recvMap = new HashMap<>();
+		sendTimes = new HashMap<>();
 	}
 	public void setClient(ChatClient cl){
 		this.client = cl;
@@ -53,7 +56,16 @@ public class ChatManager {
 			return this.fromid + this.toid + this.rank;
 		}
 	}
+	private class TwoTime{
+		public long sendTime;
+		public long recvTime;
+		public TwoTime(long sT,long rT){
+			this.sendTime = sT;
+			this.recvTime = rT;
+		}
+	}
 	private Map<Link,Mess> sendMap;
+	private Map<Link,TwoTime> sendTimes;
 	private Map<Link,Mess> recvMap;
 	
 	public void reSendAll(){
@@ -66,6 +78,8 @@ public class ChatManager {
 		//无法想象这里的逻辑混乱了.ack代表的信息错误了正好相反.
 		Link link = new Link(toid, fromid, rank);
 		if (sendMap.containsKey(link)){
+			Date d2 = new Date();
+			sendTimes.get(link).recvTime = d2.getTime();
 			sendMap.remove(link);
 			//然后重启定时器.
 			if (sendMap.isEmpty()){
@@ -109,8 +123,15 @@ public class ChatManager {
 		Link link = new Link(fromid, toid, rank);
 		Mess mess = new Mess(chatMess,1);
 		sendMap.put(link, mess);
+		Date d1 = new Date();
+		sendTimes.put(link,new TwoTime(d1.getTime(), 0));
 	}
 	public int getSerialId(){
-		return serialId++;
+		return serialId.getAndIncrement();
+	}
+	public void printTimes(){
+		for (TwoTime value : sendTimes.values()){
+			logger.info("发送消息时间:"+(value.recvTime-value.sendTime));
+		}
 	}
 }

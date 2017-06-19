@@ -17,14 +17,16 @@
 #include <muduo/base/Mutex.h>
 #include <muduo/net/EventLoop.h>
 #include <muduo/net/TcpServer.h>
-
+#include <muduo/base/ThreadPool.h>
 #include <boost/bind.hpp>
 
 #include <map>
+#include <hash_map>
 #include <list>
 
 using namespace muduo;
 using namespace muduo::net;
+using namespace __gnu_cxx;
 
 typedef boost::shared_ptr<chat::Connect> ConnectPtr;
 typedef boost::shared_ptr<chat::ChatMessage> ChatMessagePtr;
@@ -72,6 +74,7 @@ private:
 	void onChat(const muduo::net::TcpConnectionPtr& conn,
             const ChatMessagePtr& message,
             muduo::Timestamp);
+	void onDataChat(const muduo::net::TcpConnectionPtr& conn,int toid,int serialId,int fromid,std::string content);
 	void onHeart(const muduo::net::TcpConnectionPtr& conn,
             const HeartPtr& message,
             muduo::Timestamp);
@@ -92,7 +95,7 @@ private:
             muduo::Timestamp);
 	void onTimer(void);
 	void dumpConnectionList() const;
-
+	void printThroughput();
 	struct Entry : public muduo::copyable
 	{
 	    explicit Entry(const WeakTcpConnectionPtr& weakConn)
@@ -124,9 +127,9 @@ private:
 
 	typedef boost::shared_ptr<Entry> EntryPtr;
 	typedef boost::weak_ptr<Entry> WeakEntryPtr;
-	typedef std::map<int,EntryPtr> ConnectionList;
+	typedef hash_map<int,EntryPtr> ConnectionList;
 	typedef std::list< boost::shared_ptr< Node > > ListNode;
-	typedef std::map<int,int> IdMap;
+	typedef hash_map<int,int> IdMap;
 
 	typedef boost::shared_ptr<ConnectionList> ConnectionListPtr;
 	typedef boost::shared_ptr<ListNode> ListNodesPtr;
@@ -152,6 +155,12 @@ private:
 	IdMapPtr idVuid;
 	ConnectionListPtr connections_;
 	AtomicInt32 index;
+	//用于性能测评
+	static AtomicInt64 transNum;
+	int64_t oldCountRecv_;
+	int64_t oldCountSend_;
+	double recvResult,sendResult,transResult;
+	Timestamp startTime_;
 	MutexLock mutex_conn;
 	MutexLock mutex_id;
 	ListNodesPtr nodes;
@@ -178,7 +187,7 @@ private:
 		private:
 			int id;
 	};
-
+	ThreadPool pool;
 };
 
 #endif /* CHATSERVER_H_ */

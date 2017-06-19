@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.muduo.testcase.TestMultiClient;
 import com.muduo.testcase.TestOfflineMsg;
 import com.muduo.testcase.TestTwoClientChat;
 import com.muduo.testcase.TestTwoClientChat2;
@@ -19,7 +20,7 @@ public class MultiplexerTest {
 	
     public final Pattern commandChannel = Pattern.compile("CONN (\\d+) FROM [0-9.:]+ IS ([A-Z]+)\r\n");
 
-    private static final int kMultiplexerServerPort = 2017;
+    private static final int kMultiplexerServerPort = 8866;
     private static final int kLogicalServerPort = 9999;
     private final InetSocketAddress multiplexerAddress;
 	private final EventLoopGroup workerGroup;
@@ -69,9 +70,10 @@ public class MultiplexerTest {
 	
 	
 	public static void main(String[] args){
-		String multiplexerHost = "47.94.152.187";
+		//String multiplexerHost = "47.94.152.187";
+		String multiplexerHost = "192.168.59.1";
 		MultiplexerTest test = new MultiplexerTest(multiplexerHost);
-		test.addTestCase(new TestOfflineMsg());
+		test.addTestCase(new TestMultiClient());
 		test.run();
 	}
 }

@@ -23,6 +23,8 @@ src/inspect/DataInspector.d: ../src/inspect/DataInspector.cpp \
  /home/moocos/Downloads/build/release-install/include/muduo/base/LogStream.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/ThreadPool.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/http/HttpResponse.h
 
@@ -79,6 +81,10 @@ src/inspect/DataInspector.d: ../src/inspect/DataInspector.cpp \
 /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/ThreadPool.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h:
 

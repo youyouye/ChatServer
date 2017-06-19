@@ -10,6 +10,9 @@
 using namespace muduo;
 using namespace muduo::net;
 
+muduo::AtomicInt64 ProtobufCodec::transrecved_;
+muduo::AtomicInt64 ProtobufCodec::transsended_;
+
 void ProtobufCodec::fillEmptyBuffer(Buffer* buf, const google::protobuf::Message& message)
 {
 	  assert(buf->readableBytes() == 0);
@@ -31,6 +34,7 @@ void ProtobufCodec::fillEmptyBuffer(Buffer* buf, const google::protobuf::Message
 	  assert(buf->readableBytes() == sizeof nameLen + nameLen + byte_size + sizeof checkSum);
 	  int32_t len = sockets::hostToNetwork32(static_cast<int32_t>(buf->readableBytes()));
 	  buf->prepend(&len, sizeof len);
+	  transsended_.add(buf->readableBytes());
 }
 
 namespace
@@ -103,6 +107,7 @@ void ProtobufCodec::onMessage(const TcpConnectionPtr& conn,
 	      if (errorCode == kNoError && message)
 	      {
 	        messageCallback_(conn, message, receiveTime);
+	        transrecved_.add(len+4);
 	        buf->retrieve(kHeaderLen+len);
 	      }
 	      else

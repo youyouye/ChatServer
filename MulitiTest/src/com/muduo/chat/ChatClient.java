@@ -29,7 +29,6 @@ public class ChatClient {
 	private final EventLoopGroup workerGroup;
 	private final InetSocketAddress remoteAddress;
 	private final EventQueue queue;
-	private final Timer timer;
 	
 	private volatile Channel connection;
 	private Bootstrap bootstrap;
@@ -48,7 +47,6 @@ public class ChatClient {
 		this.queue = queue;
 		this.remoteAddress = remoteAddress;
 		this.workerGroup = workerGroup;
-		this.timer = new HashedWheelTimer();
 		chatManager = new ChatManager();
 		chatManager.setClient(this);
 		timeManager = new TimerManager(chatManager);
@@ -59,6 +57,9 @@ public class ChatClient {
 	}
 	public int getClientId(){
 		return clientID;
+	}
+	public ChatManager getChatManager(){
+		return chatManager;
 	}
 	public void connect(){
 		assert bootstrap == null;	
@@ -122,7 +123,7 @@ public class ChatClient {
 		connection.writeAndFlush(cm);
 	}
 	public void sendChatMessage(int to,String mess){
-		logger.info("要发信息"+mess);
+	//	logger.info("要发信息"+mess);
         ChannelFuture lastWriteFuture = null;
 		try {
 			final String input = mess;

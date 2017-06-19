@@ -1,7 +1,9 @@
 package com.muduo.chat;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.util.zip.Adler32;
+
+
+
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,12 +14,41 @@ import com.muduo.proto.ChatProtos;
 import com.muduo.proto.GroupProtos;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 
 public class ChatHandler extends ChannelInboundHandlerAdapter{
 	private static final Logger logger = LoggerFactory.getLogger("ChatHandler");
+
+    public static final Cumulator MERGE_CUMULATOR = new Cumulator() {
+        @Override
+        public ByteBuf cumulate(ByteBufAllocator alloc, ByteBuf cumulation, ByteBuf in) {
+            ByteBuf buffer;
+            if (cumulation.writerIndex() > cumulation.maxCapacity() - in.readableBytes()
+                    || cumulation.refCnt() > 1) {
+                // Expand cumulation (by replace it) when either there is not more room in the buffer
+                // or if the refCnt is greater then 1 which may happen when the user use slice().retain() or
+                // duplicate().retain().
+                //
+                // See:
+                // - https://github.com/netty/netty/issues/2327
+                // - https://github.com/netty/netty/issues/1764
+                buffer = expandCumulation(alloc, cumulation, in.readableBytes());
+            } else {
+                buffer = cumulation;
+            }
+            buffer.writeBytes(in);
+            in.release();
+            return buffer;
+        }
+
+    };
+    ByteBuf cumulation;
+    private Cumulator cumulator = MERGE_CUMULATOR;
+    private int numReads;
+    private boolean first;
 
 	private final int kHeaderLen = 4;
 	private final int kMinMessageLen = 2*kHeaderLen + 2;
@@ -34,50 +65,65 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 	public void channelRead(ChannelHandlerContext ctx, Object msg){
         ByteBuf buf = (ByteBuf) msg;
 		logger.info("channel read has exec!"+buf.readableBytes());
-		while(buf.readableBytes() >= kMinMessageLen+kHeaderLen){
+		
+        first = (cumulation == null);
+        if (first) {
+            cumulation = buf;
+        } else {
+            cumulation = cumulator.cumulate(ctx.alloc(), cumulation, buf);
+        }
+		
+		while(cumulation.readableBytes() >= kMinMessageLen+kHeaderLen){
 			byte[] dst = new byte[4];
-			buf.getBytes(0,dst, 0 , 4);
-			int len = ByteBuffer.wrap(dst).order(ByteOrder.BIG_ENDIAN).getInt();
+			cumulation.getBytes(cumulation.readerIndex(),dst, 0 , 4);
+		//	int len = ByteBuffer.wrap(dst).order(ByteOrder.BIG_ENDIAN).getInt();
+			int i = cumulation.readerIndex();
+			int len = cumulation.getInt(cumulation.readerIndex());
 			if (len > kMaxMessageLen || len < kMinMessageLen){
 				//error call back.
 				logger.info("出问题??"+len);
 				break;
 			}
-			else if (buf.readableBytes() >= (len + 4)){
-				int test = buf.readableBytes();
-				logger.info("buf现有数据:"+test+"readIndex:");
+			else if (cumulation.readableBytes() >= (len + 4)){
+				int test = cumulation.readableBytes();
 				int error = -1;
-				Message message = parse(buf,len);
+				Message message = parse(cumulation,len);
 				if (message != null){
 					dispatcher.onProtobufMessage(ctx, message);
+				}else{
+					break;
 				}
 			}else {
 				break; //噢,刚才少了这句,实际上会无限循环下去..
 			}
 		}
-		
+		if (cumulation.isReadable()){
+			byte[] res = new byte[cumulation.readableBytes()];
+			cumulation.getBytes(cumulation.readerIndex(), res,0,cumulation.readableBytes());
+			cumulation.clear();		
+			cumulation.writeBytes(res);
+		}else{
+			cumulation.clear();
+		}
 	}
-	
-	
-	
 	
 	public Message parse(ByteBuf buf,int len){
 		Message message = null;
 		//有问题,不知道为什么是错的.
 		buf.readInt();
-		int expectedCheckSUm = buf.getInt(len-4);
+		int expectedCheckSUm = buf.getInt(len);
 		Adler32 check = new Adler32();
 		byte[] dst = new byte[len-kHeaderLen];
-		buf.getBytes(4,dst, 0 , len-kHeaderLen);
+		buf.getBytes(buf.readerIndex(),dst, 0 , len-kHeaderLen);
 		check.update(dst, 0, len-kHeaderLen);
 		int checkSum = (int) check.getValue();
 		if (checkSum == expectedCheckSUm || checkSum != expectedCheckSUm){
 			
-			byte[] namedst = new byte[4];
-			buf.getBytes(4,namedst, 0 , 4);
-			int nameLen = ByteBuffer.wrap(dst).order(ByteOrder.BIG_ENDIAN).getInt();
-			buf.readInt();
-		if (nameLen >= 2 && nameLen <= len - 2*kHeaderLen){
+//			byte[] namedst = new byte[4];
+//			buf.getBytes(4,namedst, 0 , 4);
+//			int nameLen = ByteBuffer.wrap(dst).order(ByteOrder.BIG_ENDIAN).getInt();
+			int nameLen = buf.readInt();
+			if (nameLen >= 2 && nameLen <= len - 2*kHeaderLen){
 				byte[] nameByte = new byte[nameLen];
 				buf.readBytes(nameByte, 0, nameLen);
 				String typeName = new String(nameByte);
@@ -115,4 +161,41 @@ public class ChatHandler extends ChannelInboundHandlerAdapter{
 		
 		return message;
 	}
+	
+    @Override
+    public final void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        ByteBuf buf = cumulation;
+        if (buf != null) {
+            // Directly set this to null so we are sure we not access it in any other method here anymore.
+            cumulation = null;
+
+            int readable = buf.readableBytes();
+            if (readable > 0) {
+                ByteBuf bytes = buf.readBytes(readable);
+                buf.release();
+                ctx.fireChannelRead(bytes);
+            } else {
+                buf.release();
+            }
+            numReads = 0;
+            ctx.fireChannelReadComplete();
+        }
+    }
+
+	
+	
+	
+    static ByteBuf expandCumulation(ByteBufAllocator alloc, ByteBuf cumulation, int readable) {
+        ByteBuf oldCumulation = cumulation;
+        cumulation = alloc.buffer(oldCumulation.readableBytes() + readable);
+        cumulation.writeBytes(oldCumulation);
+        oldCumulation.release();
+        return cumulation;
+    }
+	
+	//仿照着写..
+    public interface Cumulator {
+        ByteBuf cumulate(ByteBufAllocator alloc, ByteBuf cumulation, ByteBuf in);
+    }
+	
 }

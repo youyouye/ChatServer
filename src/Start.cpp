@@ -28,7 +28,8 @@ int main(int argc, char* argv[])
 
     EventLoopThread t;
     DataInspector ins(t.startLoop(), InetAddress(12345), "test",&server);
-
+    EventLoopThread t1;
+    Inspector spector(t1.startLoop(),InetAddress(12346),"inspect");
     loop.loop();
 }
 

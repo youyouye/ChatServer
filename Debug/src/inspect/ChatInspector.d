@@ -21,7 +21,10 @@ src/inspect/ChatInspector.d: ../src/inspect/ChatInspector.cpp \
  /home/moocos/Downloads/build/release-install/include/muduo/base/Logging.h \
  /home/moocos/Downloads/build/release-install/include/muduo/base/LogStream.h \
  /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h \
- /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h
+ /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/ThreadPool.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h \
+ /home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h
 
 ../src/inspect/ChatInspector.h:
 
@@ -76,3 +79,9 @@ src/inspect/ChatInspector.d: ../src/inspect/ChatInspector.cpp \
 /home/moocos/Downloads/build/release-install/include/muduo/net/EventLoop.h:
 
 /home/moocos/Downloads/build/release-install/include/muduo/net/TimerId.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/ThreadPool.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Condition.h:
+
+/home/moocos/Downloads/build/release-install/include/muduo/base/Thread.h:

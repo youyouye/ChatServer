@@ -10,7 +10,7 @@
 
 #include <muduo/net/Buffer.h>
 #include <muduo/net/TcpConnection.h>
-
+#include <muduo/base/Atomic.h>
 #include <boost/function.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/shared_ptr.hpp>
@@ -67,7 +67,12 @@ public:
 	  static void fillEmptyBuffer(muduo::net::Buffer* buf, const google::protobuf::Message& message);
 	  static google::protobuf::Message* createMessage(const std::string& type_name);
 	  static MessagePtr parse(const char* buf, int len, ErrorCode* errorCode);
-
+	  int64_t getTransRecve(){
+		 return transrecved_.get();
+	  }
+	  int64_t getTransSend(){
+		  return transsended_.get();
+	  }
 private:
 	static void defaultErrorCallback(const muduo::net::TcpConnectionPtr&,
             muduo::net::Buffer*,
@@ -78,7 +83,8 @@ private:
 	  const static int kHeaderLen = sizeof(int32_t);
 	  const static int kMinMessageLen = 2*kHeaderLen + 2; // nameLen + typeName + checkSum
 	  const static int kMaxMessageLen = 64*1024*1024; // same as codec_stream.h kDefaultTotalBytesLimit
-
+	  static muduo::AtomicInt64 transrecved_;
+	  static muduo::AtomicInt64 transsended_;
 };
 
 

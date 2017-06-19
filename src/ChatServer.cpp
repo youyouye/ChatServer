@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "database/offline_msg.h"
 typedef boost::shared_ptr<std::vector<SingleOfflineMsg> > SingleOffMsgListPtr;
+AtomicInt64 ChatServer::transNum;
 
 ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 	:server_(loop,listenAddr,"ChatServer",TcpServer::kReusePort),
@@ -36,6 +37,9 @@ ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)
 	server_.setMessageCallback(boost::bind(&ProtobufCodec::onMessage, &codec_, _1, _2, _3));
 
 	loop->runEvery(1,boost::bind(&ChatServer::onTimer,this));
+	loop->runEvery(3,boost::bind(&ChatServer::printThroughput,this));
+
+	pool.start(4);
 }
 
 
@@ -74,7 +78,7 @@ void ChatServer::onConnection(const TcpConnectionPtr& conn){
     	LOG_INFO<<"修改在线状态:"<<uwc.uid<<":下线";
     	OnlineUser::instance()->alterUser(uwc.uid,0);
     }
-    dumpConnectionList();
+//    dumpConnectionList();
 }
 void ChatServer::onMessage(const TcpConnectionPtr&,
         const string& message,
@@ -111,6 +115,7 @@ void ChatServer::onConnect(const muduo::net::TcpConnectionPtr& conn,
 	//添加在线状态
 	LOG_INFO<<"修改在线状态:"<<id<<":上线";
 	OnlineUser::instance()->alterUser(id,1);
+	transNum.add(1);
 }
 void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
         const ChatMessagePtr& message,
@@ -135,19 +140,7 @@ void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
 	int status = OnlineUser::getStatus(toid);
 	if (status == 0){
 		LOG_INFO<<"对方不在线";
-		SingleOfflineMsg sm(toid,serialId,fromid,1,content);
-		int res = MysqlConnPool::instance()->getNextConn()->addSingleOfflineMsg(sm);
-		LOG_INFO<<"离线消息插入数据库:返回"<<res;
-		if (res >0){
-			chat::ChatAck ack;
-			ack.set_fromid(toid);
-			ack.set_toid(fromid);
-			ack.set_time(20170614);
-			ack.set_id(serialId);
-			codec_.send(conn,ack);
-			LOG_INFO<<"发送离线ack";
-			LOG_INFO<<"离线ack内容"<<fromid<<":"<<toid<<":"<<time<<":"<<serialId;
-		}
+		pool.run(boost::bind(&ChatServer::onDataChat,this,conn,toid,serialId,fromid,content));
 		return;
 	}
 	int index = -1;
@@ -155,6 +148,7 @@ void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
 	if (idmap != idMapPtr->end()){
 		index = idmap->second;
 	}
+
 	ConnectionList::iterator it = connections->find(index);
 	if ( it!= connections->end()){
 		TcpConnectionPtr ptr = it->second->weakConn_.lock();
@@ -162,6 +156,23 @@ void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,
 				LOG_INFO<<"检测找到对应的id";
 				codec_.send(ptr,chat);
 		}
+	}
+	transNum.add(1);
+}
+void ChatServer::onDataChat(const muduo::net::TcpConnectionPtr& conn,int toid,int serialId,int fromid,std::string content){
+	SingleOfflineMsg sm(toid,serialId,fromid,1,content);
+	int res = MysqlConnPool::instance()->getNextConn()->addSingleOfflineMsg(sm);
+	LOG_INFO<<"离线消息插入数据库:返回"<<res;
+	if (res >0){
+		chat::ChatAck ack;
+		ack.set_fromid(toid);
+		ack.set_toid(fromid);
+		ack.set_time(20170614);
+		ack.set_id(serialId);
+		codec_.send(conn,ack);
+		transNum.add(1);
+		LOG_INFO<<"发送离线ack";
+		LOG_INFO<<"离线ack内容"<<fromid<<":"<<toid<<":"<<time<<":"<<serialId;
 	}
 }
 void ChatServer::onHeart(const muduo::net::TcpConnectionPtr& conn,
@@ -181,6 +192,7 @@ void ChatServer::onHeart(const muduo::net::TcpConnectionPtr& conn,
 	nodesPtr->splice(nodesPtr->end(),*nodesPtr,listiter);
 
 	dumpConnectionList();
+	transNum.add(1);
 }
 
 void ChatServer::onChatAck(const muduo::net::TcpConnectionPtr& conn,
@@ -214,6 +226,7 @@ void ChatServer::onChatAck(const muduo::net::TcpConnectionPtr& conn,
 				codec_.send(ptr,ack);
 		}
 	}
+	transNum.increment();
 }
 
 void ChatServer::onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,
@@ -254,6 +267,7 @@ void ChatServer::onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,
 			codec_.send(conn,rly);
 		}
 	}
+	transNum.increment();
 }
 
 void ChatServer::onFriendAsk(const muduo::net::TcpConnectionPtr& conn,
@@ -373,7 +387,7 @@ void ChatServer::onFriendAck(const muduo::net::TcpConnectionPtr& conn,
 void ChatServer::onTimer(void)
 {
 //	dumpConnectionList();
-
+/*
 	ListNodesPtr nodesPtr = getListNode();
 	ConnectionListPtr connections = getConnectionList();
 	for (ListNode::iterator it = nodesPtr->begin();it != nodesPtr->end();){
@@ -401,6 +415,7 @@ void ChatServer::onTimer(void)
 			}
 		}
 	}
+	*/
 }
 void ChatServer::dumpConnectionList() const
 {
@@ -431,6 +446,10 @@ string ChatServer::inspector()
 	snprintf(buf,sizeof buf,"%d",connections_->size());
 	result += buf;
 	result += "\n";
+	char buf2[30];
+	snprintf(buf2,sizeof buf2,"%4.3f KiB/s %4.3f KiB/s %4.3f Ki Msgs/s \n",recvResult,sendResult,transResult);
+	result += buf2;
+	/*
 	for (ConnectionList::iterator it = connections_->begin();it != connections_->end();it++){
 		char buf1[10];
 		snprintf(buf1,sizeof buf1,"%d",(*it).first);
@@ -443,6 +462,8 @@ string ChatServer::inspector()
 		}
 		result +="\n";
 	}
+	*/
+	/*
 	result += "IdMap : \n";
 	result += "size = ";
 	result += idVuid->size();
@@ -456,5 +477,22 @@ string ChatServer::inspector()
 		result += buf3;
 		result += "\n";
 	}
+	*/
 	return result;
+}
+void ChatServer::printThroughput()
+{
+	Timestamp endTime = Timestamp::now();
+	int64_t newRecvCounter = codec_.getTransRecve();
+	int64_t newSendCounter = codec_.getTransSend();
+	int64_t recvBytes = newRecvCounter-oldCountRecv_;
+	int64_t sendBytes = newSendCounter-oldCountSend_;
+	int64_t msgs = transNum.getAndSet(0);
+	double time = timeDifference(endTime,startTime_);
+	transResult = static_cast<double>(msgs)/time/1024;
+	sendResult = static_cast<double>(sendBytes)/time/1024;
+	recvResult = static_cast<double>(recvBytes)/time/1024;
+	oldCountRecv_ = newRecvCounter;
+	oldCountSend_ = newSendCounter;
+	startTime_ = endTime;
 }

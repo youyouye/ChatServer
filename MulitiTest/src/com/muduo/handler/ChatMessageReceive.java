@@ -27,7 +27,7 @@ public class ChatMessageReceive implements HandMessage{
 		String message = cMessage.getMessage();
 		logger.info(from+":"+to+" "+message);
 		if (manager.receiveMess(cMessage)){
-			System.out.println(from+":"+to+" "+message);
+			System.out.println("收到->"+from+":"+to+" "+message);
 		}
 	}
 }

@@ -7,10 +7,11 @@
 #ifndef ONLINE_USER_H_
 #define ONLINE_USER_H_
 
-#include <map>
+#include <hash_map>
 #include <pthread.h>
 #include <muduo/base/Mutex.h>
 #include <boost/shared_ptr.hpp>
+using namespace __gnu_cxx;
 
 class OnlineUser{
 public:
@@ -20,7 +21,7 @@ public:
 	static void alterUser(int id,int status);
 	static int getStatus(int id);
 private:
-	typedef std::map<int,int> UserStatusList;
+	typedef hash_map<int,int> UserStatusList;
 	typedef boost::shared_ptr<UserStatusList> UserStatusListPtr;
 	static void init();
 	static UserStatusListPtr getUserStatus(){
