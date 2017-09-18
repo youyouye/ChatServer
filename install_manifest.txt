@@ -1,0 +1,4 @@
+/usr/im/Downloads/ChatServer-master/release/lib/libdatabase.a
+/usr/im/Downloads/ChatServer-master/release/lib/libinspector.a
+/usr/im/Downloads/ChatServer-master/release/lib/libmyhttp.a
+/usr/im/Downloads/ChatServer-master/release/bin/chat_server

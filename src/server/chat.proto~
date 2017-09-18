@@ -1,0 +1,39 @@
+package chat;
+message Connect{
+  required int32 id = 1;
+}
+
+message ChatMessage{
+  required int32 fromid = 1;
+  required int32 toid = 2;
+  required int32 time = 3;
+  required string message =4;
+  required int32 id = 5;
+
+  enum MsgType{
+    TEXT = 0;
+    VOICE = 1;
+    PHOTO = 2;
+  }
+  optional MsgType type = 6[default = TEXT];
+}
+
+message heart{
+}
+
+message ChatAck{
+	required int32 fromid = 1;
+	required int32 toid = 2;
+	required int32 time = 3;
+	required int32 id = 4;	
+}
+
+message OffMsgAsk{
+	required int32 page = 1;
+	required int32 uid = 2;
+}
+
+message OffMsgRly{
+	required int32 page = 1;
+	repeated ChatMessage messages = 2;	
+}

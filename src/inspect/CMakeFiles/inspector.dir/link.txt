@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinspector.a  CMakeFiles/inspector.dir/ChatInspector.cpp.o CMakeFiles/inspector.dir/DataInspector.cpp.o
+/usr/bin/ranlib libinspector.a
