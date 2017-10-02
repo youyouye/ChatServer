@@ -209,6 +209,19 @@ chat_server/fast:
 	$(MAKE) -f src/server/CMakeFiles/chat_server.dir/build.make src/server/CMakeFiles/chat_server.dir/build
 .PHONY : chat_server/fast
 
+#=============================================================================
+# Target rules for targets named game_server
+
+# Build rule for target.
+game_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 game_server
+.PHONY : game_server
+
+# fast build rule for target.
+game_server/fast:
+	$(MAKE) -f src/drawsth/CMakeFiles/game_server.dir/build.make src/drawsth/CMakeFiles/game_server.dir/build
+.PHONY : game_server/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -225,6 +238,7 @@ help:
 	@echo "... inspector"
 	@echo "... myhttp"
 	@echo "... chat_server"
+	@echo "... game_server"
 .PHONY : help
 
 

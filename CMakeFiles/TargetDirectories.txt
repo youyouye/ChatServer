@@ -32,3 +32,10 @@
 /usr/im/Downloads/ChatServer-master/src/server/CMakeFiles/edit_cache.dir
 /usr/im/Downloads/ChatServer-master/src/server/CMakeFiles/install/strip.dir
 /usr/im/Downloads/ChatServer-master/src/server/CMakeFiles/install/local.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/install.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/list_install_components.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/rebuild_cache.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/game_server.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/install/strip.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/install/local.dir
+/usr/im/Downloads/ChatServer-master/src/drawsth/CMakeFiles/edit_cache.dir

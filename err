@@ -1,0 +1,17 @@
+/usr/bin/cmake -H/usr/im/Downloads/ChatServer-master -B/usr/im/Downloads/ChatServer-master --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles /usr/im/Downloads/ChatServer-master/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/usr/im/Downloads/ChatServer-master'
+make -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/depend
+make[2]: Entering directory '/usr/im/Downloads/ChatServer-master'
+cd /usr/im/Downloads/ChatServer-master && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /usr/im/Downloads/ChatServer-master /usr/im/Downloads/ChatServer-master/src/database /usr/im/Downloads/ChatServer-master /usr/im/Downloads/ChatServer-master/src/database /usr/im/Downloads/ChatServer-master/src/database/CMakeFiles/database.dir/DependInfo.cmake --color=
+make[2]: Leaving directory '/usr/im/Downloads/ChatServer-master'
+make -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/build
+make[2]: Entering directory '/usr/im/Downloads/ChatServer-master'
+[  3%] Building CXX object src/database/CMakeFiles/database.dir/redis_conn.cpp.o
+cd /usr/im/Downloads/ChatServer-master/src/database && g++    -I/usr/im/Downloads/ChatServer-master -I/usr/im/workspace/include -I/usr/im/Downloads/build/release-install/include -I/usr/im/Downloads/mysql-connector-c-6.1.10-linux-glibc2.12-x86_64/include -I/usr/local/include -I/usr/im/Downloads/ChatServer-master/src/database/  -Wall -lpthread -fpermissive -std=c++0x -g   -o CMakeFiles/database.dir/redis_conn.cpp.o -c /usr/im/Downloads/ChatServer-master/src/database/redis_conn.cpp
+src/database/CMakeFiles/database.dir/build.make:113: recipe for target 'src/database/CMakeFiles/database.dir/redis_conn.cpp.o' failed
+make[2]: Leaving directory '/usr/im/Downloads/ChatServer-master'
+CMakeFiles/Makefile2:88: recipe for target 'src/database/CMakeFiles/database.dir/all' failed
+make[1]: Leaving directory '/usr/im/Downloads/ChatServer-master'
+Makefile:130: recipe for target 'all' failed

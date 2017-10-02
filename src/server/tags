@@ -1,0 +1,976 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ByteSize	chat.pb.cc	/^int ChatAck::ByteSize() const {$/;"	f	class:chat::ChatAck
+ByteSize	chat.pb.cc	/^int ChatMessage::ByteSize() const {$/;"	f	class:chat::ChatMessage
+ByteSize	chat.pb.cc	/^int Connect::ByteSize() const {$/;"	f	class:chat::Connect
+ByteSize	chat.pb.cc	/^int FriendAck::ByteSize() const {$/;"	f	class:chat::FriendAck
+ByteSize	chat.pb.cc	/^int FriendAsk::ByteSize() const {$/;"	f	class:chat::FriendAsk
+ByteSize	chat.pb.cc	/^int FriendRly::ByteSize() const {$/;"	f	class:chat::FriendRly
+ByteSize	chat.pb.cc	/^int OffMsgAsk::ByteSize() const {$/;"	f	class:chat::OffMsgAsk
+ByteSize	chat.pb.cc	/^int OffMsgRly::ByteSize() const {$/;"	f	class:chat::OffMsgRly
+ByteSize	chat.pb.cc	/^int heart::ByteSize() const {$/;"	f	class:chat::heart
+ByteSize	group.pb.cc	/^int GroupMessage::ByteSize() const {$/;"	f	class:group::GroupMessage
+ByteSize	group.pb.cc	/^int HandleGroup::ByteSize() const {$/;"	f	class:group::HandleGroup
+CHATSERVER_H_	ChatServer.h	8;"	d
+CMAKE_BINARY_DIR	Makefile	/^CMAKE_BINARY_DIR = \/usr\/im\/Downloads\/ChatServer-master$/;"	m
+CMAKE_COMMAND	Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
+CMAKE_SOURCE_DIR	Makefile	/^CMAKE_SOURCE_DIR = \/usr\/im\/Downloads\/ChatServer-master$/;"	m
+CODEC_H_	codec.h	9;"	d
+CREATE	group.pb.cc	/^const HandleGroup_OperateType HandleGroup::CREATE;$/;"	m	class:group::HandleGroup	file:
+CREATE	group.pb.h	/^  static const OperateType CREATE = HandleGroup_OperateType_CREATE;$/;"	m	class:group::HandleGroup
+Callback	dispatcher.h	/^class Callback : boost::noncopyable$/;"	c
+CallbackMap	dispatcher.h	/^	  typedef std::map<const google::protobuf::Descriptor*, boost::shared_ptr<Callback> > CallbackMap;$/;"	t	class:ProtobufDispatcher
+CallbackT	dispatcher.h	/^  CallbackT(const ProtobufMessageTCallback& callback)$/;"	f	class:CallbackT
+CallbackT	dispatcher.h	/^class CallbackT : public Callback$/;"	c
+ChatAck	chat.pb.cc	/^ChatAck::ChatAck()$/;"	f	class:chat::ChatAck
+ChatAck	chat.pb.cc	/^ChatAck::ChatAck(const ChatAck& from)$/;"	f	class:chat::ChatAck
+ChatAck	chat.pb.h	/^class ChatAck : public ::google::protobuf::Message {$/;"	c	namespace:chat
+ChatAckPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::ChatAck> ChatAckPtr;$/;"	t
+ChatAck_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* ChatAck_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+ChatAck_reflection_	chat.pb.cc	/^  ChatAck_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+ChatMessage	chat.pb.cc	/^ChatMessage::ChatMessage()$/;"	f	class:chat::ChatMessage
+ChatMessage	chat.pb.cc	/^ChatMessage::ChatMessage(const ChatMessage& from)$/;"	f	class:chat::ChatMessage
+ChatMessage	chat.pb.h	/^class ChatMessage : public ::google::protobuf::Message {$/;"	c	namespace:chat
+ChatMessagePtr	ChatServer.h	/^typedef boost::shared_ptr<chat::ChatMessage> ChatMessagePtr;$/;"	t
+ChatMessage_MsgType	chat.pb.h	/^enum ChatMessage_MsgType {$/;"	g	namespace:chat
+ChatMessage_MsgType_IsValid	chat.pb.cc	/^bool ChatMessage_MsgType_IsValid(int value) {$/;"	f	namespace:chat
+ChatMessage_MsgType_MsgType_ARRAYSIZE	chat.pb.h	/^const int ChatMessage_MsgType_MsgType_ARRAYSIZE = ChatMessage_MsgType_MsgType_MAX + 1;$/;"	m	namespace:chat
+ChatMessage_MsgType_MsgType_MAX	chat.pb.h	/^const ChatMessage_MsgType ChatMessage_MsgType_MsgType_MAX = ChatMessage_MsgType_PHOTO;$/;"	m	namespace:chat
+ChatMessage_MsgType_MsgType_MIN	chat.pb.h	/^const ChatMessage_MsgType ChatMessage_MsgType_MsgType_MIN = ChatMessage_MsgType_TEXT;$/;"	m	namespace:chat
+ChatMessage_MsgType_Name	chat.pb.h	/^inline const ::std::string& ChatMessage_MsgType_Name(ChatMessage_MsgType value) {$/;"	f	namespace:chat
+ChatMessage_MsgType_PHOTO	chat.pb.h	/^  ChatMessage_MsgType_PHOTO = 2$/;"	e	enum:chat::ChatMessage_MsgType
+ChatMessage_MsgType_Parse	chat.pb.h	/^inline bool ChatMessage_MsgType_Parse($/;"	f	namespace:chat
+ChatMessage_MsgType_TEXT	chat.pb.h	/^  ChatMessage_MsgType_TEXT = 0,$/;"	e	enum:chat::ChatMessage_MsgType
+ChatMessage_MsgType_VOICE	chat.pb.h	/^  ChatMessage_MsgType_VOICE = 1,$/;"	e	enum:chat::ChatMessage_MsgType
+ChatMessage_MsgType_descriptor	chat.pb.cc	/^const ::google::protobuf::EnumDescriptor* ChatMessage_MsgType_descriptor() {$/;"	f	namespace:chat
+ChatMessage_MsgType_descriptor_	chat.pb.cc	/^const ::google::protobuf::EnumDescriptor* ChatMessage_MsgType_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+ChatMessage_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* ChatMessage_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+ChatMessage_reflection_	chat.pb.cc	/^  ChatMessage_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+ChatServer	ChatServer.cpp	/^ChatServer::ChatServer(EventLoop* loop,const InetAddress& listenAddr)$/;"	f	class:ChatServer
+ChatServer	ChatServer.h	/^class ChatServer : boost::noncopyable$/;"	c
+Clear	chat.pb.cc	/^void ChatAck::Clear() {$/;"	f	class:chat::ChatAck
+Clear	chat.pb.cc	/^void ChatMessage::Clear() {$/;"	f	class:chat::ChatMessage
+Clear	chat.pb.cc	/^void Connect::Clear() {$/;"	f	class:chat::Connect
+Clear	chat.pb.cc	/^void FriendAck::Clear() {$/;"	f	class:chat::FriendAck
+Clear	chat.pb.cc	/^void FriendAsk::Clear() {$/;"	f	class:chat::FriendAsk
+Clear	chat.pb.cc	/^void FriendRly::Clear() {$/;"	f	class:chat::FriendRly
+Clear	chat.pb.cc	/^void OffMsgAsk::Clear() {$/;"	f	class:chat::OffMsgAsk
+Clear	chat.pb.cc	/^void OffMsgRly::Clear() {$/;"	f	class:chat::OffMsgRly
+Clear	chat.pb.cc	/^void heart::Clear() {$/;"	f	class:chat::heart
+Clear	group.pb.cc	/^void GroupMessage::Clear() {$/;"	f	class:group::GroupMessage
+Clear	group.pb.cc	/^void HandleGroup::Clear() {$/;"	f	class:group::HandleGroup
+Connect	chat.pb.cc	/^Connect::Connect()$/;"	f	class:chat::Connect
+Connect	chat.pb.cc	/^Connect::Connect(const Connect& from)$/;"	f	class:chat::Connect
+Connect	chat.pb.h	/^class Connect : public ::google::protobuf::Message {$/;"	c	namespace:chat
+ConnectPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::Connect> ConnectPtr;$/;"	t
+Connect_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* Connect_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+Connect_reflection_	chat.pb.cc	/^  Connect_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+ConnectionList	ChatServer.h	/^	typedef hash_map<int,EntryPtr> ConnectionList;$/;"	t	class:ChatServer
+ConnectionListPtr	ChatServer.h	/^	typedef boost::shared_ptr<ConnectionList> ConnectionListPtr;$/;"	t	class:ChatServer
+CopyFrom	chat.pb.cc	/^void ChatAck::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::ChatAck
+CopyFrom	chat.pb.cc	/^void ChatAck::CopyFrom(const ChatAck& from) {$/;"	f	class:chat::ChatAck
+CopyFrom	chat.pb.cc	/^void ChatMessage::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::ChatMessage
+CopyFrom	chat.pb.cc	/^void ChatMessage::CopyFrom(const ChatMessage& from) {$/;"	f	class:chat::ChatMessage
+CopyFrom	chat.pb.cc	/^void Connect::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::Connect
+CopyFrom	chat.pb.cc	/^void Connect::CopyFrom(const Connect& from) {$/;"	f	class:chat::Connect
+CopyFrom	chat.pb.cc	/^void FriendAck::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::FriendAck
+CopyFrom	chat.pb.cc	/^void FriendAck::CopyFrom(const FriendAck& from) {$/;"	f	class:chat::FriendAck
+CopyFrom	chat.pb.cc	/^void FriendAsk::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::FriendAsk
+CopyFrom	chat.pb.cc	/^void FriendAsk::CopyFrom(const FriendAsk& from) {$/;"	f	class:chat::FriendAsk
+CopyFrom	chat.pb.cc	/^void FriendRly::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::FriendRly
+CopyFrom	chat.pb.cc	/^void FriendRly::CopyFrom(const FriendRly& from) {$/;"	f	class:chat::FriendRly
+CopyFrom	chat.pb.cc	/^void OffMsgAsk::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::OffMsgAsk
+CopyFrom	chat.pb.cc	/^void OffMsgAsk::CopyFrom(const OffMsgAsk& from) {$/;"	f	class:chat::OffMsgAsk
+CopyFrom	chat.pb.cc	/^void OffMsgRly::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::OffMsgRly
+CopyFrom	chat.pb.cc	/^void OffMsgRly::CopyFrom(const OffMsgRly& from) {$/;"	f	class:chat::OffMsgRly
+CopyFrom	chat.pb.cc	/^void heart::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::heart
+CopyFrom	chat.pb.cc	/^void heart::CopyFrom(const heart& from) {$/;"	f	class:chat::heart
+CopyFrom	group.pb.cc	/^void GroupMessage::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:group::GroupMessage
+CopyFrom	group.pb.cc	/^void GroupMessage::CopyFrom(const GroupMessage& from) {$/;"	f	class:group::GroupMessage
+CopyFrom	group.pb.cc	/^void HandleGroup::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:group::HandleGroup
+CopyFrom	group.pb.cc	/^void HandleGroup::CopyFrom(const HandleGroup& from) {$/;"	f	class:group::HandleGroup
+DELETE	group.pb.cc	/^const HandleGroup_OperateType HandleGroup::DELETE;$/;"	m	class:group::HandleGroup	file:
+DELETE	group.pb.h	/^  static const OperateType DELETE = HandleGroup_OperateType_DELETE;$/;"	m	class:group::HandleGroup
+DISPATCHER_H_	dispatcher.h	9;"	d
+DO_	chat.pb.cc	1086;"	d	file:
+DO_	chat.pb.cc	1108;"	d	file:
+DO_	chat.pb.cc	1283;"	d	file:
+DO_	chat.pb.cc	1369;"	d	file:
+DO_	chat.pb.cc	1630;"	d	file:
+DO_	chat.pb.cc	1686;"	d	file:
+DO_	chat.pb.cc	1891;"	d	file:
+DO_	chat.pb.cc	1946;"	d	file:
+DO_	chat.pb.cc	2181;"	d	file:
+DO_	chat.pb.cc	2254;"	d	file:
+DO_	chat.pb.cc	2507;"	d	file:
+DO_	chat.pb.cc	2578;"	d	file:
+DO_	chat.pb.cc	2818;"	d	file:
+DO_	chat.pb.cc	2874;"	d	file:
+DO_	chat.pb.cc	385;"	d	file:
+DO_	chat.pb.cc	426;"	d	file:
+DO_	chat.pb.cc	667;"	d	file:
+DO_	chat.pb.cc	790;"	d	file:
+DO_	group.pb.cc	239;"	d	file:
+DO_	group.pb.cc	317;"	d	file:
+DO_	group.pb.cc	576;"	d	file:
+DO_	group.pb.cc	651;"	d	file:
+EQUALS	Makefile	/^EQUALS = =$/;"	m
+Entry	ChatServer.h	/^	    explicit Entry(const WeakTcpConnectionPtr& weakConn)$/;"	f	struct:ChatServer::Entry
+Entry	ChatServer.h	/^	struct Entry : public muduo::copyable$/;"	s	class:ChatServer
+EntryPtr	ChatServer.h	/^	typedef boost::shared_ptr<Entry> EntryPtr;$/;"	t	class:ChatServer
+ErrorCallback	codec.h	/^	                                ErrorCode)> ErrorCallback;$/;"	t	class:ProtobufCodec
+ErrorCode	codec.h	/^	enum ErrorCode$/;"	g	class:ProtobufCodec
+FriendAck	chat.pb.cc	/^FriendAck::FriendAck()$/;"	f	class:chat::FriendAck
+FriendAck	chat.pb.cc	/^FriendAck::FriendAck(const FriendAck& from)$/;"	f	class:chat::FriendAck
+FriendAck	chat.pb.h	/^class FriendAck : public ::google::protobuf::Message {$/;"	c	namespace:chat
+FriendAckPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::FriendAck> FriendAckPtr;$/;"	t
+FriendAck_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* FriendAck_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+FriendAck_reflection_	chat.pb.cc	/^  FriendAck_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+FriendAsk	chat.pb.cc	/^FriendAsk::FriendAsk()$/;"	f	class:chat::FriendAsk
+FriendAsk	chat.pb.cc	/^FriendAsk::FriendAsk(const FriendAsk& from)$/;"	f	class:chat::FriendAsk
+FriendAsk	chat.pb.h	/^class FriendAsk : public ::google::protobuf::Message {$/;"	c	namespace:chat
+FriendAskPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::FriendAsk> FriendAskPtr;$/;"	t
+FriendAsk_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* FriendAsk_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+FriendAsk_reflection_	chat.pb.cc	/^  FriendAsk_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+FriendRly	chat.pb.cc	/^FriendRly::FriendRly()$/;"	f	class:chat::FriendRly
+FriendRly	chat.pb.cc	/^FriendRly::FriendRly(const FriendRly& from)$/;"	f	class:chat::FriendRly
+FriendRly	chat.pb.h	/^class FriendRly : public ::google::protobuf::Message {$/;"	c	namespace:chat
+FriendRlyPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::FriendRly> FriendRlyPtr;$/;"	t
+FriendRly_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* FriendRly_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+FriendRly_reflection_	chat.pb.cc	/^  FriendRly_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+GROUPSERVER_H_	GroupServer.h	9;"	d
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::ChatAck
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::ChatMessage
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::Connect
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::FriendAck
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::FriendAsk
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::FriendRly
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::OffMsgAsk
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::OffMsgRly
+GetCachedSize	chat.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:chat::heart
+GetCachedSize	group.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:group::GroupMessage
+GetCachedSize	group.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:group::HandleGroup
+GetEnumDescriptor	chat.pb.h	/^inline const EnumDescriptor* GetEnumDescriptor< ::chat::ChatMessage_MsgType>() {$/;"	f	namespace:google::protobuf
+GetEnumDescriptor	group.pb.h	/^inline const EnumDescriptor* GetEnumDescriptor< ::group::HandleGroup_OperateType>() {$/;"	f	namespace:google::protobuf
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata ChatAck::GetMetadata() const {$/;"	f	class:chat::ChatAck
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata ChatMessage::GetMetadata() const {$/;"	f	class:chat::ChatMessage
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata Connect::GetMetadata() const {$/;"	f	class:chat::Connect
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata FriendAck::GetMetadata() const {$/;"	f	class:chat::FriendAck
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata FriendAsk::GetMetadata() const {$/;"	f	class:chat::FriendAsk
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata FriendRly::GetMetadata() const {$/;"	f	class:chat::FriendRly
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata OffMsgAsk::GetMetadata() const {$/;"	f	class:chat::OffMsgAsk
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata OffMsgRly::GetMetadata() const {$/;"	f	class:chat::OffMsgRly
+GetMetadata	chat.pb.cc	/^::google::protobuf::Metadata heart::GetMetadata() const {$/;"	f	class:chat::heart
+GetMetadata	group.pb.cc	/^::google::protobuf::Metadata GroupMessage::GetMetadata() const {$/;"	f	class:group::GroupMessage
+GetMetadata	group.pb.cc	/^::google::protobuf::Metadata HandleGroup::GetMetadata() const {$/;"	f	class:group::HandleGroup
+Group	GroupServer.h	/^	Group(std::string name,Timestamp now)$/;"	f	class:Group
+Group	GroupServer.h	/^class Group$/;"	c
+GroupMap	GroupServer.h	/^	typedef std::map<std::string,boost::shared_ptr< Group > > GroupMap;$/;"	t	class:GroupServer
+GroupMapPtr	GroupServer.h	/^	typedef boost::shared_ptr<GroupMap> GroupMapPtr;$/;"	t	class:GroupServer
+GroupMessage	group.pb.cc	/^GroupMessage::GroupMessage()$/;"	f	class:group::GroupMessage
+GroupMessage	group.pb.cc	/^GroupMessage::GroupMessage(const GroupMessage& from)$/;"	f	class:group::GroupMessage
+GroupMessage	group.pb.h	/^class GroupMessage : public ::google::protobuf::Message {$/;"	c	namespace:group
+GroupMessagePtr	GroupServer.h	/^typedef boost::shared_ptr<group::GroupMessage> GroupMessagePtr;$/;"	t
+GroupMessage_descriptor_	group.pb.cc	/^const ::google::protobuf::Descriptor* GroupMessage_descriptor_ = NULL;$/;"	m	namespace:group::__anon2	file:
+GroupMessage_reflection_	group.pb.cc	/^  GroupMessage_reflection_ = NULL;$/;"	m	namespace:group::__anon2	file:
+GroupServer	GroupServer.h	/^	GroupServer(ChatServer* server,ProtobufCodec& code)$/;"	f	class:GroupServer
+GroupServer	GroupServer.h	/^class GroupServer : boost::noncopyable$/;"	c
+HandleGroup	group.pb.cc	/^HandleGroup::HandleGroup()$/;"	f	class:group::HandleGroup
+HandleGroup	group.pb.cc	/^HandleGroup::HandleGroup(const HandleGroup& from)$/;"	f	class:group::HandleGroup
+HandleGroup	group.pb.h	/^class HandleGroup : public ::google::protobuf::Message {$/;"	c	namespace:group
+HandleGroupPtr	GroupServer.h	/^typedef boost::shared_ptr<group::HandleGroup> HandleGroupPtr;$/;"	t
+HandleGroup_OperateType	group.pb.h	/^enum HandleGroup_OperateType {$/;"	g	namespace:group
+HandleGroup_OperateType_CREATE	group.pb.h	/^  HandleGroup_OperateType_CREATE = 1,$/;"	e	enum:group::HandleGroup_OperateType
+HandleGroup_OperateType_DELETE	group.pb.h	/^  HandleGroup_OperateType_DELETE = 2,$/;"	e	enum:group::HandleGroup_OperateType
+HandleGroup_OperateType_IsValid	group.pb.cc	/^bool HandleGroup_OperateType_IsValid(int value) {$/;"	f	namespace:group
+HandleGroup_OperateType_JOIN	group.pb.h	/^  HandleGroup_OperateType_JOIN = 3,$/;"	e	enum:group::HandleGroup_OperateType
+HandleGroup_OperateType_Name	group.pb.h	/^inline const ::std::string& HandleGroup_OperateType_Name(HandleGroup_OperateType value) {$/;"	f	namespace:group
+HandleGroup_OperateType_OperateType_ARRAYSIZE	group.pb.h	/^const int HandleGroup_OperateType_OperateType_ARRAYSIZE = HandleGroup_OperateType_OperateType_MAX + 1;$/;"	m	namespace:group
+HandleGroup_OperateType_OperateType_MAX	group.pb.h	/^const HandleGroup_OperateType HandleGroup_OperateType_OperateType_MAX = HandleGroup_OperateType_QUIT;$/;"	m	namespace:group
+HandleGroup_OperateType_OperateType_MIN	group.pb.h	/^const HandleGroup_OperateType HandleGroup_OperateType_OperateType_MIN = HandleGroup_OperateType_CREATE;$/;"	m	namespace:group
+HandleGroup_OperateType_Parse	group.pb.h	/^inline bool HandleGroup_OperateType_Parse($/;"	f	namespace:group
+HandleGroup_OperateType_QUIT	group.pb.h	/^  HandleGroup_OperateType_QUIT = 4$/;"	e	enum:group::HandleGroup_OperateType
+HandleGroup_OperateType_descriptor	group.pb.cc	/^const ::google::protobuf::EnumDescriptor* HandleGroup_OperateType_descriptor() {$/;"	f	namespace:group
+HandleGroup_OperateType_descriptor_	group.pb.cc	/^const ::google::protobuf::EnumDescriptor* HandleGroup_OperateType_descriptor_ = NULL;$/;"	m	namespace:group::__anon2	file:
+HandleGroup_descriptor_	group.pb.cc	/^const ::google::protobuf::Descriptor* HandleGroup_descriptor_ = NULL;$/;"	m	namespace:group::__anon2	file:
+HandleGroup_reflection_	group.pb.cc	/^  HandleGroup_reflection_ = NULL;$/;"	m	namespace:group::__anon2	file:
+HeartPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::heart> HeartPtr;$/;"	t
+INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION	chat.pb.cc	4;"	d	file:
+INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION	group.pb.cc	4;"	d	file:
+IdMap	ChatServer.h	/^	typedef hash_map<int,int> IdMap;$/;"	t	class:ChatServer
+IdMapPtr	ChatServer.h	/^	typedef boost::shared_ptr<IdMap> IdMapPtr;$/;"	t	class:ChatServer
+InitAsDefaultInstance	chat.pb.cc	/^void ChatAck::InitAsDefaultInstance() {$/;"	f	class:chat::ChatAck
+InitAsDefaultInstance	chat.pb.cc	/^void ChatMessage::InitAsDefaultInstance() {$/;"	f	class:chat::ChatMessage
+InitAsDefaultInstance	chat.pb.cc	/^void Connect::InitAsDefaultInstance() {$/;"	f	class:chat::Connect
+InitAsDefaultInstance	chat.pb.cc	/^void FriendAck::InitAsDefaultInstance() {$/;"	f	class:chat::FriendAck
+InitAsDefaultInstance	chat.pb.cc	/^void FriendAsk::InitAsDefaultInstance() {$/;"	f	class:chat::FriendAsk
+InitAsDefaultInstance	chat.pb.cc	/^void FriendRly::InitAsDefaultInstance() {$/;"	f	class:chat::FriendRly
+InitAsDefaultInstance	chat.pb.cc	/^void OffMsgAsk::InitAsDefaultInstance() {$/;"	f	class:chat::OffMsgAsk
+InitAsDefaultInstance	chat.pb.cc	/^void OffMsgRly::InitAsDefaultInstance() {$/;"	f	class:chat::OffMsgRly
+InitAsDefaultInstance	chat.pb.cc	/^void heart::InitAsDefaultInstance() {$/;"	f	class:chat::heart
+InitAsDefaultInstance	group.pb.cc	/^void GroupMessage::InitAsDefaultInstance() {$/;"	f	class:group::GroupMessage
+InitAsDefaultInstance	group.pb.cc	/^void HandleGroup::InitAsDefaultInstance() {$/;"	f	class:group::HandleGroup
+IsInitialized	chat.pb.cc	/^bool ChatAck::IsInitialized() const {$/;"	f	class:chat::ChatAck
+IsInitialized	chat.pb.cc	/^bool ChatMessage::IsInitialized() const {$/;"	f	class:chat::ChatMessage
+IsInitialized	chat.pb.cc	/^bool Connect::IsInitialized() const {$/;"	f	class:chat::Connect
+IsInitialized	chat.pb.cc	/^bool FriendAck::IsInitialized() const {$/;"	f	class:chat::FriendAck
+IsInitialized	chat.pb.cc	/^bool FriendAsk::IsInitialized() const {$/;"	f	class:chat::FriendAsk
+IsInitialized	chat.pb.cc	/^bool FriendRly::IsInitialized() const {$/;"	f	class:chat::FriendRly
+IsInitialized	chat.pb.cc	/^bool OffMsgAsk::IsInitialized() const {$/;"	f	class:chat::OffMsgAsk
+IsInitialized	chat.pb.cc	/^bool OffMsgRly::IsInitialized() const {$/;"	f	class:chat::OffMsgRly
+IsInitialized	chat.pb.cc	/^bool heart::IsInitialized() const {$/;"	f	class:chat::heart
+IsInitialized	group.pb.cc	/^bool GroupMessage::IsInitialized() const {$/;"	f	class:group::GroupMessage
+IsInitialized	group.pb.cc	/^bool HandleGroup::IsInitialized() const {$/;"	f	class:group::HandleGroup
+JOIN	group.pb.cc	/^const HandleGroup_OperateType HandleGroup::JOIN;$/;"	m	class:group::HandleGroup	file:
+JOIN	group.pb.h	/^  static const OperateType JOIN = HandleGroup_OperateType_JOIN;$/;"	m	class:group::HandleGroup
+ListNode	ChatServer.h	/^	typedef std::list< boost::shared_ptr< Node > > ListNode;$/;"	t	class:ChatServer
+ListNodesPtr	ChatServer.h	/^	typedef boost::shared_ptr<ListNode> ListNodesPtr;$/;"	t	class:ChatServer
+MergeFrom	chat.pb.cc	/^void ChatAck::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::ChatAck
+MergeFrom	chat.pb.cc	/^void ChatAck::MergeFrom(const ChatAck& from) {$/;"	f	class:chat::ChatAck
+MergeFrom	chat.pb.cc	/^void ChatMessage::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::ChatMessage
+MergeFrom	chat.pb.cc	/^void ChatMessage::MergeFrom(const ChatMessage& from) {$/;"	f	class:chat::ChatMessage
+MergeFrom	chat.pb.cc	/^void Connect::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::Connect
+MergeFrom	chat.pb.cc	/^void Connect::MergeFrom(const Connect& from) {$/;"	f	class:chat::Connect
+MergeFrom	chat.pb.cc	/^void FriendAck::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::FriendAck
+MergeFrom	chat.pb.cc	/^void FriendAck::MergeFrom(const FriendAck& from) {$/;"	f	class:chat::FriendAck
+MergeFrom	chat.pb.cc	/^void FriendAsk::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::FriendAsk
+MergeFrom	chat.pb.cc	/^void FriendAsk::MergeFrom(const FriendAsk& from) {$/;"	f	class:chat::FriendAsk
+MergeFrom	chat.pb.cc	/^void FriendRly::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::FriendRly
+MergeFrom	chat.pb.cc	/^void FriendRly::MergeFrom(const FriendRly& from) {$/;"	f	class:chat::FriendRly
+MergeFrom	chat.pb.cc	/^void OffMsgAsk::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::OffMsgAsk
+MergeFrom	chat.pb.cc	/^void OffMsgAsk::MergeFrom(const OffMsgAsk& from) {$/;"	f	class:chat::OffMsgAsk
+MergeFrom	chat.pb.cc	/^void OffMsgRly::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::OffMsgRly
+MergeFrom	chat.pb.cc	/^void OffMsgRly::MergeFrom(const OffMsgRly& from) {$/;"	f	class:chat::OffMsgRly
+MergeFrom	chat.pb.cc	/^void heart::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:chat::heart
+MergeFrom	chat.pb.cc	/^void heart::MergeFrom(const heart& from) {$/;"	f	class:chat::heart
+MergeFrom	group.pb.cc	/^void GroupMessage::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:group::GroupMessage
+MergeFrom	group.pb.cc	/^void GroupMessage::MergeFrom(const GroupMessage& from) {$/;"	f	class:group::GroupMessage
+MergeFrom	group.pb.cc	/^void HandleGroup::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:group::HandleGroup
+MergeFrom	group.pb.cc	/^void HandleGroup::MergeFrom(const HandleGroup& from) {$/;"	f	class:group::HandleGroup
+MergePartialFromCodedStream	chat.pb.cc	/^bool ChatAck::MergePartialFromCodedStream($/;"	f	class:chat::ChatAck
+MergePartialFromCodedStream	chat.pb.cc	/^bool ChatMessage::MergePartialFromCodedStream($/;"	f	class:chat::ChatMessage
+MergePartialFromCodedStream	chat.pb.cc	/^bool Connect::MergePartialFromCodedStream($/;"	f	class:chat::Connect
+MergePartialFromCodedStream	chat.pb.cc	/^bool FriendAck::MergePartialFromCodedStream($/;"	f	class:chat::FriendAck
+MergePartialFromCodedStream	chat.pb.cc	/^bool FriendAsk::MergePartialFromCodedStream($/;"	f	class:chat::FriendAsk
+MergePartialFromCodedStream	chat.pb.cc	/^bool FriendRly::MergePartialFromCodedStream($/;"	f	class:chat::FriendRly
+MergePartialFromCodedStream	chat.pb.cc	/^bool OffMsgAsk::MergePartialFromCodedStream($/;"	f	class:chat::OffMsgAsk
+MergePartialFromCodedStream	chat.pb.cc	/^bool OffMsgRly::MergePartialFromCodedStream($/;"	f	class:chat::OffMsgRly
+MergePartialFromCodedStream	chat.pb.cc	/^bool heart::MergePartialFromCodedStream($/;"	f	class:chat::heart
+MergePartialFromCodedStream	group.pb.cc	/^bool GroupMessage::MergePartialFromCodedStream($/;"	f	class:group::GroupMessage
+MergePartialFromCodedStream	group.pb.cc	/^bool HandleGroup::MergePartialFromCodedStream($/;"	f	class:group::HandleGroup
+MessagePtr	codec.h	/^typedef boost::shared_ptr<google::protobuf::Message> MessagePtr;$/;"	t
+MessagePtr	dispatcher.h	/^typedef boost::shared_ptr<google::protobuf::Message> MessagePtr;$/;"	t
+MsgType	chat.pb.h	/^  typedef ChatMessage_MsgType MsgType;$/;"	t	class:chat::ChatMessage
+MsgType_ARRAYSIZE	chat.pb.cc	/^const int ChatMessage::MsgType_ARRAYSIZE;$/;"	m	class:chat::ChatMessage	file:
+MsgType_ARRAYSIZE	chat.pb.h	/^  static const int MsgType_ARRAYSIZE =$/;"	m	class:chat::ChatMessage
+MsgType_IsValid	chat.pb.h	/^  static inline bool MsgType_IsValid(int value) {$/;"	f	class:chat::ChatMessage
+MsgType_MAX	chat.pb.cc	/^const ChatMessage_MsgType ChatMessage::MsgType_MAX;$/;"	m	class:chat::ChatMessage	file:
+MsgType_MAX	chat.pb.h	/^  static const MsgType MsgType_MAX =$/;"	m	class:chat::ChatMessage
+MsgType_MIN	chat.pb.cc	/^const ChatMessage_MsgType ChatMessage::MsgType_MIN;$/;"	m	class:chat::ChatMessage	file:
+MsgType_MIN	chat.pb.h	/^  static const MsgType MsgType_MIN =$/;"	m	class:chat::ChatMessage
+MsgType_Name	chat.pb.h	/^  static inline const ::std::string& MsgType_Name(MsgType value) {$/;"	f	class:chat::ChatMessage
+MsgType_Parse	chat.pb.h	/^  static inline bool MsgType_Parse(const ::std::string& name,$/;"	f	class:chat::ChatMessage
+MsgType_descriptor	chat.pb.h	/^  MsgType_descriptor() {$/;"	f	class:chat::ChatMessage
+New	chat.pb.cc	/^ChatAck* ChatAck::New() const {$/;"	f	class:chat::ChatAck
+New	chat.pb.cc	/^ChatMessage* ChatMessage::New() const {$/;"	f	class:chat::ChatMessage
+New	chat.pb.cc	/^Connect* Connect::New() const {$/;"	f	class:chat::Connect
+New	chat.pb.cc	/^FriendAck* FriendAck::New() const {$/;"	f	class:chat::FriendAck
+New	chat.pb.cc	/^FriendAsk* FriendAsk::New() const {$/;"	f	class:chat::FriendAsk
+New	chat.pb.cc	/^FriendRly* FriendRly::New() const {$/;"	f	class:chat::FriendRly
+New	chat.pb.cc	/^OffMsgAsk* OffMsgAsk::New() const {$/;"	f	class:chat::OffMsgAsk
+New	chat.pb.cc	/^OffMsgRly* OffMsgRly::New() const {$/;"	f	class:chat::OffMsgRly
+New	chat.pb.cc	/^heart* heart::New() const {$/;"	f	class:chat::heart
+New	group.pb.cc	/^GroupMessage* GroupMessage::New() const {$/;"	f	class:group::GroupMessage
+New	group.pb.cc	/^HandleGroup* HandleGroup::New() const {$/;"	f	class:group::HandleGroup
+Node	ChatServer.h	/^		Node(Timestamp now,int id)$/;"	f	struct:ChatServer::Node
+Node	ChatServer.h	/^	struct Node : public muduo::copyable$/;"	s	class:ChatServer
+OFFSET_OF_FIELD_	chat.pb.cc	1262;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	1274;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	1609;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	1621;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	2153;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	2172;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	2486;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	2498;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	2797;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	2809;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	638;"	d	file:
+OFFSET_OF_FIELD_	chat.pb.cc	658;"	d	file:
+OffMsgAsk	chat.pb.cc	/^OffMsgAsk::OffMsgAsk()$/;"	f	class:chat::OffMsgAsk
+OffMsgAsk	chat.pb.cc	/^OffMsgAsk::OffMsgAsk(const OffMsgAsk& from)$/;"	f	class:chat::OffMsgAsk
+OffMsgAsk	chat.pb.h	/^class OffMsgAsk : public ::google::protobuf::Message {$/;"	c	namespace:chat
+OffMsgAskPtr	ChatServer.h	/^typedef boost::shared_ptr<chat::OffMsgAsk> OffMsgAskPtr;$/;"	t
+OffMsgAsk_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* OffMsgAsk_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+OffMsgAsk_reflection_	chat.pb.cc	/^  OffMsgAsk_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+OffMsgRly	chat.pb.cc	/^OffMsgRly::OffMsgRly()$/;"	f	class:chat::OffMsgRly
+OffMsgRly	chat.pb.cc	/^OffMsgRly::OffMsgRly(const OffMsgRly& from)$/;"	f	class:chat::OffMsgRly
+OffMsgRly	chat.pb.h	/^class OffMsgRly : public ::google::protobuf::Message {$/;"	c	namespace:chat
+OffMsgRly_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* OffMsgRly_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+OffMsgRly_reflection_	chat.pb.cc	/^  OffMsgRly_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+OperateType	group.pb.h	/^  typedef HandleGroup_OperateType OperateType;$/;"	t	class:group::HandleGroup
+OperateType_ARRAYSIZE	group.pb.cc	/^const int HandleGroup::OperateType_ARRAYSIZE;$/;"	m	class:group::HandleGroup	file:
+OperateType_ARRAYSIZE	group.pb.h	/^  static const int OperateType_ARRAYSIZE =$/;"	m	class:group::HandleGroup
+OperateType_IsValid	group.pb.h	/^  static inline bool OperateType_IsValid(int value) {$/;"	f	class:group::HandleGroup
+OperateType_MAX	group.pb.cc	/^const HandleGroup_OperateType HandleGroup::OperateType_MAX;$/;"	m	class:group::HandleGroup	file:
+OperateType_MAX	group.pb.h	/^  static const OperateType OperateType_MAX =$/;"	m	class:group::HandleGroup
+OperateType_MIN	group.pb.cc	/^const HandleGroup_OperateType HandleGroup::OperateType_MIN;$/;"	m	class:group::HandleGroup	file:
+OperateType_MIN	group.pb.h	/^  static const OperateType OperateType_MIN =$/;"	m	class:group::HandleGroup
+OperateType_Name	group.pb.h	/^  static inline const ::std::string& OperateType_Name(OperateType value) {$/;"	f	class:group::HandleGroup
+OperateType_Parse	group.pb.h	/^  static inline bool OperateType_Parse(const ::std::string& name,$/;"	f	class:group::HandleGroup
+OperateType_descriptor	group.pb.h	/^  OperateType_descriptor() {$/;"	f	class:group::HandleGroup
+PHOTO	chat.pb.cc	/^const ChatMessage_MsgType ChatMessage::PHOTO;$/;"	m	class:chat::ChatMessage	file:
+PHOTO	chat.pb.h	/^  static const MsgType PHOTO = ChatMessage_MsgType_PHOTO;$/;"	m	class:chat::ChatMessage
+PROTOBUF_chat_2eproto__INCLUDED	chat.pb.h	5;"	d
+PROTOBUF_group_2eproto__INCLUDED	group.pb.h	5;"	d
+ProtobufCodec	codec.h	/^	  ProtobufCodec(const ProtobufMessageCallback& messageCb, const ErrorCallback& errorCb)$/;"	f	class:ProtobufCodec
+ProtobufCodec	codec.h	/^	  explicit ProtobufCodec(const ProtobufMessageCallback& messageCb)$/;"	f	class:ProtobufCodec
+ProtobufCodec	codec.h	/^class ProtobufCodec : boost::noncopyable$/;"	c
+ProtobufDispatcher	dispatcher.h	/^	  explicit ProtobufDispatcher(const ProtobufMessageCallback& defaultCb)$/;"	f	class:ProtobufDispatcher
+ProtobufDispatcher	dispatcher.h	/^class ProtobufDispatcher$/;"	c
+ProtobufMessageCallback	codec.h	/^	                                muduo::Timestamp)> ProtobufMessageCallback;$/;"	t	class:ProtobufCodec
+ProtobufMessageCallback	dispatcher.h	/^	                                muduo::Timestamp)> ProtobufMessageCallback;$/;"	t	class:ProtobufDispatcher
+ProtobufMessageTCallback	dispatcher.h	/^                                muduo::Timestamp)> ProtobufMessageTCallback;$/;"	t	class:CallbackT
+QUIT	group.pb.cc	/^const HandleGroup_OperateType HandleGroup::QUIT;$/;"	m	class:group::HandleGroup	file:
+QUIT	group.pb.h	/^  static const OperateType QUIT = HandleGroup_OperateType_QUIT;$/;"	m	class:group::HandleGroup
+RM	Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
+SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
+SUFFIXES	Makefile	/^SUFFIXES =$/;"	m
+SerializeWithCachedSizes	chat.pb.cc	/^void ChatAck::SerializeWithCachedSizes($/;"	f	class:chat::ChatAck
+SerializeWithCachedSizes	chat.pb.cc	/^void ChatMessage::SerializeWithCachedSizes($/;"	f	class:chat::ChatMessage
+SerializeWithCachedSizes	chat.pb.cc	/^void Connect::SerializeWithCachedSizes($/;"	f	class:chat::Connect
+SerializeWithCachedSizes	chat.pb.cc	/^void FriendAck::SerializeWithCachedSizes($/;"	f	class:chat::FriendAck
+SerializeWithCachedSizes	chat.pb.cc	/^void FriendAsk::SerializeWithCachedSizes($/;"	f	class:chat::FriendAsk
+SerializeWithCachedSizes	chat.pb.cc	/^void FriendRly::SerializeWithCachedSizes($/;"	f	class:chat::FriendRly
+SerializeWithCachedSizes	chat.pb.cc	/^void OffMsgAsk::SerializeWithCachedSizes($/;"	f	class:chat::OffMsgAsk
+SerializeWithCachedSizes	chat.pb.cc	/^void OffMsgRly::SerializeWithCachedSizes($/;"	f	class:chat::OffMsgRly
+SerializeWithCachedSizes	chat.pb.cc	/^void heart::SerializeWithCachedSizes($/;"	f	class:chat::heart
+SerializeWithCachedSizes	group.pb.cc	/^void GroupMessage::SerializeWithCachedSizes($/;"	f	class:group::GroupMessage
+SerializeWithCachedSizes	group.pb.cc	/^void HandleGroup::SerializeWithCachedSizes($/;"	f	class:group::HandleGroup
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* ChatAck::SerializeWithCachedSizesToArray($/;"	f	class:chat::ChatAck
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* ChatMessage::SerializeWithCachedSizesToArray($/;"	f	class:chat::ChatMessage
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* Connect::SerializeWithCachedSizesToArray($/;"	f	class:chat::Connect
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* FriendAck::SerializeWithCachedSizesToArray($/;"	f	class:chat::FriendAck
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* FriendAsk::SerializeWithCachedSizesToArray($/;"	f	class:chat::FriendAsk
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* FriendRly::SerializeWithCachedSizesToArray($/;"	f	class:chat::FriendRly
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* OffMsgAsk::SerializeWithCachedSizesToArray($/;"	f	class:chat::OffMsgAsk
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* OffMsgRly::SerializeWithCachedSizesToArray($/;"	f	class:chat::OffMsgRly
+SerializeWithCachedSizesToArray	chat.pb.cc	/^::google::protobuf::uint8* heart::SerializeWithCachedSizesToArray($/;"	f	class:chat::heart
+SerializeWithCachedSizesToArray	group.pb.cc	/^::google::protobuf::uint8* GroupMessage::SerializeWithCachedSizesToArray($/;"	f	class:group::GroupMessage
+SerializeWithCachedSizesToArray	group.pb.cc	/^::google::protobuf::uint8* HandleGroup::SerializeWithCachedSizesToArray($/;"	f	class:group::HandleGroup
+SetCachedSize	chat.pb.cc	/^void ChatAck::SetCachedSize(int size) const {$/;"	f	class:chat::ChatAck
+SetCachedSize	chat.pb.cc	/^void ChatMessage::SetCachedSize(int size) const {$/;"	f	class:chat::ChatMessage
+SetCachedSize	chat.pb.cc	/^void Connect::SetCachedSize(int size) const {$/;"	f	class:chat::Connect
+SetCachedSize	chat.pb.cc	/^void FriendAck::SetCachedSize(int size) const {$/;"	f	class:chat::FriendAck
+SetCachedSize	chat.pb.cc	/^void FriendAsk::SetCachedSize(int size) const {$/;"	f	class:chat::FriendAsk
+SetCachedSize	chat.pb.cc	/^void FriendRly::SetCachedSize(int size) const {$/;"	f	class:chat::FriendRly
+SetCachedSize	chat.pb.cc	/^void OffMsgAsk::SetCachedSize(int size) const {$/;"	f	class:chat::OffMsgAsk
+SetCachedSize	chat.pb.cc	/^void OffMsgRly::SetCachedSize(int size) const {$/;"	f	class:chat::OffMsgRly
+SetCachedSize	chat.pb.cc	/^void heart::SetCachedSize(int size) const {$/;"	f	class:chat::heart
+SetCachedSize	group.pb.cc	/^void GroupMessage::SetCachedSize(int size) const {$/;"	f	class:group::GroupMessage
+SetCachedSize	group.pb.cc	/^void HandleGroup::SetCachedSize(int size) const {$/;"	f	class:group::HandleGroup
+SharedCtor	chat.pb.cc	/^void ChatAck::SharedCtor() {$/;"	f	class:chat::ChatAck
+SharedCtor	chat.pb.cc	/^void ChatMessage::SharedCtor() {$/;"	f	class:chat::ChatMessage
+SharedCtor	chat.pb.cc	/^void Connect::SharedCtor() {$/;"	f	class:chat::Connect
+SharedCtor	chat.pb.cc	/^void FriendAck::SharedCtor() {$/;"	f	class:chat::FriendAck
+SharedCtor	chat.pb.cc	/^void FriendAsk::SharedCtor() {$/;"	f	class:chat::FriendAsk
+SharedCtor	chat.pb.cc	/^void FriendRly::SharedCtor() {$/;"	f	class:chat::FriendRly
+SharedCtor	chat.pb.cc	/^void OffMsgAsk::SharedCtor() {$/;"	f	class:chat::OffMsgAsk
+SharedCtor	chat.pb.cc	/^void OffMsgRly::SharedCtor() {$/;"	f	class:chat::OffMsgRly
+SharedCtor	chat.pb.cc	/^void heart::SharedCtor() {$/;"	f	class:chat::heart
+SharedCtor	group.pb.cc	/^void GroupMessage::SharedCtor() {$/;"	f	class:group::GroupMessage
+SharedCtor	group.pb.cc	/^void HandleGroup::SharedCtor() {$/;"	f	class:group::HandleGroup
+SharedDtor	chat.pb.cc	/^void ChatAck::SharedDtor() {$/;"	f	class:chat::ChatAck
+SharedDtor	chat.pb.cc	/^void ChatMessage::SharedDtor() {$/;"	f	class:chat::ChatMessage
+SharedDtor	chat.pb.cc	/^void Connect::SharedDtor() {$/;"	f	class:chat::Connect
+SharedDtor	chat.pb.cc	/^void FriendAck::SharedDtor() {$/;"	f	class:chat::FriendAck
+SharedDtor	chat.pb.cc	/^void FriendAsk::SharedDtor() {$/;"	f	class:chat::FriendAsk
+SharedDtor	chat.pb.cc	/^void FriendRly::SharedDtor() {$/;"	f	class:chat::FriendRly
+SharedDtor	chat.pb.cc	/^void OffMsgAsk::SharedDtor() {$/;"	f	class:chat::OffMsgAsk
+SharedDtor	chat.pb.cc	/^void OffMsgRly::SharedDtor() {$/;"	f	class:chat::OffMsgRly
+SharedDtor	chat.pb.cc	/^void heart::SharedDtor() {$/;"	f	class:chat::heart
+SharedDtor	group.pb.cc	/^void GroupMessage::SharedDtor() {$/;"	f	class:group::GroupMessage
+SharedDtor	group.pb.cc	/^void HandleGroup::SharedDtor() {$/;"	f	class:group::HandleGroup
+SingleOffMsgListPtr	ChatServer.cpp	/^typedef boost::shared_ptr<std::vector<SingleOfflineMsg> > SingleOffMsgListPtr;$/;"	t	file:
+StaticDescriptorInitializer_chat_2eproto	chat.pb.cc	/^  StaticDescriptorInitializer_chat_2eproto() {$/;"	f	struct:chat::StaticDescriptorInitializer_chat_2eproto
+StaticDescriptorInitializer_chat_2eproto	chat.pb.cc	/^struct StaticDescriptorInitializer_chat_2eproto {$/;"	s	namespace:chat	file:
+StaticDescriptorInitializer_group_2eproto	group.pb.cc	/^  StaticDescriptorInitializer_group_2eproto() {$/;"	f	struct:group::StaticDescriptorInitializer_group_2eproto
+StaticDescriptorInitializer_group_2eproto	group.pb.cc	/^struct StaticDescriptorInitializer_group_2eproto {$/;"	s	namespace:group	file:
+Swap	chat.pb.cc	/^void ChatAck::Swap(ChatAck* other) {$/;"	f	class:chat::ChatAck
+Swap	chat.pb.cc	/^void ChatMessage::Swap(ChatMessage* other) {$/;"	f	class:chat::ChatMessage
+Swap	chat.pb.cc	/^void Connect::Swap(Connect* other) {$/;"	f	class:chat::Connect
+Swap	chat.pb.cc	/^void FriendAck::Swap(FriendAck* other) {$/;"	f	class:chat::FriendAck
+Swap	chat.pb.cc	/^void FriendAsk::Swap(FriendAsk* other) {$/;"	f	class:chat::FriendAsk
+Swap	chat.pb.cc	/^void FriendRly::Swap(FriendRly* other) {$/;"	f	class:chat::FriendRly
+Swap	chat.pb.cc	/^void OffMsgAsk::Swap(OffMsgAsk* other) {$/;"	f	class:chat::OffMsgAsk
+Swap	chat.pb.cc	/^void OffMsgRly::Swap(OffMsgRly* other) {$/;"	f	class:chat::OffMsgRly
+Swap	chat.pb.cc	/^void heart::Swap(heart* other) {$/;"	f	class:chat::heart
+Swap	group.pb.cc	/^void GroupMessage::Swap(GroupMessage* other) {$/;"	f	class:group::GroupMessage
+Swap	group.pb.cc	/^void HandleGroup::Swap(HandleGroup* other) {$/;"	f	class:group::HandleGroup
+TEXT	chat.pb.cc	/^const ChatMessage_MsgType ChatMessage::TEXT;$/;"	m	class:chat::ChatMessage	file:
+TEXT	chat.pb.h	/^  static const MsgType TEXT = ChatMessage_MsgType_TEXT;$/;"	m	class:chat::ChatMessage
+UserWithCid	ChatServer.h	/^		UserWithCid(int ud,int cd){$/;"	f	class:ChatServer::UserWithCid
+UserWithCid	ChatServer.h	/^	class UserWithCid{$/;"	c	class:ChatServer
+VERBOSE	Makefile	/^VERBOSE = 1$/;"	m
+VOICE	chat.pb.cc	/^const ChatMessage_MsgType ChatMessage::VOICE;$/;"	m	class:chat::ChatMessage	file:
+VOICE	chat.pb.h	/^  static const MsgType VOICE = ChatMessage_MsgType_VOICE;$/;"	m	class:chat::ChatMessage
+WeakEntryPtr	ChatServer.h	/^	typedef boost::weak_ptr<Entry> WeakEntryPtr;$/;"	t	class:ChatServer
+WeakTcpConnectionPtr	ChatServer.h	/^typedef boost::weak_ptr<TcpConnection> WeakTcpConnectionPtr;$/;"	t
+ZR_	chat.pb.cc	1266;"	d	file:
+ZR_	chat.pb.cc	1275;"	d	file:
+ZR_	chat.pb.cc	1613;"	d	file:
+ZR_	chat.pb.cc	1622;"	d	file:
+ZR_	chat.pb.cc	2157;"	d	file:
+ZR_	chat.pb.cc	2173;"	d	file:
+ZR_	chat.pb.cc	2490;"	d	file:
+ZR_	chat.pb.cc	2499;"	d	file:
+ZR_	chat.pb.cc	2801;"	d	file:
+ZR_	chat.pb.cc	2810;"	d	file:
+ZR_	chat.pb.cc	642;"	d	file:
+ZR_	chat.pb.cc	659;"	d	file:
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::ChatAck
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::ChatMessage
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::Connect
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::FriendAck
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::FriendAsk
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::FriendRly
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::OffMsgAsk
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::OffMsgRly
+_cached_size_	chat.pb.h	/^  mutable int _cached_size_;$/;"	m	class:chat::heart
+_cached_size_	group.pb.h	/^  mutable int _cached_size_;$/;"	m	class:group::GroupMessage
+_cached_size_	group.pb.h	/^  mutable int _cached_size_;$/;"	m	class:group::HandleGroup
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::ChatAck
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::ChatMessage
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::Connect
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::FriendAck
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::FriendAsk
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::FriendRly
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::OffMsgAsk
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::OffMsgRly
+_has_bits_	chat.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:chat::heart
+_has_bits_	group.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:group::GroupMessage
+_has_bits_	group.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:group::HandleGroup
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::ChatAck
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::ChatMessage
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::Connect
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::FriendAck
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::FriendAsk
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::FriendRly
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::OffMsgAsk
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::OffMsgRly
+_unknown_fields_	chat.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:chat::heart
+_unknown_fields_	group.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:group::GroupMessage
+_unknown_fields_	group.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:group::HandleGroup
+addMemeber	GroupServer.h	/^	void addMemeber(int id){$/;"	f	class:Group
+add_messages	chat.pb.h	/^inline ::chat::ChatMessage* OffMsgRly::add_messages() {$/;"	f	class:chat::OffMsgRly
+asInt32	codec.cpp	/^int32_t asInt32(const char* buf)$/;"	f
+askid	chat.pb.h	/^inline ::google::protobuf::int32 FriendAsk::askid() const {$/;"	f	class:chat::FriendAsk
+askid_	chat.pb.h	/^  ::google::protobuf::int32 askid_;$/;"	m	class:chat::FriendAsk
+askmessage	chat.pb.h	/^inline const ::std::string& FriendAsk::askmessage() const {$/;"	f	class:chat::FriendAsk
+askmessage_	chat.pb.h	/^  ::std::string* askmessage_;$/;"	m	class:chat::FriendAsk
+callback_	dispatcher.h	/^  ProtobufMessageTCallback callback_;$/;"	m	class:CallbackT
+callbacks_	dispatcher.h	/^	  CallbackMap callbacks_;$/;"	m	class:ProtobufDispatcher
+chat	chat.pb.cc	/^namespace chat {$/;"	n	file:
+chat	chat.pb.h	/^namespace chat {$/;"	n
+chatserver_	GroupServer.h	/^	ChatServer* chatserver_;$/;"	m	class:GroupServer
+cid	ChatServer.h	/^		int cid;$/;"	m	class:ChatServer::UserWithCid
+clear_askid	chat.pb.h	/^inline void FriendAsk::clear_askid() {$/;"	f	class:chat::FriendAsk
+clear_askmessage	chat.pb.h	/^inline void FriendAsk::clear_askmessage() {$/;"	f	class:chat::FriendAsk
+clear_content	group.pb.h	/^inline void GroupMessage::clear_content() {$/;"	f	class:group::GroupMessage
+clear_fromid	chat.pb.h	/^inline void ChatAck::clear_fromid() {$/;"	f	class:chat::ChatAck
+clear_fromid	chat.pb.h	/^inline void ChatMessage::clear_fromid() {$/;"	f	class:chat::ChatMessage
+clear_fromid	chat.pb.h	/^inline void FriendAck::clear_fromid() {$/;"	f	class:chat::FriendAck
+clear_has_askid	chat.pb.h	/^inline void FriendAsk::clear_has_askid() {$/;"	f	class:chat::FriendAsk
+clear_has_askmessage	chat.pb.h	/^inline void FriendAsk::clear_has_askmessage() {$/;"	f	class:chat::FriendAsk
+clear_has_content	group.pb.h	/^inline void GroupMessage::clear_has_content() {$/;"	f	class:group::GroupMessage
+clear_has_fromid	chat.pb.h	/^inline void ChatAck::clear_has_fromid() {$/;"	f	class:chat::ChatAck
+clear_has_fromid	chat.pb.h	/^inline void ChatMessage::clear_has_fromid() {$/;"	f	class:chat::ChatMessage
+clear_has_fromid	chat.pb.h	/^inline void FriendAck::clear_has_fromid() {$/;"	f	class:chat::FriendAck
+clear_has_id	chat.pb.h	/^inline void ChatAck::clear_has_id() {$/;"	f	class:chat::ChatAck
+clear_has_id	chat.pb.h	/^inline void ChatMessage::clear_has_id() {$/;"	f	class:chat::ChatMessage
+clear_has_id	chat.pb.h	/^inline void Connect::clear_has_id() {$/;"	f	class:chat::Connect
+clear_has_id	group.pb.h	/^inline void GroupMessage::clear_has_id() {$/;"	f	class:group::GroupMessage
+clear_has_id	group.pb.h	/^inline void HandleGroup::clear_has_id() {$/;"	f	class:group::HandleGroup
+clear_has_message	chat.pb.h	/^inline void ChatMessage::clear_has_message() {$/;"	f	class:chat::ChatMessage
+clear_has_name	group.pb.h	/^inline void GroupMessage::clear_has_name() {$/;"	f	class:group::GroupMessage
+clear_has_name	group.pb.h	/^inline void HandleGroup::clear_has_name() {$/;"	f	class:group::HandleGroup
+clear_has_page	chat.pb.h	/^inline void OffMsgAsk::clear_has_page() {$/;"	f	class:chat::OffMsgAsk
+clear_has_page	chat.pb.h	/^inline void OffMsgRly::clear_has_page() {$/;"	f	class:chat::OffMsgRly
+clear_has_recvid	chat.pb.h	/^inline void FriendRly::clear_has_recvid() {$/;"	f	class:chat::FriendRly
+clear_has_reply	chat.pb.h	/^inline void FriendRly::clear_has_reply() {$/;"	f	class:chat::FriendRly
+clear_has_reqid	chat.pb.h	/^inline void FriendAsk::clear_has_reqid() {$/;"	f	class:chat::FriendAsk
+clear_has_sendid	chat.pb.h	/^inline void FriendRly::clear_has_sendid() {$/;"	f	class:chat::FriendRly
+clear_has_time	chat.pb.h	/^inline void ChatAck::clear_has_time() {$/;"	f	class:chat::ChatAck
+clear_has_time	chat.pb.h	/^inline void ChatMessage::clear_has_time() {$/;"	f	class:chat::ChatMessage
+clear_has_toid	chat.pb.h	/^inline void ChatAck::clear_has_toid() {$/;"	f	class:chat::ChatAck
+clear_has_toid	chat.pb.h	/^inline void ChatMessage::clear_has_toid() {$/;"	f	class:chat::ChatMessage
+clear_has_toid	chat.pb.h	/^inline void FriendAck::clear_has_toid() {$/;"	f	class:chat::FriendAck
+clear_has_type	chat.pb.h	/^inline void ChatMessage::clear_has_type() {$/;"	f	class:chat::ChatMessage
+clear_has_type	group.pb.h	/^inline void HandleGroup::clear_has_type() {$/;"	f	class:group::HandleGroup
+clear_has_uid	chat.pb.h	/^inline void OffMsgAsk::clear_has_uid() {$/;"	f	class:chat::OffMsgAsk
+clear_id	chat.pb.h	/^inline void ChatAck::clear_id() {$/;"	f	class:chat::ChatAck
+clear_id	chat.pb.h	/^inline void ChatMessage::clear_id() {$/;"	f	class:chat::ChatMessage
+clear_id	chat.pb.h	/^inline void Connect::clear_id() {$/;"	f	class:chat::Connect
+clear_id	group.pb.h	/^inline void GroupMessage::clear_id() {$/;"	f	class:group::GroupMessage
+clear_id	group.pb.h	/^inline void HandleGroup::clear_id() {$/;"	f	class:group::HandleGroup
+clear_message	chat.pb.h	/^inline void ChatMessage::clear_message() {$/;"	f	class:chat::ChatMessage
+clear_messages	chat.pb.h	/^inline void OffMsgRly::clear_messages() {$/;"	f	class:chat::OffMsgRly
+clear_name	group.pb.h	/^inline void GroupMessage::clear_name() {$/;"	f	class:group::GroupMessage
+clear_name	group.pb.h	/^inline void HandleGroup::clear_name() {$/;"	f	class:group::HandleGroup
+clear_page	chat.pb.h	/^inline void OffMsgAsk::clear_page() {$/;"	f	class:chat::OffMsgAsk
+clear_page	chat.pb.h	/^inline void OffMsgRly::clear_page() {$/;"	f	class:chat::OffMsgRly
+clear_recvid	chat.pb.h	/^inline void FriendRly::clear_recvid() {$/;"	f	class:chat::FriendRly
+clear_reply	chat.pb.h	/^inline void FriendRly::clear_reply() {$/;"	f	class:chat::FriendRly
+clear_reqid	chat.pb.h	/^inline void FriendAsk::clear_reqid() {$/;"	f	class:chat::FriendAsk
+clear_sendid	chat.pb.h	/^inline void FriendRly::clear_sendid() {$/;"	f	class:chat::FriendRly
+clear_time	chat.pb.h	/^inline void ChatAck::clear_time() {$/;"	f	class:chat::ChatAck
+clear_time	chat.pb.h	/^inline void ChatMessage::clear_time() {$/;"	f	class:chat::ChatMessage
+clear_toid	chat.pb.h	/^inline void ChatAck::clear_toid() {$/;"	f	class:chat::ChatAck
+clear_toid	chat.pb.h	/^inline void ChatMessage::clear_toid() {$/;"	f	class:chat::ChatMessage
+clear_toid	chat.pb.h	/^inline void FriendAck::clear_toid() {$/;"	f	class:chat::FriendAck
+clear_type	chat.pb.h	/^inline void ChatMessage::clear_type() {$/;"	f	class:chat::ChatMessage
+clear_type	group.pb.h	/^inline void HandleGroup::clear_type() {$/;"	f	class:group::HandleGroup
+clear_uid	chat.pb.h	/^inline void OffMsgAsk::clear_uid() {$/;"	f	class:chat::OffMsgAsk
+codec_	ChatServer.h	/^	ProtobufCodec codec_;$/;"	m	class:ChatServer
+codec_	GroupServer.h	/^	ProtobufCodec& codec_;$/;"	m	class:GroupServer
+connId	ChatServer.h	/^		int connId;$/;"	m	struct:ChatServer::Node
+connections_	ChatServer.h	/^	ConnectionListPtr connections_;$/;"	m	class:ChatServer
+content	group.pb.h	/^inline const ::std::string& GroupMessage::content() const {$/;"	f	class:group::GroupMessage
+content_	group.pb.h	/^  ::std::string* content_;$/;"	m	class:group::GroupMessage
+createMessage	codec.cpp	/^google::protobuf::Message* ProtobufCodec::createMessage(const std::string& typeName)$/;"	f	class:ProtobufCodec
+create_time	GroupServer.h	/^	Timestamp create_time;$/;"	m	class:Group
+defaultCallback_	dispatcher.h	/^	  ProtobufMessageCallback defaultCallback_;$/;"	m	class:ProtobufDispatcher
+defaultErrorCallback	codec.cpp	/^void ProtobufCodec::defaultErrorCallback(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ProtobufCodec
+default_instance	chat.pb.cc	/^const ChatAck& ChatAck::default_instance() {$/;"	f	class:chat::ChatAck
+default_instance	chat.pb.cc	/^const ChatMessage& ChatMessage::default_instance() {$/;"	f	class:chat::ChatMessage
+default_instance	chat.pb.cc	/^const Connect& Connect::default_instance() {$/;"	f	class:chat::Connect
+default_instance	chat.pb.cc	/^const FriendAck& FriendAck::default_instance() {$/;"	f	class:chat::FriendAck
+default_instance	chat.pb.cc	/^const FriendAsk& FriendAsk::default_instance() {$/;"	f	class:chat::FriendAsk
+default_instance	chat.pb.cc	/^const FriendRly& FriendRly::default_instance() {$/;"	f	class:chat::FriendRly
+default_instance	chat.pb.cc	/^const OffMsgAsk& OffMsgAsk::default_instance() {$/;"	f	class:chat::OffMsgAsk
+default_instance	chat.pb.cc	/^const OffMsgRly& OffMsgRly::default_instance() {$/;"	f	class:chat::OffMsgRly
+default_instance	chat.pb.cc	/^const heart& heart::default_instance() {$/;"	f	class:chat::heart
+default_instance	group.pb.cc	/^const GroupMessage& GroupMessage::default_instance() {$/;"	f	class:group::GroupMessage
+default_instance	group.pb.cc	/^const HandleGroup& HandleGroup::default_instance() {$/;"	f	class:group::HandleGroup
+default_instance_	chat.pb.cc	/^ChatAck* ChatAck::default_instance_ = NULL;$/;"	m	class:chat::ChatAck	file:
+default_instance_	chat.pb.cc	/^ChatMessage* ChatMessage::default_instance_ = NULL;$/;"	m	class:chat::ChatMessage	file:
+default_instance_	chat.pb.cc	/^Connect* Connect::default_instance_ = NULL;$/;"	m	class:chat::Connect	file:
+default_instance_	chat.pb.cc	/^FriendAck* FriendAck::default_instance_ = NULL;$/;"	m	class:chat::FriendAck	file:
+default_instance_	chat.pb.cc	/^FriendAsk* FriendAsk::default_instance_ = NULL;$/;"	m	class:chat::FriendAsk	file:
+default_instance_	chat.pb.cc	/^FriendRly* FriendRly::default_instance_ = NULL;$/;"	m	class:chat::FriendRly	file:
+default_instance_	chat.pb.cc	/^OffMsgAsk* OffMsgAsk::default_instance_ = NULL;$/;"	m	class:chat::OffMsgAsk	file:
+default_instance_	chat.pb.cc	/^OffMsgRly* OffMsgRly::default_instance_ = NULL;$/;"	m	class:chat::OffMsgRly	file:
+default_instance_	chat.pb.cc	/^heart* heart::default_instance_ = NULL;$/;"	m	class:chat::heart	file:
+default_instance_	chat.pb.h	/^  static ChatAck* default_instance_;$/;"	m	class:chat::ChatAck
+default_instance_	chat.pb.h	/^  static ChatMessage* default_instance_;$/;"	m	class:chat::ChatMessage
+default_instance_	chat.pb.h	/^  static Connect* default_instance_;$/;"	m	class:chat::Connect
+default_instance_	chat.pb.h	/^  static FriendAck* default_instance_;$/;"	m	class:chat::FriendAck
+default_instance_	chat.pb.h	/^  static FriendAsk* default_instance_;$/;"	m	class:chat::FriendAsk
+default_instance_	chat.pb.h	/^  static FriendRly* default_instance_;$/;"	m	class:chat::FriendRly
+default_instance_	chat.pb.h	/^  static OffMsgAsk* default_instance_;$/;"	m	class:chat::OffMsgAsk
+default_instance_	chat.pb.h	/^  static OffMsgRly* default_instance_;$/;"	m	class:chat::OffMsgRly
+default_instance_	chat.pb.h	/^  static heart* default_instance_;$/;"	m	class:chat::heart
+default_instance_	group.pb.cc	/^GroupMessage* GroupMessage::default_instance_ = NULL;$/;"	m	class:group::GroupMessage	file:
+default_instance_	group.pb.cc	/^HandleGroup* HandleGroup::default_instance_ = NULL;$/;"	m	class:group::HandleGroup	file:
+default_instance_	group.pb.h	/^  static GroupMessage* default_instance_;$/;"	m	class:group::GroupMessage
+default_instance_	group.pb.h	/^  static HandleGroup* default_instance_;$/;"	m	class:group::HandleGroup
+deleteMember	GroupServer.h	/^	void deleteMember(int id){$/;"	f	class:Group
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* ChatAck::descriptor() {$/;"	f	class:chat::ChatAck
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* ChatMessage::descriptor() {$/;"	f	class:chat::ChatMessage
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* Connect::descriptor() {$/;"	f	class:chat::Connect
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* FriendAck::descriptor() {$/;"	f	class:chat::FriendAck
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* FriendAsk::descriptor() {$/;"	f	class:chat::FriendAsk
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* FriendRly::descriptor() {$/;"	f	class:chat::FriendRly
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* OffMsgAsk::descriptor() {$/;"	f	class:chat::OffMsgAsk
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* OffMsgRly::descriptor() {$/;"	f	class:chat::OffMsgRly
+descriptor	chat.pb.cc	/^const ::google::protobuf::Descriptor* heart::descriptor() {$/;"	f	class:chat::heart
+descriptor	group.pb.cc	/^const ::google::protobuf::Descriptor* GroupMessage::descriptor() {$/;"	f	class:group::GroupMessage
+descriptor	group.pb.cc	/^const ::google::protobuf::Descriptor* HandleGroup::descriptor() {$/;"	f	class:group::HandleGroup
+dispatcher_	ChatServer.h	/^	ProtobufDispatcher dispatcher_;$/;"	m	class:ChatServer
+dumpConnectionList	ChatServer.cpp	/^void ChatServer::dumpConnectionList() const$/;"	f	class:ChatServer
+errorCallback_	codec.h	/^	  ErrorCallback errorCallback_;$/;"	m	class:ProtobufCodec
+errorCodeToString	codec.cpp	/^const string& ProtobufCodec::errorCodeToString(ErrorCode errorCode)$/;"	f	class:ProtobufCodec
+fillEmptyBuffer	codec.cpp	/^void ProtobufCodec::fillEmptyBuffer(Buffer* buf, const google::protobuf::Message& message)$/;"	f	class:ProtobufCodec
+fromid	chat.pb.h	/^inline ::google::protobuf::int32 ChatAck::fromid() const {$/;"	f	class:chat::ChatAck
+fromid	chat.pb.h	/^inline ::google::protobuf::int32 ChatMessage::fromid() const {$/;"	f	class:chat::ChatMessage
+fromid	chat.pb.h	/^inline ::google::protobuf::int32 FriendAck::fromid() const {$/;"	f	class:chat::FriendAck
+fromid_	chat.pb.h	/^  ::google::protobuf::int32 fromid_;$/;"	m	class:chat::ChatAck
+fromid_	chat.pb.h	/^  ::google::protobuf::int32 fromid_;$/;"	m	class:chat::ChatMessage
+fromid_	chat.pb.h	/^  ::google::protobuf::int32 fromid_;$/;"	m	class:chat::FriendAck
+getConnById	ChatServer.cpp	/^TcpConnectionPtr ChatServer::getConnById(int id)$/;"	f	class:ChatServer
+getConnectionList	ChatServer.h	/^	ConnectionListPtr getConnectionList()$/;"	f	class:ChatServer
+getGroup	GroupServer.cpp	/^Group* GroupServer::getGroup(const std::string name)$/;"	f	class:GroupServer
+getGroupServer	ChatServer.h	/^	GroupServer& getGroupServer(){$/;"	f	class:ChatServer
+getGroupsPtr	GroupServer.h	/^	GroupMapPtr getGroupsPtr()$/;"	f	class:GroupServer
+getIdMap	ChatServer.h	/^	IdMapPtr getIdMap()$/;"	f	class:ChatServer
+getListNode	ChatServer.h	/^	ListNodesPtr getListNode()$/;"	f	class:ChatServer
+getTransRecve	codec.h	/^	  int64_t getTransRecve(){$/;"	f	class:ProtobufCodec
+getTransSend	codec.h	/^	  int64_t getTransSend(){$/;"	f	class:ProtobufCodec
+google	chat.pb.h	/^namespace google {$/;"	n
+google	group.pb.h	/^namespace google {$/;"	n
+group	group.pb.cc	/^namespace group {$/;"	n	file:
+group	group.pb.h	/^namespace group {$/;"	n
+groups_	GroupServer.h	/^	GroupMapPtr groups_;$/;"	m	class:GroupServer
+groupserver_	ChatServer.h	/^	GroupServer groupserver_;$/;"	m	class:ChatServer
+has_askid	chat.pb.h	/^inline bool FriendAsk::has_askid() const {$/;"	f	class:chat::FriendAsk
+has_askmessage	chat.pb.h	/^inline bool FriendAsk::has_askmessage() const {$/;"	f	class:chat::FriendAsk
+has_content	group.pb.h	/^inline bool GroupMessage::has_content() const {$/;"	f	class:group::GroupMessage
+has_fromid	chat.pb.h	/^inline bool ChatAck::has_fromid() const {$/;"	f	class:chat::ChatAck
+has_fromid	chat.pb.h	/^inline bool ChatMessage::has_fromid() const {$/;"	f	class:chat::ChatMessage
+has_fromid	chat.pb.h	/^inline bool FriendAck::has_fromid() const {$/;"	f	class:chat::FriendAck
+has_id	chat.pb.h	/^inline bool ChatAck::has_id() const {$/;"	f	class:chat::ChatAck
+has_id	chat.pb.h	/^inline bool ChatMessage::has_id() const {$/;"	f	class:chat::ChatMessage
+has_id	chat.pb.h	/^inline bool Connect::has_id() const {$/;"	f	class:chat::Connect
+has_id	group.pb.h	/^inline bool GroupMessage::has_id() const {$/;"	f	class:group::GroupMessage
+has_id	group.pb.h	/^inline bool HandleGroup::has_id() const {$/;"	f	class:group::HandleGroup
+has_message	chat.pb.h	/^inline bool ChatMessage::has_message() const {$/;"	f	class:chat::ChatMessage
+has_name	group.pb.h	/^inline bool GroupMessage::has_name() const {$/;"	f	class:group::GroupMessage
+has_name	group.pb.h	/^inline bool HandleGroup::has_name() const {$/;"	f	class:group::HandleGroup
+has_page	chat.pb.h	/^inline bool OffMsgAsk::has_page() const {$/;"	f	class:chat::OffMsgAsk
+has_page	chat.pb.h	/^inline bool OffMsgRly::has_page() const {$/;"	f	class:chat::OffMsgRly
+has_recvid	chat.pb.h	/^inline bool FriendRly::has_recvid() const {$/;"	f	class:chat::FriendRly
+has_reply	chat.pb.h	/^inline bool FriendRly::has_reply() const {$/;"	f	class:chat::FriendRly
+has_reqid	chat.pb.h	/^inline bool FriendAsk::has_reqid() const {$/;"	f	class:chat::FriendAsk
+has_sendid	chat.pb.h	/^inline bool FriendRly::has_sendid() const {$/;"	f	class:chat::FriendRly
+has_time	chat.pb.h	/^inline bool ChatAck::has_time() const {$/;"	f	class:chat::ChatAck
+has_time	chat.pb.h	/^inline bool ChatMessage::has_time() const {$/;"	f	class:chat::ChatMessage
+has_toid	chat.pb.h	/^inline bool ChatAck::has_toid() const {$/;"	f	class:chat::ChatAck
+has_toid	chat.pb.h	/^inline bool ChatMessage::has_toid() const {$/;"	f	class:chat::ChatMessage
+has_toid	chat.pb.h	/^inline bool FriendAck::has_toid() const {$/;"	f	class:chat::FriendAck
+has_type	chat.pb.h	/^inline bool ChatMessage::has_type() const {$/;"	f	class:chat::ChatMessage
+has_type	group.pb.h	/^inline bool HandleGroup::has_type() const {$/;"	f	class:group::HandleGroup
+has_uid	chat.pb.h	/^inline bool OffMsgAsk::has_uid() const {$/;"	f	class:chat::OffMsgAsk
+heart	chat.pb.cc	/^heart::heart()$/;"	f	class:chat::heart
+heart	chat.pb.cc	/^heart::heart(const heart& from)$/;"	f	class:chat::heart
+heart	chat.pb.h	/^class heart : public ::google::protobuf::Message {$/;"	c	namespace:chat
+heart_descriptor_	chat.pb.cc	/^const ::google::protobuf::Descriptor* heart_descriptor_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+heart_reflection_	chat.pb.cc	/^  heart_reflection_ = NULL;$/;"	m	namespace:chat::__anon4	file:
+id	ChatServer.h	/^			int id;$/;"	m	class:ChatServer::list_finder
+id	chat.pb.h	/^inline ::google::protobuf::int32 ChatAck::id() const {$/;"	f	class:chat::ChatAck
+id	chat.pb.h	/^inline ::google::protobuf::int32 ChatMessage::id() const {$/;"	f	class:chat::ChatMessage
+id	chat.pb.h	/^inline ::google::protobuf::int32 Connect::id() const {$/;"	f	class:chat::Connect
+id	group.pb.h	/^inline ::google::protobuf::int32 GroupMessage::id() const {$/;"	f	class:group::GroupMessage
+id	group.pb.h	/^inline ::google::protobuf::int32 HandleGroup::id() const {$/;"	f	class:group::HandleGroup
+idVuid	ChatServer.h	/^	IdMapPtr idVuid;$/;"	m	class:ChatServer
+id_	GroupServer.h	/^	int id_; \/\/创建者ID$/;"	m	class:Group
+id_	chat.pb.h	/^  ::google::protobuf::int32 id_;$/;"	m	class:chat::ChatAck
+id_	chat.pb.h	/^  ::google::protobuf::int32 id_;$/;"	m	class:chat::ChatMessage
+id_	chat.pb.h	/^  ::google::protobuf::int32 id_;$/;"	m	class:chat::Connect
+id_	group.pb.h	/^  ::google::protobuf::int32 id_;$/;"	m	class:group::GroupMessage
+id_	group.pb.h	/^  ::google::protobuf::int32 id_;$/;"	m	class:group::HandleGroup
+index	ChatServer.h	/^	AtomicInt32 index;$/;"	m	class:ChatServer
+inspector	ChatServer.cpp	/^string ChatServer::inspector()$/;"	f	class:ChatServer
+inspector	GroupServer.cpp	/^string GroupServer::inspector()$/;"	f	class:GroupServer
+is_proto_enum	chat.pb.h	/^template <> struct is_proto_enum< ::chat::ChatMessage_MsgType> : ::google::protobuf::internal::true_type {};$/;"	s	namespace:google::protobuf
+is_proto_enum	group.pb.h	/^template <> struct is_proto_enum< ::group::HandleGroup_OperateType> : ::google::protobuf::internal::true_type {};$/;"	s	namespace:google::protobuf
+kAskidFieldNumber	chat.pb.cc	/^const int FriendAsk::kAskidFieldNumber;$/;"	m	class:chat::FriendAsk	file:
+kAskidFieldNumber	chat.pb.h	/^  static const int kAskidFieldNumber = 1;$/;"	m	class:chat::FriendAsk
+kAskmessageFieldNumber	chat.pb.cc	/^const int FriendAsk::kAskmessageFieldNumber;$/;"	m	class:chat::FriendAsk	file:
+kAskmessageFieldNumber	chat.pb.h	/^  static const int kAskmessageFieldNumber = 3;$/;"	m	class:chat::FriendAsk
+kCheckSumError	codec.h	/^	    kCheckSumError,$/;"	e	enum:ProtobufCodec::ErrorCode
+kCheckSumErrorStr	codec.cpp	/^  const string kCheckSumErrorStr = "CheckSumError";$/;"	m	namespace:__anon1	file:
+kContentFieldNumber	group.pb.cc	/^const int GroupMessage::kContentFieldNumber;$/;"	m	class:group::GroupMessage	file:
+kContentFieldNumber	group.pb.h	/^  static const int kContentFieldNumber = 3;$/;"	m	class:group::GroupMessage
+kFromidFieldNumber	chat.pb.cc	/^const int ChatAck::kFromidFieldNumber;$/;"	m	class:chat::ChatAck	file:
+kFromidFieldNumber	chat.pb.cc	/^const int ChatMessage::kFromidFieldNumber;$/;"	m	class:chat::ChatMessage	file:
+kFromidFieldNumber	chat.pb.cc	/^const int FriendAck::kFromidFieldNumber;$/;"	m	class:chat::FriendAck	file:
+kFromidFieldNumber	chat.pb.h	/^  static const int kFromidFieldNumber = 1;$/;"	m	class:chat::ChatAck
+kFromidFieldNumber	chat.pb.h	/^  static const int kFromidFieldNumber = 1;$/;"	m	class:chat::ChatMessage
+kFromidFieldNumber	chat.pb.h	/^  static const int kFromidFieldNumber = 1;$/;"	m	class:chat::FriendAck
+kHeaderLen	codec.h	/^	  const static int kHeaderLen = sizeof(int32_t);$/;"	m	class:ProtobufCodec
+kIdFieldNumber	chat.pb.cc	/^const int ChatAck::kIdFieldNumber;$/;"	m	class:chat::ChatAck	file:
+kIdFieldNumber	chat.pb.cc	/^const int ChatMessage::kIdFieldNumber;$/;"	m	class:chat::ChatMessage	file:
+kIdFieldNumber	chat.pb.cc	/^const int Connect::kIdFieldNumber;$/;"	m	class:chat::Connect	file:
+kIdFieldNumber	chat.pb.h	/^  static const int kIdFieldNumber = 1;$/;"	m	class:chat::Connect
+kIdFieldNumber	chat.pb.h	/^  static const int kIdFieldNumber = 4;$/;"	m	class:chat::ChatAck
+kIdFieldNumber	chat.pb.h	/^  static const int kIdFieldNumber = 5;$/;"	m	class:chat::ChatMessage
+kIdFieldNumber	group.pb.cc	/^const int GroupMessage::kIdFieldNumber;$/;"	m	class:group::GroupMessage	file:
+kIdFieldNumber	group.pb.cc	/^const int HandleGroup::kIdFieldNumber;$/;"	m	class:group::HandleGroup	file:
+kIdFieldNumber	group.pb.h	/^  static const int kIdFieldNumber = 2;$/;"	m	class:group::GroupMessage
+kIdFieldNumber	group.pb.h	/^  static const int kIdFieldNumber = 2;$/;"	m	class:group::HandleGroup
+kInvalidLength	codec.h	/^	    kInvalidLength,$/;"	e	enum:ProtobufCodec::ErrorCode
+kInvalidLengthStr	codec.cpp	/^  const string kInvalidLengthStr = "InvalidLength";$/;"	m	namespace:__anon1	file:
+kInvalidNameLen	codec.h	/^	    kInvalidNameLen,$/;"	e	enum:ProtobufCodec::ErrorCode
+kInvalidNameLenStr	codec.cpp	/^  const string kInvalidNameLenStr = "InvalidNameLen";$/;"	m	namespace:__anon1	file:
+kMaxMessageLen	codec.h	/^	  const static int kMaxMessageLen = 64*1024*1024; \/\/ same as codec_stream.h kDefaultTotalBytesLimit$/;"	m	class:ProtobufCodec
+kMessageFieldNumber	chat.pb.cc	/^const int ChatMessage::kMessageFieldNumber;$/;"	m	class:chat::ChatMessage	file:
+kMessageFieldNumber	chat.pb.h	/^  static const int kMessageFieldNumber = 4;$/;"	m	class:chat::ChatMessage
+kMessagesFieldNumber	chat.pb.cc	/^const int OffMsgRly::kMessagesFieldNumber;$/;"	m	class:chat::OffMsgRly	file:
+kMessagesFieldNumber	chat.pb.h	/^  static const int kMessagesFieldNumber = 2;$/;"	m	class:chat::OffMsgRly
+kMinMessageLen	codec.h	/^	  const static int kMinMessageLen = 2*kHeaderLen + 2; \/\/ nameLen + typeName + checkSum$/;"	m	class:ProtobufCodec
+kNameFieldNumber	group.pb.cc	/^const int GroupMessage::kNameFieldNumber;$/;"	m	class:group::GroupMessage	file:
+kNameFieldNumber	group.pb.cc	/^const int HandleGroup::kNameFieldNumber;$/;"	m	class:group::HandleGroup	file:
+kNameFieldNumber	group.pb.h	/^  static const int kNameFieldNumber = 1;$/;"	m	class:group::GroupMessage
+kNameFieldNumber	group.pb.h	/^  static const int kNameFieldNumber = 1;$/;"	m	class:group::HandleGroup
+kNoError	codec.h	/^	    kNoError = 0,$/;"	e	enum:ProtobufCodec::ErrorCode
+kNoErrorStr	codec.cpp	/^  const string kNoErrorStr = "NoError";$/;"	m	namespace:__anon1	file:
+kPageFieldNumber	chat.pb.cc	/^const int OffMsgAsk::kPageFieldNumber;$/;"	m	class:chat::OffMsgAsk	file:
+kPageFieldNumber	chat.pb.cc	/^const int OffMsgRly::kPageFieldNumber;$/;"	m	class:chat::OffMsgRly	file:
+kPageFieldNumber	chat.pb.h	/^  static const int kPageFieldNumber = 1;$/;"	m	class:chat::OffMsgAsk
+kPageFieldNumber	chat.pb.h	/^  static const int kPageFieldNumber = 1;$/;"	m	class:chat::OffMsgRly
+kParseError	codec.h	/^	    kParseError,$/;"	e	enum:ProtobufCodec::ErrorCode
+kParseErrorStr	codec.cpp	/^  const string kParseErrorStr = "ParseError";$/;"	m	namespace:__anon1	file:
+kRecvidFieldNumber	chat.pb.cc	/^const int FriendRly::kRecvidFieldNumber;$/;"	m	class:chat::FriendRly	file:
+kRecvidFieldNumber	chat.pb.h	/^  static const int kRecvidFieldNumber = 2;$/;"	m	class:chat::FriendRly
+kReplyFieldNumber	chat.pb.cc	/^const int FriendRly::kReplyFieldNumber;$/;"	m	class:chat::FriendRly	file:
+kReplyFieldNumber	chat.pb.h	/^  static const int kReplyFieldNumber = 3;$/;"	m	class:chat::FriendRly
+kReqidFieldNumber	chat.pb.cc	/^const int FriendAsk::kReqidFieldNumber;$/;"	m	class:chat::FriendAsk	file:
+kReqidFieldNumber	chat.pb.h	/^  static const int kReqidFieldNumber = 2;$/;"	m	class:chat::FriendAsk
+kSendidFieldNumber	chat.pb.cc	/^const int FriendRly::kSendidFieldNumber;$/;"	m	class:chat::FriendRly	file:
+kSendidFieldNumber	chat.pb.h	/^  static const int kSendidFieldNumber = 1;$/;"	m	class:chat::FriendRly
+kTimeFieldNumber	chat.pb.cc	/^const int ChatAck::kTimeFieldNumber;$/;"	m	class:chat::ChatAck	file:
+kTimeFieldNumber	chat.pb.cc	/^const int ChatMessage::kTimeFieldNumber;$/;"	m	class:chat::ChatMessage	file:
+kTimeFieldNumber	chat.pb.h	/^  static const int kTimeFieldNumber = 3;$/;"	m	class:chat::ChatAck
+kTimeFieldNumber	chat.pb.h	/^  static const int kTimeFieldNumber = 3;$/;"	m	class:chat::ChatMessage
+kToidFieldNumber	chat.pb.cc	/^const int ChatAck::kToidFieldNumber;$/;"	m	class:chat::ChatAck	file:
+kToidFieldNumber	chat.pb.cc	/^const int ChatMessage::kToidFieldNumber;$/;"	m	class:chat::ChatMessage	file:
+kToidFieldNumber	chat.pb.cc	/^const int FriendAck::kToidFieldNumber;$/;"	m	class:chat::FriendAck	file:
+kToidFieldNumber	chat.pb.h	/^  static const int kToidFieldNumber = 2;$/;"	m	class:chat::ChatAck
+kToidFieldNumber	chat.pb.h	/^  static const int kToidFieldNumber = 2;$/;"	m	class:chat::ChatMessage
+kToidFieldNumber	chat.pb.h	/^  static const int kToidFieldNumber = 2;$/;"	m	class:chat::FriendAck
+kTypeFieldNumber	chat.pb.cc	/^const int ChatMessage::kTypeFieldNumber;$/;"	m	class:chat::ChatMessage	file:
+kTypeFieldNumber	chat.pb.h	/^  static const int kTypeFieldNumber = 6;$/;"	m	class:chat::ChatMessage
+kTypeFieldNumber	group.pb.cc	/^const int HandleGroup::kTypeFieldNumber;$/;"	m	class:group::HandleGroup	file:
+kTypeFieldNumber	group.pb.h	/^  static const int kTypeFieldNumber = 3;$/;"	m	class:group::HandleGroup
+kUidFieldNumber	chat.pb.cc	/^const int OffMsgAsk::kUidFieldNumber;$/;"	m	class:chat::OffMsgAsk	file:
+kUidFieldNumber	chat.pb.h	/^  static const int kUidFieldNumber = 2;$/;"	m	class:chat::OffMsgAsk
+kUnknownErrorStr	codec.cpp	/^  const string kUnknownErrorStr = "UnknownError";$/;"	m	namespace:__anon1	file:
+kUnknownMessageType	codec.h	/^	    kUnknownMessageType,$/;"	e	enum:ProtobufCodec::ErrorCode
+kUnknownMessageTypeStr	codec.cpp	/^  const string kUnknownMessageTypeStr = "UnknownMessageType";$/;"	m	namespace:__anon1	file:
+lastReceiveTime	ChatServer.h	/^		Timestamp lastReceiveTime;$/;"	m	struct:ChatServer::Node
+list_finder	ChatServer.h	/^			list_finder(int uid):id(uid){}$/;"	f	class:ChatServer::list_finder
+list_finder	ChatServer.h	/^	class list_finder{$/;"	c	class:ChatServer
+main	Start.cpp	/^int main(int argc, char* argv[])$/;"	f
+members_	GroupServer.h	/^	std::vector<int> members_;$/;"	m	class:Group
+message	chat.pb.h	/^inline const ::std::string& ChatMessage::message() const {$/;"	f	class:chat::ChatMessage
+messageCallback_	codec.h	/^	  ProtobufMessageCallback messageCallback_;$/;"	m	class:ProtobufCodec
+message_	chat.pb.h	/^  ::std::string* message_;$/;"	m	class:chat::ChatMessage
+messages	chat.pb.h	/^OffMsgRly::messages() const {$/;"	f	class:chat::OffMsgRly
+messages	chat.pb.h	/^inline const ::chat::ChatMessage& OffMsgRly::messages(int index) const {$/;"	f	class:chat::OffMsgRly
+messages_	chat.pb.h	/^  ::google::protobuf::RepeatedPtrField< ::chat::ChatMessage > messages_;$/;"	m	class:chat::OffMsgRly
+messages_size	chat.pb.h	/^inline int OffMsgRly::messages_size() const {$/;"	f	class:chat::OffMsgRly
+mutable_askmessage	chat.pb.h	/^inline ::std::string* FriendAsk::mutable_askmessage() {$/;"	f	class:chat::FriendAsk
+mutable_content	group.pb.h	/^inline ::std::string* GroupMessage::mutable_content() {$/;"	f	class:group::GroupMessage
+mutable_message	chat.pb.h	/^inline ::std::string* ChatMessage::mutable_message() {$/;"	f	class:chat::ChatMessage
+mutable_messages	chat.pb.h	/^OffMsgRly::mutable_messages() {$/;"	f	class:chat::OffMsgRly
+mutable_messages	chat.pb.h	/^inline ::chat::ChatMessage* OffMsgRly::mutable_messages(int index) {$/;"	f	class:chat::OffMsgRly
+mutable_name	group.pb.h	/^inline ::std::string* GroupMessage::mutable_name() {$/;"	f	class:group::GroupMessage
+mutable_name	group.pb.h	/^inline ::std::string* HandleGroup::mutable_name() {$/;"	f	class:group::HandleGroup
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::ChatAck
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::ChatMessage
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::Connect
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::FriendAck
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::FriendAsk
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::FriendRly
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::OffMsgAsk
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::OffMsgRly
+mutable_unknown_fields	chat.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:chat::heart
+mutable_unknown_fields	group.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:group::GroupMessage
+mutable_unknown_fields	group.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:group::HandleGroup
+mutex_conn	ChatServer.h	/^	MutexLock mutex_conn;$/;"	m	class:ChatServer
+mutex_group	GroupServer.h	/^	MutexLock mutex_group;$/;"	m	class:GroupServer
+mutex_id	ChatServer.h	/^	MutexLock mutex_id;$/;"	m	class:ChatServer
+name	group.pb.h	/^inline const ::std::string& GroupMessage::name() const {$/;"	f	class:group::GroupMessage
+name	group.pb.h	/^inline const ::std::string& HandleGroup::name() const {$/;"	f	class:group::HandleGroup
+name_	GroupServer.h	/^	std::string name_;$/;"	m	class:Group
+name_	group.pb.h	/^  ::std::string* name_;$/;"	m	class:group::GroupMessage
+name_	group.pb.h	/^  ::std::string* name_;$/;"	m	class:group::HandleGroup
+nodes	ChatServer.h	/^	ListNodesPtr nodes;$/;"	m	class:ChatServer
+oldCountRecv_	ChatServer.h	/^	int64_t oldCountRecv_;$/;"	m	class:ChatServer
+oldCountSend_	ChatServer.h	/^	int64_t oldCountSend_;$/;"	m	class:ChatServer
+onChat	ChatServer.cpp	/^void ChatServer::onChat(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onChatAck	ChatServer.cpp	/^void ChatServer::onChatAck(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onConnect	ChatServer.cpp	/^void ChatServer::onConnect(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onConnection	ChatServer.cpp	/^void ChatServer::onConnection(const TcpConnectionPtr& conn){$/;"	f	class:ChatServer
+onDataChat	ChatServer.cpp	/^void ChatServer::onDataChat(const muduo::net::TcpConnectionPtr& conn,int toid,int serialId,int fromid,std::string content){$/;"	f	class:ChatServer
+onFriendAck	ChatServer.cpp	/^void ChatServer::onFriendAck(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onFriendAsk	ChatServer.cpp	/^void ChatServer::onFriendAsk(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onFriendRly	ChatServer.cpp	/^void ChatServer::onFriendRly(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onGroupMessage	GroupServer.cpp	/^void GroupServer::onGroupMessage(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:GroupServer
+onHandleGroup	GroupServer.cpp	/^void GroupServer::onHandleGroup(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:GroupServer
+onHeart	ChatServer.cpp	/^void ChatServer::onHeart(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onMessage	ChatServer.cpp	/^void ChatServer::onMessage(const TcpConnectionPtr&,$/;"	f	class:ChatServer
+onMessage	codec.cpp	/^void ProtobufCodec::onMessage(const TcpConnectionPtr& conn,$/;"	f	class:ProtobufCodec
+onMessage	dispatcher.h	/^  virtual void onMessage(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:CallbackT
+onOffSingleMsg	ChatServer.cpp	/^void ChatServer::onOffSingleMsg(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+onProtobufMessage	dispatcher.h	/^	  void onProtobufMessage(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ProtobufDispatcher
+onTimer	ChatServer.cpp	/^void ChatServer::onTimer(void)$/;"	f	class:ChatServer
+onUnknownMessage	ChatServer.cpp	/^void ChatServer::onUnknownMessage(const TcpConnectionPtr& conn,$/;"	f	class:ChatServer
+operator ()	ChatServer.h	/^			bool operator()(const ListNode::value_type value)$/;"	f	class:ChatServer::list_finder
+operator =	chat.pb.h	/^  inline ChatAck& operator=(const ChatAck& from) {$/;"	f	class:chat::ChatAck
+operator =	chat.pb.h	/^  inline ChatMessage& operator=(const ChatMessage& from) {$/;"	f	class:chat::ChatMessage
+operator =	chat.pb.h	/^  inline Connect& operator=(const Connect& from) {$/;"	f	class:chat::Connect
+operator =	chat.pb.h	/^  inline FriendAck& operator=(const FriendAck& from) {$/;"	f	class:chat::FriendAck
+operator =	chat.pb.h	/^  inline FriendAsk& operator=(const FriendAsk& from) {$/;"	f	class:chat::FriendAsk
+operator =	chat.pb.h	/^  inline FriendRly& operator=(const FriendRly& from) {$/;"	f	class:chat::FriendRly
+operator =	chat.pb.h	/^  inline OffMsgAsk& operator=(const OffMsgAsk& from) {$/;"	f	class:chat::OffMsgAsk
+operator =	chat.pb.h	/^  inline OffMsgRly& operator=(const OffMsgRly& from) {$/;"	f	class:chat::OffMsgRly
+operator =	chat.pb.h	/^  inline heart& operator=(const heart& from) {$/;"	f	class:chat::heart
+operator =	group.pb.h	/^  inline GroupMessage& operator=(const GroupMessage& from) {$/;"	f	class:group::GroupMessage
+operator =	group.pb.h	/^  inline HandleGroup& operator=(const HandleGroup& from) {$/;"	f	class:group::HandleGroup
+page	chat.pb.h	/^inline ::google::protobuf::int32 OffMsgAsk::page() const {$/;"	f	class:chat::OffMsgAsk
+page	chat.pb.h	/^inline ::google::protobuf::int32 OffMsgRly::page() const {$/;"	f	class:chat::OffMsgRly
+page_	chat.pb.h	/^  ::google::protobuf::int32 page_;$/;"	m	class:chat::OffMsgAsk
+page_	chat.pb.h	/^  ::google::protobuf::int32 page_;$/;"	m	class:chat::OffMsgRly
+parse	codec.cpp	/^MessagePtr ProtobufCodec::parse(const char* buf, int len, ErrorCode* error)$/;"	f	class:ProtobufCodec
+pool	ChatServer.h	/^	ThreadPool pool;$/;"	m	class:ChatServer
+printThroughput	ChatServer.cpp	/^void ChatServer::printThroughput()$/;"	f	class:ChatServer
+protobuf	chat.pb.h	/^namespace protobuf {$/;"	n	namespace:google
+protobuf	group.pb.h	/^namespace protobuf {$/;"	n	namespace:google
+protobuf_AddDesc_chat_2eproto	chat.pb.cc	/^void protobuf_AddDesc_chat_2eproto() {$/;"	f	namespace:chat
+protobuf_AddDesc_group_2eproto	group.pb.cc	/^void protobuf_AddDesc_group_2eproto() {$/;"	f	namespace:group
+protobuf_AssignDesc_chat_2eproto	chat.pb.cc	/^void protobuf_AssignDesc_chat_2eproto() {$/;"	f	namespace:chat
+protobuf_AssignDesc_group_2eproto	group.pb.cc	/^void protobuf_AssignDesc_group_2eproto() {$/;"	f	namespace:group
+protobuf_AssignDescriptorsOnce	chat.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:chat::__anon5
+protobuf_AssignDescriptorsOnce	group.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:group::__anon3
+protobuf_RegisterTypes	chat.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:chat::__anon5
+protobuf_RegisterTypes	group.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:group::__anon3
+protobuf_ShutdownFile_chat_2eproto	chat.pb.cc	/^void protobuf_ShutdownFile_chat_2eproto() {$/;"	f	namespace:chat
+protobuf_ShutdownFile_group_2eproto	group.pb.cc	/^void protobuf_ShutdownFile_group_2eproto() {$/;"	f	namespace:group
+publish	GroupServer.cpp	/^void GroupServer::publish(const std::string name,int id,const std::string content)$/;"	f	class:GroupServer
+recvResult	ChatServer.h	/^	double recvResult,sendResult,transResult;$/;"	m	class:ChatServer
+recvid	chat.pb.h	/^inline ::google::protobuf::int32 FriendRly::recvid() const {$/;"	f	class:chat::FriendRly
+recvid_	chat.pb.h	/^  ::google::protobuf::int32 recvid_;$/;"	m	class:chat::FriendRly
+registerMessageCallback	dispatcher.h	/^	  void registerMessageCallback(const typename CallbackT<T>::ProtobufMessageTCallback& callback)$/;"	f	class:ProtobufDispatcher
+release_askmessage	chat.pb.h	/^inline ::std::string* FriendAsk::release_askmessage() {$/;"	f	class:chat::FriendAsk
+release_content	group.pb.h	/^inline ::std::string* GroupMessage::release_content() {$/;"	f	class:group::GroupMessage
+release_message	chat.pb.h	/^inline ::std::string* ChatMessage::release_message() {$/;"	f	class:chat::ChatMessage
+release_name	group.pb.h	/^inline ::std::string* GroupMessage::release_name() {$/;"	f	class:group::GroupMessage
+release_name	group.pb.h	/^inline ::std::string* HandleGroup::release_name() {$/;"	f	class:group::HandleGroup
+reply	chat.pb.h	/^inline ::google::protobuf::int32 FriendRly::reply() const {$/;"	f	class:chat::FriendRly
+reply_	chat.pb.h	/^  ::google::protobuf::int32 reply_;$/;"	m	class:chat::FriendRly
+reqid	chat.pb.h	/^inline ::google::protobuf::int32 FriendAsk::reqid() const {$/;"	f	class:chat::FriendAsk
+reqid_	chat.pb.h	/^  ::google::protobuf::int32 reqid_;$/;"	m	class:chat::FriendAsk
+send	codec.h	/^	  void send(const muduo::net::TcpConnectionPtr& conn,$/;"	f	class:ProtobufCodec
+sendResult	ChatServer.h	/^	double recvResult,sendResult,transResult;$/;"	m	class:ChatServer
+sendid	chat.pb.h	/^inline ::google::protobuf::int32 FriendRly::sendid() const {$/;"	f	class:chat::FriendRly
+sendid_	chat.pb.h	/^  ::google::protobuf::int32 sendid_;$/;"	m	class:chat::FriendRly
+server_	ChatServer.h	/^	TcpServer server_;$/;"	m	class:ChatServer
+setCreateId	GroupServer.h	/^	void setCreateId(const int id){$/;"	f	class:Group
+setThreadNum	ChatServer.h	/^	void setThreadNum(int numThreads)$/;"	f	class:ChatServer
+set_allocated_askmessage	chat.pb.h	/^inline void FriendAsk::set_allocated_askmessage(::std::string* askmessage) {$/;"	f	class:chat::FriendAsk
+set_allocated_content	group.pb.h	/^inline void GroupMessage::set_allocated_content(::std::string* content) {$/;"	f	class:group::GroupMessage
+set_allocated_message	chat.pb.h	/^inline void ChatMessage::set_allocated_message(::std::string* message) {$/;"	f	class:chat::ChatMessage
+set_allocated_name	group.pb.h	/^inline void GroupMessage::set_allocated_name(::std::string* name) {$/;"	f	class:group::GroupMessage
+set_allocated_name	group.pb.h	/^inline void HandleGroup::set_allocated_name(::std::string* name) {$/;"	f	class:group::HandleGroup
+set_askid	chat.pb.h	/^inline void FriendAsk::set_askid(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendAsk
+set_askmessage	chat.pb.h	/^inline void FriendAsk::set_askmessage(const ::std::string& value) {$/;"	f	class:chat::FriendAsk
+set_askmessage	chat.pb.h	/^inline void FriendAsk::set_askmessage(const char* value) {$/;"	f	class:chat::FriendAsk
+set_askmessage	chat.pb.h	/^inline void FriendAsk::set_askmessage(const char* value, size_t size) {$/;"	f	class:chat::FriendAsk
+set_content	group.pb.h	/^inline void GroupMessage::set_content(const ::std::string& value) {$/;"	f	class:group::GroupMessage
+set_content	group.pb.h	/^inline void GroupMessage::set_content(const char* value) {$/;"	f	class:group::GroupMessage
+set_content	group.pb.h	/^inline void GroupMessage::set_content(const char* value, size_t size) {$/;"	f	class:group::GroupMessage
+set_fromid	chat.pb.h	/^inline void ChatAck::set_fromid(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatAck
+set_fromid	chat.pb.h	/^inline void ChatMessage::set_fromid(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatMessage
+set_fromid	chat.pb.h	/^inline void FriendAck::set_fromid(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendAck
+set_has_askid	chat.pb.h	/^inline void FriendAsk::set_has_askid() {$/;"	f	class:chat::FriendAsk
+set_has_askmessage	chat.pb.h	/^inline void FriendAsk::set_has_askmessage() {$/;"	f	class:chat::FriendAsk
+set_has_content	group.pb.h	/^inline void GroupMessage::set_has_content() {$/;"	f	class:group::GroupMessage
+set_has_fromid	chat.pb.h	/^inline void ChatAck::set_has_fromid() {$/;"	f	class:chat::ChatAck
+set_has_fromid	chat.pb.h	/^inline void ChatMessage::set_has_fromid() {$/;"	f	class:chat::ChatMessage
+set_has_fromid	chat.pb.h	/^inline void FriendAck::set_has_fromid() {$/;"	f	class:chat::FriendAck
+set_has_id	chat.pb.h	/^inline void ChatAck::set_has_id() {$/;"	f	class:chat::ChatAck
+set_has_id	chat.pb.h	/^inline void ChatMessage::set_has_id() {$/;"	f	class:chat::ChatMessage
+set_has_id	chat.pb.h	/^inline void Connect::set_has_id() {$/;"	f	class:chat::Connect
+set_has_id	group.pb.h	/^inline void GroupMessage::set_has_id() {$/;"	f	class:group::GroupMessage
+set_has_id	group.pb.h	/^inline void HandleGroup::set_has_id() {$/;"	f	class:group::HandleGroup
+set_has_message	chat.pb.h	/^inline void ChatMessage::set_has_message() {$/;"	f	class:chat::ChatMessage
+set_has_name	group.pb.h	/^inline void GroupMessage::set_has_name() {$/;"	f	class:group::GroupMessage
+set_has_name	group.pb.h	/^inline void HandleGroup::set_has_name() {$/;"	f	class:group::HandleGroup
+set_has_page	chat.pb.h	/^inline void OffMsgAsk::set_has_page() {$/;"	f	class:chat::OffMsgAsk
+set_has_page	chat.pb.h	/^inline void OffMsgRly::set_has_page() {$/;"	f	class:chat::OffMsgRly
+set_has_recvid	chat.pb.h	/^inline void FriendRly::set_has_recvid() {$/;"	f	class:chat::FriendRly
+set_has_reply	chat.pb.h	/^inline void FriendRly::set_has_reply() {$/;"	f	class:chat::FriendRly
+set_has_reqid	chat.pb.h	/^inline void FriendAsk::set_has_reqid() {$/;"	f	class:chat::FriendAsk
+set_has_sendid	chat.pb.h	/^inline void FriendRly::set_has_sendid() {$/;"	f	class:chat::FriendRly
+set_has_time	chat.pb.h	/^inline void ChatAck::set_has_time() {$/;"	f	class:chat::ChatAck
+set_has_time	chat.pb.h	/^inline void ChatMessage::set_has_time() {$/;"	f	class:chat::ChatMessage
+set_has_toid	chat.pb.h	/^inline void ChatAck::set_has_toid() {$/;"	f	class:chat::ChatAck
+set_has_toid	chat.pb.h	/^inline void ChatMessage::set_has_toid() {$/;"	f	class:chat::ChatMessage
+set_has_toid	chat.pb.h	/^inline void FriendAck::set_has_toid() {$/;"	f	class:chat::FriendAck
+set_has_type	chat.pb.h	/^inline void ChatMessage::set_has_type() {$/;"	f	class:chat::ChatMessage
+set_has_type	group.pb.h	/^inline void HandleGroup::set_has_type() {$/;"	f	class:group::HandleGroup
+set_has_uid	chat.pb.h	/^inline void OffMsgAsk::set_has_uid() {$/;"	f	class:chat::OffMsgAsk
+set_id	chat.pb.h	/^inline void ChatAck::set_id(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatAck
+set_id	chat.pb.h	/^inline void ChatMessage::set_id(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatMessage
+set_id	chat.pb.h	/^inline void Connect::set_id(::google::protobuf::int32 value) {$/;"	f	class:chat::Connect
+set_id	group.pb.h	/^inline void GroupMessage::set_id(::google::protobuf::int32 value) {$/;"	f	class:group::GroupMessage
+set_id	group.pb.h	/^inline void HandleGroup::set_id(::google::protobuf::int32 value) {$/;"	f	class:group::HandleGroup
+set_message	chat.pb.h	/^inline void ChatMessage::set_message(const ::std::string& value) {$/;"	f	class:chat::ChatMessage
+set_message	chat.pb.h	/^inline void ChatMessage::set_message(const char* value) {$/;"	f	class:chat::ChatMessage
+set_message	chat.pb.h	/^inline void ChatMessage::set_message(const char* value, size_t size) {$/;"	f	class:chat::ChatMessage
+set_name	group.pb.h	/^inline void GroupMessage::set_name(const ::std::string& value) {$/;"	f	class:group::GroupMessage
+set_name	group.pb.h	/^inline void GroupMessage::set_name(const char* value) {$/;"	f	class:group::GroupMessage
+set_name	group.pb.h	/^inline void GroupMessage::set_name(const char* value, size_t size) {$/;"	f	class:group::GroupMessage
+set_name	group.pb.h	/^inline void HandleGroup::set_name(const ::std::string& value) {$/;"	f	class:group::HandleGroup
+set_name	group.pb.h	/^inline void HandleGroup::set_name(const char* value) {$/;"	f	class:group::HandleGroup
+set_name	group.pb.h	/^inline void HandleGroup::set_name(const char* value, size_t size) {$/;"	f	class:group::HandleGroup
+set_page	chat.pb.h	/^inline void OffMsgAsk::set_page(::google::protobuf::int32 value) {$/;"	f	class:chat::OffMsgAsk
+set_page	chat.pb.h	/^inline void OffMsgRly::set_page(::google::protobuf::int32 value) {$/;"	f	class:chat::OffMsgRly
+set_recvid	chat.pb.h	/^inline void FriendRly::set_recvid(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendRly
+set_reply	chat.pb.h	/^inline void FriendRly::set_reply(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendRly
+set_reqid	chat.pb.h	/^inline void FriendAsk::set_reqid(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendAsk
+set_sendid	chat.pb.h	/^inline void FriendRly::set_sendid(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendRly
+set_time	chat.pb.h	/^inline void ChatAck::set_time(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatAck
+set_time	chat.pb.h	/^inline void ChatMessage::set_time(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatMessage
+set_toid	chat.pb.h	/^inline void ChatAck::set_toid(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatAck
+set_toid	chat.pb.h	/^inline void ChatMessage::set_toid(::google::protobuf::int32 value) {$/;"	f	class:chat::ChatMessage
+set_toid	chat.pb.h	/^inline void FriendAck::set_toid(::google::protobuf::int32 value) {$/;"	f	class:chat::FriendAck
+set_type	chat.pb.h	/^inline void ChatMessage::set_type(::chat::ChatMessage_MsgType value) {$/;"	f	class:chat::ChatMessage
+set_type	group.pb.h	/^inline void HandleGroup::set_type(::group::HandleGroup_OperateType value) {$/;"	f	class:group::HandleGroup
+set_uid	chat.pb.h	/^inline void OffMsgAsk::set_uid(::google::protobuf::int32 value) {$/;"	f	class:chat::OffMsgAsk
+start	ChatServer.cpp	/^void ChatServer::start()$/;"	f	class:ChatServer
+startTime_	ChatServer.h	/^	Timestamp startTime_;$/;"	m	class:ChatServer
+static_descriptor_initializer_chat_2eproto_	chat.pb.cc	/^} static_descriptor_initializer_chat_2eproto_;$/;"	m	namespace:chat	typeref:struct:chat::StaticDescriptorInitializer_chat_2eproto	file:
+static_descriptor_initializer_group_2eproto_	group.pb.cc	/^} static_descriptor_initializer_group_2eproto_;$/;"	m	namespace:group	typeref:struct:group::StaticDescriptorInitializer_group_2eproto	file:
+time	chat.pb.h	/^inline ::google::protobuf::int32 ChatAck::time() const {$/;"	f	class:chat::ChatAck
+time	chat.pb.h	/^inline ::google::protobuf::int32 ChatMessage::time() const {$/;"	f	class:chat::ChatMessage
+time_	chat.pb.h	/^  ::google::protobuf::int32 time_;$/;"	m	class:chat::ChatAck
+time_	chat.pb.h	/^  ::google::protobuf::int32 time_;$/;"	m	class:chat::ChatMessage
+toid	chat.pb.h	/^inline ::google::protobuf::int32 ChatAck::toid() const {$/;"	f	class:chat::ChatAck
+toid	chat.pb.h	/^inline ::google::protobuf::int32 ChatMessage::toid() const {$/;"	f	class:chat::ChatMessage
+toid	chat.pb.h	/^inline ::google::protobuf::int32 FriendAck::toid() const {$/;"	f	class:chat::FriendAck
+toid_	chat.pb.h	/^  ::google::protobuf::int32 toid_;$/;"	m	class:chat::ChatAck
+toid_	chat.pb.h	/^  ::google::protobuf::int32 toid_;$/;"	m	class:chat::ChatMessage
+toid_	chat.pb.h	/^  ::google::protobuf::int32 toid_;$/;"	m	class:chat::FriendAck
+transNum	ChatServer.cpp	/^AtomicInt64 ChatServer::transNum;$/;"	m	class:ChatServer	file:
+transNum	ChatServer.h	/^	static AtomicInt64 transNum;$/;"	m	class:ChatServer
+transResult	ChatServer.h	/^	double recvResult,sendResult,transResult;$/;"	m	class:ChatServer
+transrecved_	codec.h	/^	  static muduo::AtomicInt64 transrecved_;$/;"	m	class:ProtobufCodec
+transsended_	codec.cpp	/^muduo::AtomicInt64 ProtobufCodec::transsended_;$/;"	m	class:ProtobufCodec	file:
+transsended_	codec.h	/^	  static muduo::AtomicInt64 transsended_;$/;"	m	class:ProtobufCodec
+type	chat.pb.h	/^inline ::chat::ChatMessage_MsgType ChatMessage::type() const {$/;"	f	class:chat::ChatMessage
+type	group.pb.h	/^inline ::group::HandleGroup_OperateType HandleGroup::type() const {$/;"	f	class:group::HandleGroup
+type_	chat.pb.h	/^  int type_;$/;"	m	class:chat::ChatMessage
+type_	group.pb.h	/^  int type_;$/;"	m	class:group::HandleGroup
+uid	ChatServer.h	/^		int uid;$/;"	m	class:ChatServer::UserWithCid
+uid	chat.pb.h	/^inline ::google::protobuf::int32 OffMsgAsk::uid() const {$/;"	f	class:chat::OffMsgAsk
+uid_	chat.pb.h	/^  ::google::protobuf::int32 uid_;$/;"	m	class:chat::OffMsgAsk
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::ChatAck
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::ChatMessage
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::Connect
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::FriendAck
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::FriendAsk
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::FriendRly
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::OffMsgAsk
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::OffMsgRly
+unknown_fields	chat.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:chat::heart
+unknown_fields	group.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:group::GroupMessage
+unknown_fields	group.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:group::HandleGroup
+weakConn_	ChatServer.h	/^	    WeakTcpConnectionPtr weakConn_;$/;"	m	struct:ChatServer::Entry
+~Callback	dispatcher.h	/^  virtual ~Callback() {};$/;"	f	class:Callback
+~ChatAck	chat.pb.cc	/^ChatAck::~ChatAck() {$/;"	f	class:chat::ChatAck
+~ChatMessage	chat.pb.cc	/^ChatMessage::~ChatMessage() {$/;"	f	class:chat::ChatMessage
+~Connect	chat.pb.cc	/^Connect::~Connect() {$/;"	f	class:chat::Connect
+~Entry	ChatServer.h	/^	    ~Entry()$/;"	f	struct:ChatServer::Entry
+~FriendAck	chat.pb.cc	/^FriendAck::~FriendAck() {$/;"	f	class:chat::FriendAck
+~FriendAsk	chat.pb.cc	/^FriendAsk::~FriendAsk() {$/;"	f	class:chat::FriendAsk
+~FriendRly	chat.pb.cc	/^FriendRly::~FriendRly() {$/;"	f	class:chat::FriendRly
+~GroupMessage	group.pb.cc	/^GroupMessage::~GroupMessage() {$/;"	f	class:group::GroupMessage
+~HandleGroup	group.pb.cc	/^HandleGroup::~HandleGroup() {$/;"	f	class:group::HandleGroup
+~OffMsgAsk	chat.pb.cc	/^OffMsgAsk::~OffMsgAsk() {$/;"	f	class:chat::OffMsgAsk
+~OffMsgRly	chat.pb.cc	/^OffMsgRly::~OffMsgRly() {$/;"	f	class:chat::OffMsgRly
+~heart	chat.pb.cc	/^heart::~heart() {$/;"	f	class:chat::heart

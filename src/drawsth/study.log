@@ -1,0 +1,15 @@
+1.状态机.
+很漂亮的文章:能够解决我的问题,虽然游戏本身状态比较简单,但是做好总是很重要的.
+真的如同正则表达式里的状态机一样.
+实现:switch case
+	多态和虚函数(状态模式)
+很漂亮的实现,反转了思路,瞬间代码变的好看了.
+
+状态模式:
+Allow an object to alter its behavior whenits internal state changes.The object will appear to change its class.
+实现:
+为状态定义一个接口.
+为每个状态定义一个类.
+恰当地进行状态委托.
+2.然后看到了行为树.相当有用.
+

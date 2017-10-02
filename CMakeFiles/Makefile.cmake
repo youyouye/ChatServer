@@ -12,6 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "CMakeLists.txt"
   "src/database/CMakeLists.txt"
+  "src/drawsth/CMakeLists.txt"
   "src/inspect/CMakeLists.txt"
   "src/microhttp/CMakeLists.txt"
   "src/server/CMakeLists.txt"
@@ -45,6 +46,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/inspect/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/microhttp/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/drawsth/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -53,4 +55,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/inspect/CMakeFiles/inspector.dir/DependInfo.cmake"
   "src/microhttp/CMakeFiles/myhttp.dir/DependInfo.cmake"
   "src/server/CMakeFiles/chat_server.dir/DependInfo.cmake"
+  "src/drawsth/CMakeFiles/game_server.dir/DependInfo.cmake"
   )

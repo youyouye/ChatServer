@@ -280,6 +280,33 @@ online_user.cpp.s:
 	cd /usr/im/Downloads/ChatServer-master && $(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/online_user.cpp.s
 .PHONY : online_user.cpp.s
 
+redis_conn.o: redis_conn.cpp.o
+
+.PHONY : redis_conn.o
+
+# target to build an object file
+redis_conn.cpp.o:
+	cd /usr/im/Downloads/ChatServer-master && $(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/redis_conn.cpp.o
+.PHONY : redis_conn.cpp.o
+
+redis_conn.i: redis_conn.cpp.i
+
+.PHONY : redis_conn.i
+
+# target to preprocess a source file
+redis_conn.cpp.i:
+	cd /usr/im/Downloads/ChatServer-master && $(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/redis_conn.cpp.i
+.PHONY : redis_conn.cpp.i
+
+redis_conn.s: redis_conn.cpp.s
+
+.PHONY : redis_conn.s
+
+# target to generate assembly for a file
+redis_conn.cpp.s:
+	cd /usr/im/Downloads/ChatServer-master && $(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/redis_conn.cpp.s
+.PHONY : redis_conn.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -305,6 +332,9 @@ help:
 	@echo "... online_user.o"
 	@echo "... online_user.i"
 	@echo "... online_user.s"
+	@echo "... redis_conn.o"
+	@echo "... redis_conn.i"
+	@echo "... redis_conn.s"
 .PHONY : help
 
 

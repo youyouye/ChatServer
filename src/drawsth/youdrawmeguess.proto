@@ -1,0 +1,44 @@
+package youdrawmeguess;
+
+message Connect{
+	optional int64 id = 1;
+	optional string session = 2;
+	optional string mess_id = 3;
+}
+
+message RoomOpera{
+	enum RoomOperaType{
+		JOIN = 0;
+		QUIT = 1;
+		OK = 2;
+	}
+	optional string mess_id = 1;
+	optional RoomOperaType type = 2;
+}
+
+message RoomCallback
+{
+	optional string mess_id = 1;
+	optional int32 roomId = 2;
+	optional string playersmess = 3;	
+}
+
+message RoomMessage
+{
+	enum RoomMessType{
+		PJOIN = 0;
+		PQUIT = 1;
+		POK = 2;
+		PSTART = 3;
+		PMESS = 4;
+		PTIME = 5;	
+	}
+	optional string mess_id = 1;
+	optional RoomMessType type = 2;
+	optional string message = 3;
+}
+
+message Ack
+{
+ 	optional string mess_id = 1;
+}

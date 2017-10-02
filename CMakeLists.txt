@@ -5,7 +5,7 @@ project(ChatServer C CXX)
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 SET(CMAKE_CXX_COMPILER "g++")
 #设置全局编译参数
-SET(CMAKE_CXX_FLAGS "-Wall -lpthread -fpermissive -std=c++0x")
+SET(CMAKE_CXX_FLAGS "-Wall -lpthread -fpermissive -std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 
@@ -17,3 +17,4 @@ add_subdirectory(src/database)
 add_subdirectory(src/inspect)
 add_subdirectory(src/microhttp)
 add_subdirectory(src/server)
+add_subdirectory(src/drawsth)

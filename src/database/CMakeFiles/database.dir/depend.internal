@@ -63,3 +63,9 @@ src/database/CMakeFiles/database.dir/online_user.cpp.o
  /usr/im/Downloads/ChatServer-master/src/database/online_user.h
  /usr/im/Downloads/build/release-install/include/muduo/base/CurrentThread.h
  /usr/im/Downloads/build/release-install/include/muduo/base/Mutex.h
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o
+ /usr/im/Downloads/ChatServer-master/src/database/redis_conn.cpp
+ /usr/im/Downloads/ChatServer-master/src/database/redis_conn.h
+ /usr/local/include/hiredis/hiredis.h
+ /usr/local/include/hiredis/read.h
+ /usr/local/include/hiredis/sds.h

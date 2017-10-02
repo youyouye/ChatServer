@@ -63,3 +63,9 @@ src/database/CMakeFiles/database.dir/online_user.cpp.o: src/database/online_user
 src/database/CMakeFiles/database.dir/online_user.cpp.o: /usr/im/Downloads/build/release-install/include/muduo/base/CurrentThread.h
 src/database/CMakeFiles/database.dir/online_user.cpp.o: /usr/im/Downloads/build/release-install/include/muduo/base/Mutex.h
 
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: src/database/redis_conn.cpp
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: src/database/redis_conn.h
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: /usr/local/include/hiredis/hiredis.h
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: /usr/local/include/hiredis/read.h
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: /usr/local/include/hiredis/sds.h
+

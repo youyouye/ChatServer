@@ -87,7 +87,7 @@ src/database/preinstall:
 src/database/CMakeFiles/database.dir/all:
 	$(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/depend
 	$(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=8,9,10,11,12 "Built target database"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=8,9,10,11,12,13 "Built target database"
 .PHONY : src/database/CMakeFiles/database.dir/all
 
 # Include target in all.
@@ -97,7 +97,7 @@ all: src/database/CMakeFiles/database.dir/all
 
 # Build rule for subdir invocation for target.
 src/database/CMakeFiles/database.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/database/CMakeFiles/database.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 0
 .PHONY : src/database/CMakeFiles/database.dir/rule
@@ -142,7 +142,7 @@ src/inspect/preinstall:
 src/inspect/CMakeFiles/inspector.dir/all:
 	$(MAKE) -f src/inspect/CMakeFiles/inspector.dir/build.make src/inspect/CMakeFiles/inspector.dir/depend
 	$(MAKE) -f src/inspect/CMakeFiles/inspector.dir/build.make src/inspect/CMakeFiles/inspector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=13,14,15 "Built target inspector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=21,22,23 "Built target inspector"
 .PHONY : src/inspect/CMakeFiles/inspector.dir/all
 
 # Include target in all.
@@ -197,7 +197,7 @@ src/microhttp/preinstall:
 src/microhttp/CMakeFiles/myhttp.dir/all:
 	$(MAKE) -f src/microhttp/CMakeFiles/myhttp.dir/build.make src/microhttp/CMakeFiles/myhttp.dir/depend
 	$(MAKE) -f src/microhttp/CMakeFiles/myhttp.dir/build.make src/microhttp/CMakeFiles/myhttp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=16,17,18 "Built target myhttp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=24,25,26 "Built target myhttp"
 .PHONY : src/microhttp/CMakeFiles/myhttp.dir/all
 
 # Include target in all.
@@ -264,7 +264,7 @@ all: src/server/CMakeFiles/chat_server.dir/all
 
 # Build rule for subdir invocation for target.
 src/server/CMakeFiles/chat_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 19
 	$(MAKE) -f CMakeFiles/Makefile2 src/server/CMakeFiles/chat_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 0
 .PHONY : src/server/CMakeFiles/chat_server.dir/rule
@@ -281,6 +281,63 @@ src/server/CMakeFiles/chat_server.dir/clean:
 
 # clean rule for target.
 clean: src/server/CMakeFiles/chat_server.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/drawsth
+
+# Convenience name for "all" pass in the directory.
+src/drawsth/all: src/drawsth/CMakeFiles/game_server.dir/all
+
+.PHONY : src/drawsth/all
+
+# Convenience name for "clean" pass in the directory.
+src/drawsth/clean: src/drawsth/CMakeFiles/game_server.dir/clean
+
+.PHONY : src/drawsth/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/drawsth/preinstall:
+
+.PHONY : src/drawsth/preinstall
+
+#=============================================================================
+# Target rules for target src/drawsth/CMakeFiles/game_server.dir
+
+# All Build rule for target.
+src/drawsth/CMakeFiles/game_server.dir/all: src/database/CMakeFiles/database.dir/all
+src/drawsth/CMakeFiles/game_server.dir/all: src/inspect/CMakeFiles/inspector.dir/all
+src/drawsth/CMakeFiles/game_server.dir/all: src/microhttp/CMakeFiles/myhttp.dir/all
+	$(MAKE) -f src/drawsth/CMakeFiles/game_server.dir/build.make src/drawsth/CMakeFiles/game_server.dir/depend
+	$(MAKE) -f src/drawsth/CMakeFiles/game_server.dir/build.make src/drawsth/CMakeFiles/game_server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=14,15,16,17,18,19,20 "Built target game_server"
+.PHONY : src/drawsth/CMakeFiles/game_server.dir/all
+
+# Include target in all.
+all: src/drawsth/CMakeFiles/game_server.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/drawsth/CMakeFiles/game_server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 19
+	$(MAKE) -f CMakeFiles/Makefile2 src/drawsth/CMakeFiles/game_server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /usr/im/Downloads/ChatServer-master/CMakeFiles 0
+.PHONY : src/drawsth/CMakeFiles/game_server.dir/rule
+
+# Convenience name for target.
+game_server: src/drawsth/CMakeFiles/game_server.dir/rule
+
+.PHONY : game_server
+
+# clean rule for target.
+src/drawsth/CMakeFiles/game_server.dir/clean:
+	$(MAKE) -f src/drawsth/CMakeFiles/game_server.dir/build.make src/drawsth/CMakeFiles/game_server.dir/clean
+.PHONY : src/drawsth/CMakeFiles/game_server.dir/clean
+
+# clean rule for target.
+clean: src/drawsth/CMakeFiles/game_server.dir/clean
 
 .PHONY : clean
 

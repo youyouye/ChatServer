@@ -38,6 +38,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/usr/im/Downloads/ChatServer-master/src/inspect/cmake_install.cmake")
   include("/usr/im/Downloads/ChatServer-master/src/microhttp/cmake_install.cmake")
   include("/usr/im/Downloads/ChatServer-master/src/server/cmake_install.cmake")
+  include("/usr/im/Downloads/ChatServer-master/src/drawsth/cmake_install.cmake")
 
 endif()
 

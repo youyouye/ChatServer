@@ -108,9 +108,33 @@ src/database/CMakeFiles/database.dir/mysql_conn_poll.cpp.o.provides: src/databas
 src/database/CMakeFiles/database.dir/mysql_conn_poll.cpp.o.provides.build: src/database/CMakeFiles/database.dir/mysql_conn_poll.cpp.o
 
 
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: src/database/CMakeFiles/database.dir/flags.make
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o: src/database/redis_conn.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/database/CMakeFiles/database.dir/redis_conn.cpp.o"
+	cd /usr/im/Downloads/ChatServer-master/src/database && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/database.dir/redis_conn.cpp.o -c /usr/im/Downloads/ChatServer-master/src/database/redis_conn.cpp
+
+src/database/CMakeFiles/database.dir/redis_conn.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/database.dir/redis_conn.cpp.i"
+	cd /usr/im/Downloads/ChatServer-master/src/database && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /usr/im/Downloads/ChatServer-master/src/database/redis_conn.cpp > CMakeFiles/database.dir/redis_conn.cpp.i
+
+src/database/CMakeFiles/database.dir/redis_conn.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/database.dir/redis_conn.cpp.s"
+	cd /usr/im/Downloads/ChatServer-master/src/database && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /usr/im/Downloads/ChatServer-master/src/database/redis_conn.cpp -o CMakeFiles/database.dir/redis_conn.cpp.s
+
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o.requires:
+
+.PHONY : src/database/CMakeFiles/database.dir/redis_conn.cpp.o.requires
+
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o.provides: src/database/CMakeFiles/database.dir/redis_conn.cpp.o.requires
+	$(MAKE) -f src/database/CMakeFiles/database.dir/build.make src/database/CMakeFiles/database.dir/redis_conn.cpp.o.provides.build
+.PHONY : src/database/CMakeFiles/database.dir/redis_conn.cpp.o.provides
+
+src/database/CMakeFiles/database.dir/redis_conn.cpp.o.provides.build: src/database/CMakeFiles/database.dir/redis_conn.cpp.o
+
+
 src/database/CMakeFiles/database.dir/offline_msg.cpp.o: src/database/CMakeFiles/database.dir/flags.make
 src/database/CMakeFiles/database.dir/offline_msg.cpp.o: src/database/offline_msg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/database/CMakeFiles/database.dir/offline_msg.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/database/CMakeFiles/database.dir/offline_msg.cpp.o"
 	cd /usr/im/Downloads/ChatServer-master/src/database && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/database.dir/offline_msg.cpp.o -c /usr/im/Downloads/ChatServer-master/src/database/offline_msg.cpp
 
 src/database/CMakeFiles/database.dir/offline_msg.cpp.i: cmake_force
@@ -134,7 +158,7 @@ src/database/CMakeFiles/database.dir/offline_msg.cpp.o.provides.build: src/datab
 
 src/database/CMakeFiles/database.dir/online_user.cpp.o: src/database/CMakeFiles/database.dir/flags.make
 src/database/CMakeFiles/database.dir/online_user.cpp.o: src/database/online_user.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/database/CMakeFiles/database.dir/online_user.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/database/CMakeFiles/database.dir/online_user.cpp.o"
 	cd /usr/im/Downloads/ChatServer-master/src/database && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/database.dir/online_user.cpp.o -c /usr/im/Downloads/ChatServer-master/src/database/online_user.cpp
 
 src/database/CMakeFiles/database.dir/online_user.cpp.i: cmake_force
@@ -160,6 +184,7 @@ src/database/CMakeFiles/database.dir/online_user.cpp.o.provides.build: src/datab
 database_OBJECTS = \
 "CMakeFiles/database.dir/mysql_conn.cpp.o" \
 "CMakeFiles/database.dir/mysql_conn_poll.cpp.o" \
+"CMakeFiles/database.dir/redis_conn.cpp.o" \
 "CMakeFiles/database.dir/offline_msg.cpp.o" \
 "CMakeFiles/database.dir/online_user.cpp.o"
 
@@ -168,11 +193,12 @@ database_EXTERNAL_OBJECTS =
 
 src/database/libdatabase.a: src/database/CMakeFiles/database.dir/mysql_conn.cpp.o
 src/database/libdatabase.a: src/database/CMakeFiles/database.dir/mysql_conn_poll.cpp.o
+src/database/libdatabase.a: src/database/CMakeFiles/database.dir/redis_conn.cpp.o
 src/database/libdatabase.a: src/database/CMakeFiles/database.dir/offline_msg.cpp.o
 src/database/libdatabase.a: src/database/CMakeFiles/database.dir/online_user.cpp.o
 src/database/libdatabase.a: src/database/CMakeFiles/database.dir/build.make
 src/database/libdatabase.a: src/database/CMakeFiles/database.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libdatabase.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/usr/im/Downloads/ChatServer-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libdatabase.a"
 	cd /usr/im/Downloads/ChatServer-master/src/database && $(CMAKE_COMMAND) -P CMakeFiles/database.dir/cmake_clean_target.cmake
 	cd /usr/im/Downloads/ChatServer-master/src/database && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/database.dir/link.txt --verbose=$(VERBOSE)
 
@@ -183,6 +209,7 @@ src/database/CMakeFiles/database.dir/build: src/database/libdatabase.a
 
 src/database/CMakeFiles/database.dir/requires: src/database/CMakeFiles/database.dir/mysql_conn.cpp.o.requires
 src/database/CMakeFiles/database.dir/requires: src/database/CMakeFiles/database.dir/mysql_conn_poll.cpp.o.requires
+src/database/CMakeFiles/database.dir/requires: src/database/CMakeFiles/database.dir/redis_conn.cpp.o.requires
 src/database/CMakeFiles/database.dir/requires: src/database/CMakeFiles/database.dir/offline_msg.cpp.o.requires
 src/database/CMakeFiles/database.dir/requires: src/database/CMakeFiles/database.dir/online_user.cpp.o.requires
 
